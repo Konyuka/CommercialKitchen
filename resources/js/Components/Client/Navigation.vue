@@ -5,8 +5,26 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <nav class="bg-black min-h-[120px] border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav class="bg-black min-h-[120px] border-gray-200 dark:bg-gray-900 px-10">
+        <div class="max-w-screen-2xl flex-wrap flex justify-between mx-auto items-center px-4 py-2">
+            <div class="flex gap-28 mt-2">
+                <img src="/img/fb.svg" alt="" class="h-8 w-8">
+                <img src="/img/ig.svg" alt="" class="h-8 w-8">
+                <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+            </div>
+
+            <div class="flex justify-between">
+                <a href="tel:+254717269050" class="text-white text-xl mr-10">
+                    <i class="fas fa-phone-volume text-primary fa-xl mr-2"></i>
+                    +254 717 269 050
+                </a>
+                <a href="tel:+254717269050" class="text-white text-xl">
+                    <i class="fas fa-envelope-dot text-primary fa-xl mr-2"></i>
+                     info@commercialkitchen.co.ke
+                </a>
+            </div>
+        </div>
+        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
             <Link to="/" class="flex items-center">
             <img src="/img/logo.jpg" class="h-20 mr-3" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Commercial Kitchen
@@ -25,6 +43,7 @@ import { Link } from '@inertiajs/vue3';
             </button>
 
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-1 md:mt-0 md:border-0">
                     <li>
@@ -55,7 +74,7 @@ import { Link } from '@inertiajs/vue3';
 
 
                     <button type="button"
-                        class="border-2 border-primary hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Get in touch
                     </button>
                 </ul>
