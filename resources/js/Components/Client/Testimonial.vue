@@ -25,7 +25,7 @@
                 <div
                     class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 
-                    <figure
+                    <!-- <figure
                         class="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-primary xl:col-start-2 xl:row-end-1">
                         <blockquote class="p-12 text-md font-semibold leading-8 tracking-tight text-gray-900">
                             <p>“I had the pleasure of working with Commercial Kitchens Consultants on our restaurant
@@ -38,11 +38,11 @@
                                 has a functional
                                 and kitchen that perfectly complements our menu”</p>
                         </blockquote>
-                    </figure>
+                    </figure> -->
 
                     <div class="space-y-8 xl:contents xl:space-y-0">
                         <div class="space-y-8 xl:row-span-2">
-                            <figure class="mt-40 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
+                            <figure class="mt-1 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“I had the pleasure of working with Commercial Kitchens Consultants on our restaurant
                                         project, and I
@@ -68,7 +68,7 @@
                             <!-- More testimonials... -->
                         </div>
                         <div class="space-y-8 xl:row-start-1">
-                            <figure class="mt-10 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
+                            <figure class="mt-14 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“We had strict timelines to upgrade our cafe&#39;s kitchen. The team displayed
                                         excellent project

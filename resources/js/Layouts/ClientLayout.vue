@@ -8,6 +8,6 @@ import Footer from "@/Components/Client/Footer.vue";
 <Navigation />
 <slot />
 
-<!-- <Footer /> -->
+<Footer />
 
 </template>

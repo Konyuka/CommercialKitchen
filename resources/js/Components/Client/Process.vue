@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <div class="bg-black py-24 sm:py-32">
+        <div class="bg-black py-24 sm:py-32"> 
             <div class="mx-auto max-w-[100vw] px-6 lg:px-8">
 
                 <div class="mx-auto max-w-4xl text-center">
@@ -37,7 +37,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 1
+                            Step 1 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -67,7 +67,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 2
+                            Step 2 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -97,7 +97,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 3
+                            Step 3 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -129,7 +129,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 4
+                            Step 4 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -163,7 +163,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class=" absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 5
+                            Step 5 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -194,7 +194,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10  transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 6
+                            Step 6 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -223,7 +223,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 1
+                            Step 7 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -256,7 +256,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 1
+                            Step 8 <i class="fas fa-angles-right text-primary"></i>
                         </a>
                     </div>
 
@@ -285,7 +285,7 @@
                         </p>
                         <a href="#" aria-describedby="tier-freelancer"
                             class="absolute bottom-10 transform transition group-hover:scale-75 duration-700 ease-out mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-white/10 group-hover:bg-primary text-white focus-visible:outline-white">
-                            Step 9
+                            Step 9 
                         </a>
                     </div>
 
