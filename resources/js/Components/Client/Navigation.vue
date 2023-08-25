@@ -1,16 +1,26 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import { computed } from 'vue'
 
-
+const currentRoute = computed(()=>{
+    const pathName = window.location.pathname;
+    return pathName;
+})
 </script>
 
 <template>
     <nav class="bg-black min-h-[120px] border-gray-200 dark:bg-gray-900 px-10">
         <div class="max-w-screen-2xl flex-wrap flex justify-between mx-auto items-center px-4 py-2">
-            <div class="flex gap-28 mt-2">
-                <img src="/img/fb.svg" alt="" class="h-8 w-8">
-                <img src="/img/ig.svg" alt="" class="h-8 w-8">
-                <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+            <div class="flex gap-10 mt-2">
+                <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                    <img src="/img/fb.svg" alt="" class="h-8 w-8">
+                </a>
+                <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                    <img src="/img/ig.svg" alt="" class="h-8 w-8">
+                </a>
+                <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                    <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+                </a>
             </div>
 
             <div class="flex justify-between">
@@ -20,10 +30,23 @@ import { Link } from '@inertiajs/vue3';
                 </a>
                 <a href="tel:+254717269050" class="text-white text-xl">
                     <i class="fas fa-envelope-dot text-primary fa-xl mr-2"></i>
-                     info@commercialkitchen.co.ke
+                    info@commercialkitchen.co.ke
                 </a>
             </div>
+
+            <div class="flex gap-2">
+                <button type="button"
+                    class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Supplier Portal
+                </button>
+                <button type="button"
+                    class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Client Portal
+                </button>
+            </div>
+
         </div>
+        
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
             <Link to="/" class="flex items-center">
             <img src="/img/logo.jpg" class="h-20 mr-3" alt="Flowbite Logo" />
@@ -47,36 +70,46 @@ import { Link } from '@inertiajs/vue3';
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-1 md:mt-0 md:border-0">
                     <li>
-                        <Link to="/" class="block py-2 pl-3 pr-4 text-white text-xl rounded md:bg-transparent"
+                        <Link href="/" 
+                            :class="[currentRoute == '/' ? 'text-primary font-bold' : 'text-white']"
+                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
                             aria-current="page">
-                        Home
+                        <i v-if="currentRoute == '/'" class="fas fa-caret-right"></i> Home
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" class="block py-2 pl-3 pr-4 text-white text-xl rounded md:bg-transparent"
-                            aria-current="page">
-                        Services
+                        <Link href="/commercial-kitchen-services"
+                            :class="[currentRoute == '/commercial-kitchen-services' ? 'text-primary font-bold' : 'text-white']"
+                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
+                        <i v-if="currentRoute == '/commercial-kitchen-services'" class="fas fa-caret-right"></i> Services
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" class="block py-2 pl-3 pr-4 text-white text-xl rounded md:bg-transparent"
-                            aria-current="page">
-                        Our Story
+                        <Link href="/commercial-kitchen-about"
+                            :class="[currentRoute == '/commercial-kitchen-about' ? 'text-primary font-bold' : 'text-white']"
+                            class="block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent" aria-current="page">
+                        <i v-if="currentRoute == '/commercial-kitchen-about'" class="fas fa-caret-right"></i> Our Story
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" class="block py-2 pl-3 pr-4 text-white text-xl rounded md:bg-transparent"
+                        <Link href="/commercial-kitchen-media" 
+                        :class="[currentRoute == '/commercial-kitchen-media' ? 'text-primary font-bold' : 'text-white']"
+                        class="block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
                             aria-current="page">
-                        Media
+                        <i v-if="currentRoute == '/commercial-kitchen-media'" class="fas fa-caret-right"></i> Media
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/commercial-kitchen-contact"
+                            :class="[ currentRoute == '/commercial-kitchen-contact' ? 'text-primary font-bold' : 'text-white' ]"
+                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
+                        <i v-if="currentRoute == '/commercial-kitchen-contact'" class="fas fa-caret-right"></i> Get in Touch
                         </Link>
                     </li>
 
 
 
-                    <button type="button"
-                        class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Get in touch
-                    </button>
+
                 </ul>
             </div>
         </div>

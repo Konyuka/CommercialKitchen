@@ -22,7 +22,8 @@ export default {
             },
         },
         colors: {
-            'primary': '#f97316',
+            // 'primary': '#f97316',
+            'primary': '#f3782e',
             'white': '#ffffff',
             'black': '#000000'
         }

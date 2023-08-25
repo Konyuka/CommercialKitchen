@@ -10,7 +10,7 @@
                     <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">
                         Who we are
                     </h2>
-                    <p class="text-left mx-auto mt-6 max-w-6xl text-lg leading-8 text-white">
+                    <p class="font-medium text-left mx-auto mt-6 max-w-6xl text-lg leading-8 text-white">
                         We are a team of passionate professionals who share a common vision: to revolutionize the commercial
                         kitchen experience. Our journey began with a collective drive to address the challenges faced by
                         clients when setting up their dream culinary spaces. Drawing from our diverse backgrounds in the
@@ -18,7 +18,7 @@
                         knowledge and guidance required to navigate the complexities of commercial kitchen design and
                         equipment selection. We were determined to make a difference.
                     </p>
-                    <p class="text-left mx-auto mt-6 max-w-6xl text-lg leading-8 text-white">
+                    <p class="font-medium text-left mx-auto mt-6 max-w-6xl text-lg leading-8 text-white">
                         Together, we formed Commercial Kitchens Consultants with a singular mission: to empower our clients
                         and ensure a seamless journey in creating their ideal commercial kitchens. We believe that no client
                         should endure the frustration of unmet timelines or fall prey to suppliers who prioritize their own

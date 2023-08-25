@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 import ClientLayout from '@/Layouts/ClientLayout.vue';
 import Carousel from '@/Components/Client/Carousel.vue';
 import Choose from '@/Components/Client/Choose.vue';
