@@ -28,7 +28,8 @@
                             culinary space.</p>
 
                         <button type="button"
-                            class="z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            data-wow-delay="6s"
+                            class="wow animate__rubberBand z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
                         </button>
                     </div>
@@ -48,7 +49,9 @@
             </div>
             <!-- Slider controls -->
             <button type="button"
-                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-wow-duration="2s"
+                data-wow-delay="3s"
+                class="wow animate__lightSpeedInLeft absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-prev>
                 <span
                     class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -58,7 +61,9 @@
             </button>
 
             <button type="button"
-                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-wow-duration="2s"
+                data-wow-delay="2s"
+                class="wow animate__lightSpeedInRight absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-next>
                 <span
                     class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">

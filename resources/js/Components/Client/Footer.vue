@@ -12,9 +12,9 @@ const currentYear = computed(() => {
 
         <footer class="bg-black" aria-labelledby="footer-heading">
             <h2 id="footer-heading" class="sr-only">Footer</h2>
-            <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+            <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-10">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <img class="h-20 w-18" src="/img/logo.jpg" alt="Commercial Kitchen">
+                    <img data-wow-delay="2s" class="wow animate__lightSpeedInLeft h-20 w-18" src="/img/logo.jpg" alt="Commercial Kitchen">
                     <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                         <div class="md:grid md:grid-cols-2 md:gap-8">
 
@@ -58,7 +58,7 @@ const currentYear = computed(() => {
                     </div>
                 </div>
                 <div
-                    class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
+                    class="mt-10 border-t border-white/10  lg:flex lg:items-center lg:justify-between"> 
                     <div>
                         <h3 class="text-sm font-semibold leading-6 text-primary">Subscribe to our newsletter</h3>
                         <p class="mt-2 text-sm leading-6 text-white">The latest news, articles, and resources, sent to

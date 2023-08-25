@@ -19,7 +19,7 @@
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-xl text-center">
                     <h2 class="text-lg font-semibold leading-8 tracking-tight text-primary">Testimonials</h2>
-                    <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Working with amazing people</p>
+                    <p data-wow-duration="1.5s" class="wow animate__rubberBand mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Working with amazing people</p>
                 </div>
 
                 <div
@@ -41,7 +41,7 @@
                     </figure> -->
 
                     <div class="space-y-8 xl:contents xl:space-y-0">
-                        <div class="space-y-8 xl:row-span-2">
+                        <div data-wow-delay="0.5s" class="wow animate__rubberBand space-y-8 xl:row-span-2">
                             <figure class="mt-1 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“I had the pleasure of working with Commercial Kitchens Consultants on our restaurant
@@ -67,7 +67,7 @@
 
                             <!-- More testimonials... -->
                         </div>
-                        <div class="space-y-8 xl:row-start-1">
+                        <div data-wow-delay="1s" class="wow animate__rubberBand space-y-8 xl:row-start-1">
                             <figure class="mt-14 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“We had strict timelines to upgrade our cafe&#39;s kitchen. The team displayed
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="space-y-8 xl:contents xl:space-y-0">
-                        <div class="space-y-8 xl:row-start-1">
+                        <div data-wow-delay="1.5s" class="wow animate__rubberBand space-y-8 xl:row-start-1">
                             <figure class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“ I can confidently recommend Commercial Kitchens Consultants for their
@@ -113,9 +113,8 @@
                                 </figcaption>
                             </figure>
 
-                            <!-- More testimonials... -->
                         </div>
-                        <div class="space-y-8 xl:row-span-2">
+                        <div data-wow-delay="2s" class="wow animate__rubberBand space-y-8 xl:row-span-2">
                             <figure class="mt-20 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
                                     <p>“ This being our first restaurant we had no knowledge of the process and what we
@@ -136,8 +135,6 @@
                                     </div>
                                 </figcaption>
                             </figure>
-
-                            <!-- More testimonials... -->
                         </div>
                     </div>
                 </div>

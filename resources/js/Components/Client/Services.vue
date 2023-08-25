@@ -14,8 +14,8 @@
 
             <div class="relative mx-auto -mt-12 max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
                 <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
-                    <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">What we do</h2>
-                    <p class="mt-4 text-black leading-10 font-bold">Our Services</p>
+                    <p  class="mt-4 text-black leading-10 font-bold">Our Services</p>
+                    <h2 data-wow-duration="1.5" class="wow animate__rubberBand text-3xl font-bold tracking-tight text-primary sm:text-4xl">What we do</h2>
                 </div>
 
             </div>
@@ -25,10 +25,11 @@
             <div class="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8">
 
                 <div class="space-y-10">
+
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
-                            <h3 class="text-lg font-bold text-primary">Kitchen Design & Layout Concepts</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInLeft text-lg font-bold text-primary">Kitchen Design & Layout Concepts</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInLeft mt-2 text-sm text-black font-medium">
                                 Our expertise in kitchen design and layout allows us to create innovative and efficient
                                 spaces tailored to
                                 your specific needs. We utilize the latest design concepts, considering factors such as
@@ -52,8 +53,8 @@
                     </div>
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-8 xl:col-start-9">
-                            <h3 class="text-lg font-bold text-primary">Equipment Selection</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInRight text-lg font-bold text-primary">Equipment Selection</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInRight mt-2 text-sm text-black font-medium">
                                 Selecting the right equipment is critical for the success of your commercial kitchen.
                                 Our in-depth
                                 knowledge of the industry and strong supplier partnerships enable us to recommend the
@@ -77,8 +78,8 @@
                     </div>
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
-                            <h3 class="text-lg font-bold text-primary">Supplier Qualification</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInLeft text-lg font-bold text-primary">Supplier Qualification</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInLeft mt-2 text-sm text-black font-medium">
                                 Navigating the numerous equipment suppliers in the market can be overwhelming. Our
                                 supplier
                                 qualification process streamlines the selection and ensures you partner with reputable
@@ -102,8 +103,8 @@
                     </div>
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-8 xl:col-start-9">
-                            <h3 class="text-lg font-bold text-primary">Procurement</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInRight text-lg font-bold text-primary">Procurement</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInRight mt-2 text-sm text-black font-medium">
                                 Our team manages the procurement process from start to finish, ensuring a smooth and
                                 hassle-free
                                 experience for you. We leverage our industry connections and negotiate competitive
@@ -126,8 +127,8 @@
                     </div>
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-1">
-                            <h3 class="text-lg font-bold text-primary">Project Management</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInLeft text-lg font-bold text-primary">Project Management</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInLeft mt-2 text-sm text-black font-medium">
                                 We understand that managing a commercial kitchen project requires coordination among
                                 various
                                 stakeholders. As your dedicated project managers, we oversee the entire process, from
@@ -151,8 +152,8 @@
                     </div>
                     <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                         <div class="mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 lg:col-start-8 xl:col-start-9">
-                            <h3 class="text-lg font-bold text-primary">Import Advisory</h3>
-                            <p class="mt-2 text-sm text-black font-medium">
+                            <h3 class="wow animate__lightSpeedInRight text-lg font-bold text-primary">Import Advisory</h3>
+                            <p data-wow-dalay="1s" class="wow animate__lightSpeedInRight mt-2 text-sm text-black font-medium">
                                 Our Import Advisory service is designed to provide professional guidance and support for
                                 individuals
                                 who prefer to personally import their equipment. By leveraging our vast network and

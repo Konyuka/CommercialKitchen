@@ -13,22 +13,22 @@ const currentRoute = computed(()=>{
         <div class="max-w-screen-2xl flex-wrap flex justify-between mx-auto items-center px-4 py-2">
             <div class="flex gap-10 mt-2">
                 <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                    <img src="/img/fb.svg" alt="" class="h-8 w-8">
+                    <img src="/img/fb.svg" alt="" class="h-8 w-8 wow animate__zoomInDown" data-wow-duration="0.5s">
                 </a>
                 <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                    <img src="/img/ig.svg" alt="" class="h-8 w-8">
+                    <img src="/img/ig.svg" alt="" class="h-8 w-8 wow animate__zoomInDown" data-wow-duration="1s">
                 </a>
                 <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                    <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+                    <img src="/img/linkedin.svg" alt="" class="h-8 w-8 wow animate__zoomInDown" data-wow-duration="1.5s">
                 </a>
             </div>
 
             <div class="flex justify-between">
-                <a href="tel:+254717269050" class="text-white text-xl mr-10">
+                <a href="tel:+254717269050" class="text-white text-xl mr-10 wow animate__zoomInDown" data-wow-duration="2s">
                     <i class="fas fa-phone-volume text-primary fa-xl mr-2"></i>
                     +254 717 269 050
                 </a>
-                <a href="tel:+254717269050" class="text-white text-xl">
+                <a href="tel:+254717269050" class="text-white text-xl wow animate__zoomInDown" data-wow-duration="2.5s">
                     <i class="fas fa-envelope-dot text-primary fa-xl mr-2"></i>
                     info@commercialkitchen.co.ke
                 </a>
@@ -36,11 +36,13 @@ const currentRoute = computed(()=>{
 
             <div class="flex gap-2">
                 <button type="button"
-                    class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    data-wow-duration="3s"
+                    class="wow animate__zoomInDown border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Supplier Portal
                 </button>
                 <button type="button"
-                    class="border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                data-wow-duration="3.5s"
+                    class="wow animate__zoomInDown border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Client Portal
                 </button>
             </div>
@@ -49,7 +51,7 @@ const currentRoute = computed(()=>{
         
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
             <Link to="/" class="flex items-center">
-            <img src="/img/logo.jpg" class="h-20 mr-3" alt="Flowbite Logo" />
+            <img src="/img/logo.jpg" class="h-20 mr-3 wow animate__lightSpeedInLeft fadein" data-wow-duration="1s" data-wow-delay="2s" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Commercial Kitchen
                 Equipment</span>
             </Link>
@@ -72,7 +74,8 @@ const currentRoute = computed(()=>{
                     <li>
                         <Link href="/" 
                             :class="[currentRoute == '/' ? 'text-primary font-bold' : 'text-white']"
-                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
+                            data-wow-duration="2s"
+                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/'" class="fas fa-caret-right"></i> Home
                         </Link>
@@ -80,21 +83,24 @@ const currentRoute = computed(()=>{
                     <li>
                         <Link href="/commercial-kitchen-services"
                             :class="[currentRoute == '/commercial-kitchen-services' ? 'text-primary font-bold' : 'text-white']"
-                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
+                            data-wow-duration="2.5s"
+                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-services'" class="fas fa-caret-right"></i> Services
                         </Link>
                     </li>
                     <li>
                         <Link href="/commercial-kitchen-about"
                             :class="[currentRoute == '/commercial-kitchen-about' ? 'text-primary font-bold' : 'text-white']"
-                            class="block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent" aria-current="page">
+                            data-wow-duration="3s"
+                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent" aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-about'" class="fas fa-caret-right"></i> Our Story
                         </Link>
                     </li>
                     <li>
                         <Link href="/commercial-kitchen-media" 
                         :class="[currentRoute == '/commercial-kitchen-media' ? 'text-primary font-bold' : 'text-white']"
-                        class="block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
+                        data-wow-duration="3.5s"
+                        class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-media'" class="fas fa-caret-right"></i> Media
                         </Link>
@@ -102,7 +108,7 @@ const currentRoute = computed(()=>{
                     <li>
                         <Link href="/commercial-kitchen-contact"
                             :class="[ currentRoute == '/commercial-kitchen-contact' ? 'text-primary font-bold' : 'text-white' ]"
-                            class="block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
+                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent" aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-contact'" class="fas fa-caret-right"></i> Get in Touch
                         </Link>
                     </li>

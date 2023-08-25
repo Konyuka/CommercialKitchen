@@ -23,7 +23,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                 <!-- Header section -->
                 <div class="px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl pt-20 text-center">
-                        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Who We Are</h2>
+                        <h2 class="wow animate__rubberBand text-4xl font-bold tracking-tight text-white sm:text-6xl">Who We Are</h2>
                         <p class="mt-6 text-lg leading-8 text-black font-bold">
                             Commercial Kitchen Consultancy
                         </p>
@@ -35,7 +35,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                         <div
                             class="grid max-w-xl grid-cols-1 gap-8 text-base leading-10 text-black font-medium lg:max-w-none lg:grid-cols-2">
-                            <div>
+                            <div data-wow-duration="1.5s" data-wow-delay="2s" class="wow animate__lightSpeedInLeft">
                                 <p> We are a team of passionate professionals who share a common vision: to revolutionize
                                     the commercial kitchen experience. Our journey began with a collective drive to address
                                     the challenges faced by clients when setting up their dream culinary spaces. <br> <br>
@@ -47,7 +47,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                                 </p>
 
                             </div>
-                            <div>
+                            <div data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__lightSpeedInLeft">
                                 <p>
                                     Together, we formed Commercial Kitchens Consultants with a singular mission: to empower
                                     our clients and ensure a seamless journey in creating their ideal commercial kitchens.
@@ -62,19 +62,19 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                         </div>
                         <dl
                             class="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
-                            <div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
+                            <div data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">Business was founded</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-white">2015</dd>
                             </div>
-                            <div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
+                            <div data-wow-duration="1.5s" data-wow-delay="1.5s" class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">People on the team</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-white">43+</dd>
                             </div>
-                            <div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
+                            <div data-wow-duration="1.5s" data-wow-delay="2s" class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">Clients on the platform</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-white">758+</dd>
                             </div>
-                            <div class="flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
+                            <div data-wow-duration="1.5s" data-wow-delay="2.5s" class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">Projects completed</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-white">124</dd>
                             </div>

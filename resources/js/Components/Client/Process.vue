@@ -9,13 +9,14 @@
 
                 <div class="mx-auto max-w-4xl text-center">
                     <h2 class="text-base font-semibold leading-7 text-primary">This is how we can work together</h2>
-                    <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Our Process</p>
+                    <p data-wow-duration="1.5s" class="wow animate__rubberBand mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Our Process</p>
                 </div>
 
                 <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -42,7 +43,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1.5s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -72,7 +74,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="2s"
+                        class="wow animate__backInUp elative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -102,7 +105,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -134,7 +138,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1.5s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -168,7 +173,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="2s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -199,7 +205,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -228,7 +235,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="1.5s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
@@ -261,7 +269,8 @@
                     </div>
 
                     <div
-                        class="relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
+                        data-wow-delay="2s"
+                        class="wow animate__backInUp relative transform transition hover:scale-105 duration-700 ease-out rounded-3xl p-8 xl:p-10 ring-2 hover:ring-3 ring-primary hover:ring-white group">
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 id="tier-freelancer" class="text-lg font-semibold leading-8 text-white">
                                 <i
