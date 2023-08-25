@@ -139,7 +139,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                                     culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”
                                 </p>
                             </blockquote>
-                            <a href="https://linkedin.com/in/lynnkimeto" class="tranform transition hover: mt-10 flex gap-x-6">
+                            <a href="https://linkedin.com/in/lynnkimeto" target="_blank" class="tranform transition hover: mt-10 flex gap-x-6">
                                 <img src="https://media.licdn.com/dms/image/C4D03AQGn1tn6Yt-9tw/profile-displayphoto-shrink_400_400/0/1660966861926?e=1698278400&v=beta&t=Ic79gjIeWBpMVS-cSlHGidQ5ag1VWd33wP2HPQi38fo"
                                     alt="" data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__lightSpeedInRight h-20 w-20 flex-none rounded-full bg-gray-50">
                                 <div>
