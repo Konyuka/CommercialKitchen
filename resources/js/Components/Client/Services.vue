@@ -7,7 +7,7 @@
 
         <div class="bg-white">
             <div aria-hidden="true" class="relative">
-                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-02-full-width.jpg" alt=""
+                <img src="/img/ck.jpg"  alt=""
                     class="h-56 w-full object-cover object-center">
                 <div class="absolute inset-0 bg-gradient-to-t from-white"></div>
             </div>
@@ -45,9 +45,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-6 xl:col-start-5">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-01.jpg"
+                                <img src="/img/kd.jpg"
                                     alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>
@@ -70,9 +70,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-1">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-02.jpg"
+                                <img src="/img/es.jpg"
                                     alt="Detail of zipper pull with tan leather and silver rivet."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>
@@ -95,9 +95,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-6 xl:col-start-5">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-01.jpg"
+                                <img src="/img/sq.jpg"
                                     alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>
@@ -119,9 +119,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-1">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-02.jpg"
+                                <img src="/img/pro.jpg"
                                     alt="Detail of zipper pull with tan leather and silver rivet."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>
@@ -144,9 +144,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-6 xl:col-start-5">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-01.jpg"
+                                <img src="/img/pm.jpg"
                                     alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>
@@ -165,9 +165,9 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-1">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-feature-07-detail-02.jpg"
+                                <img src="/img/imp.jpg"
                                     alt="Detail of zipper pull with tan leather and silver rivet."
-                                    class="object-cover object-center">
+                                    class="object-cover object-center w-[800px] h-[300px]">
                             </div>
                         </div>
                     </div>

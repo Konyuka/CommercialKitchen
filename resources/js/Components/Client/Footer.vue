@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 const currentYear = computed(() => {
     const currentDate = new Date();
@@ -14,7 +15,22 @@ const currentYear = computed(() => {
             <h2 id="footer-heading" class="sr-only">Footer</h2>
             <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-10">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <img data-wow-delay="2s" class="wow animate__lightSpeedInLeft h-20 w-18" src="/img/logo.jpg" alt="Commercial Kitchen">
+                    <div>
+                        <img data-wow-delay="2s" class="wow animate__lightSpeedInLeft h-20 w-18" src="/img/logo.jpg"
+                            alt="Commercial Kitchen">
+                        <div class="max-w-xl lg:max-w-lg mt-5">
+                            <h2 class="text-md font-medium tracking-tight text-white sm:text-xl">Subscribe to our
+                                newsletter.</h2>
+                            <div class="mt-2 flex max-w-md gap-x-4">
+                                <label for="email-address" class="sr-only">Email address</label>
+                                <input id="email-address" name="email" type="email" autocomplete="email" required
+                                    class="min-w-0 flex-auto border-0 bg-white px-3.5 py-2 text-black font-bold shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                                    placeholder="Enter your email">
+                                <button type="submit"
+                                    class="flex-none bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                         <div class="md:grid md:grid-cols-2 md:gap-8">
 
@@ -24,16 +40,16 @@ const currentYear = computed(() => {
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Quick Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Services</a>
+                                        <Link :href="route('services')" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> Services</Link>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Products</a>
+                                        <Link :href="route('contacts')" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> Contact Us</Link>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Contact Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> About Us</a>
+                                        <Link :href="route('about')" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> About Us</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -41,44 +57,27 @@ const currentYear = computed(() => {
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Helper Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Blogs</a>
+                                        <Link :href="route('media')" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> Blogs</Link>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Gallery</a>
+                                        <Link :href="route('media')" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> Gallery</Link>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Careers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-sm leading-6 text-white hover:text-primary"><i class="mr-2 fas fa-caret-right"></i> Policies</a>
+                                        <button @click="careerModal=true" class="text-sm leading-6 text-white hover:text-primary"><i
+                                                class="mr-2 fas fa-caret-right"></i> Careers</button>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="mt-10 border-t border-white/10  lg:flex lg:items-center lg:justify-between"> 
-                    <div>
-                        <h3 class="text-sm font-semibold leading-6 text-primary">Subscribe to our newsletter</h3>
-                        <p class="mt-2 text-sm leading-6 text-white">The latest news, articles, and resources, sent to
-                            your inbox weekly.</p>
-                    </div>
-                    <form class="mt-6 sm:flex sm:max-w-md lg:mt-0">
-                        <label for="email-address" class="sr-only">Email address</label>
-                        <input type="email" name="email-address" id="email-address" autocomplete="email" required
-                            class="w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-1.5 text-base font-medium text-white shadow-sm ring-1 ring-inset ring-white placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-primary sm:w-56 sm:text-sm sm:leading-6"
-                            placeholder="Enter your email">
-                        <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                            <button type="submit"
-                                class="flex w-full items-center justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-primary hover:bg-primary hover:text-black hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+
                 <div class="mt-8 border-t border-white/10 pt-8 md:flex md:items-center md:justify-between">
                     <div class="flex space-x-6 md:order-2">
 
-                        <div class="flex gap-16 mt-2">
+                        <div class="flex gap-10 mt-2">
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
                                 <img src="/img/fb.svg" alt="" class="h-8 w-8">
                             </a>
@@ -86,7 +85,16 @@ const currentYear = computed(() => {
                                 <img src="/img/ig.svg" alt="" class="h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                                <img src="/img/twitter.svg" alt="" class="h-8 w-8">
+                            </a>
+                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
                                 <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+                            </a>
+                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                                <img src="/img/youtube.svg" alt="" class="h-8 w-8">
+                            </a>
+                            <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
+                                <img src="/img/tiktok.svg" alt="" class="h-8 w-8">
                             </a>
                         </div>
                     </div>

@@ -16,31 +16,31 @@
                     style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
                 </div>
             </div>
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl px-6 lg:px-2">
                 <div class="mx-auto max-w-xl text-center">
                     <h2 class="text-lg font-semibold leading-8 tracking-tight text-primary">Testimonials</h2>
-                    <p data-wow-duration="1.5s" class="wow animate__rubberBand mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Working with amazing people</p>
+                    <p data-wow-duration="1.5s"
+                        class="wow animate__rubberBand mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        What our clients are saying</p>
                 </div>
 
                 <div
-                    class="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
+                    class="mx-auto mt-16 grid max-w-7xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
 
                     <!-- <figure
                         class="col-span-2 hidden sm:block sm:rounded-2xl sm:bg-white sm:shadow-lg sm:ring-1 sm:ring-primary xl:col-start-2 xl:row-end-1">
                         <blockquote class="p-12 text-md font-semibold leading-8 tracking-tight text-gray-900">
-                            <p>“I had the pleasure of working with Commercial Kitchens Consultants on our restaurant
-                                project, and I
-                                couldn&#39;t be more impressed. Despite my frequent travels in and out of the
-                                country, they managed the
-                                project seamlessly. From kitchen design to equipment selection, their expertise and
-                                attention to detail
-                                were exceptional. Thanks to their dedication and professionalism, Golden Stool now
-                                has a functional
-                                and kitchen that perfectly complements our menu”</p>
+                            <p>“I am truly grateful for the assistance provided by Commercial Kitchens Consultants during
+                                the setup of
+                                Acacia Residence. We had some challenges at the beginning considering the restaurant was in
+                                Turkana,
+                                but once we engaged them, we were able to complete the project in time.”</p>
                         </blockquote>
                     </figure> -->
 
-                    <div class="space-y-8 xl:contents xl:space-y-0">
+
+
+                    <div class="space-y-2 xl:contents xl:space-y-0">
                         <div data-wow-delay="0.5s" class="wow animate__rubberBand space-y-8 xl:row-span-2">
                             <figure class="mt-1 rounded-2xl bg-white p-6 shadow-lg ring-1 ring-primary">
                                 <blockquote class="text-black font-semibold">
@@ -52,7 +52,7 @@
                                         attention to detail
                                         were exceptional. Thanks to their dedication and professionalism, Golden Stool now
                                         has a functional
-                                        and kitchen that perfectly complements our menu”</p>
+                                        kitchen that perfectly complements our menu”</p>
                                 </blockquote>
                                 <figcaption class="mt-6 flex items-center gap-x-4">
                                     <img class="h-10 w-10 rounded-full bg-gray-50"
@@ -135,7 +135,14 @@
                                     </div>
                                 </figcaption>
                             </figure>
+
+
+
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>

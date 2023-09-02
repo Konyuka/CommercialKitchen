@@ -19,16 +19,16 @@ Route::get('/', function () {
 });
 Route::get('/commercial-kitchen-services', function () {
     return Inertia::render('Client/Service');
-});
+})->name('services');
 Route::get('/commercial-kitchen-about', function () {
     return Inertia::render('Client/About');
-});
+})->name('about');
 Route::get('/commercial-kitchen-contact', function () {
     return Inertia::render('Client/Contact');
-});
+})->name('contacts');
 Route::get('/commercial-kitchen-media', function () {
     return Inertia::render('Client/Media');
-});
+})->name('media');
 
 Route::middleware([
     'auth:sanctum',

@@ -55,9 +55,9 @@
                     </div>
                     <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
                         <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end ">
-                            <img src="/img/why.jpg"
+                            <img src="/img/y.jpg"
                                 alt=""
-                                class=" ring-4 ring-primary aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover h-[600px]">
+                                class="transform -translate-x-5 ring-2 ring-primary aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover  h-[600px]">
                         </div>
                         <!-- <div
                             class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">

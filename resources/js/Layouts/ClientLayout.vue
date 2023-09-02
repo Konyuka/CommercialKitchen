@@ -1,25 +1,24 @@
 <script setup>
 import Navigation from "@/Components/Client/Navigation.vue";
 import Footer from "@/Components/Client/Footer.vue";
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import WOW from 'wow.js';
 
 
-onMounted(()=>{
+onMounted(() => {
     new WOW().init();
-})
+});
 
 
 </script>
 
 <template>
-<Navigation />
-<slot />
 
-<Footer />
+    <Navigation />
 
+    <slot />
+
+    <Footer />
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -11,18 +11,19 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
         <div class="bg-white py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:mx-0 ">
-                    <h2 data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__lightSpeedInLeft text-3xl font-bold tracking-tight text-primary">Get in touch, we are here to help</h2>
-                    <p data-wow-duration="1.5s" data-wow-delay="1.5s" class="wow animate__lightSpeedInLeft mt-6 text-lg leading-8 text-black font-medium">Looking to start your food service business?
+                    <h2 data-wow-duration="1.5s" data-wow-delay="1s"
+                        class="wow animate__lightSpeedInLeft text-4xl font-bold tracking-tight text-primary">Get in touch,
+                        we are here to help</h2>
+                    <p data-wow-duration="1.5s" data-wow-delay="1.5s"
+                        class="wow animate__lightSpeedInLeft mt-6 text-lg leading-8 text-black font-medium">Looking to start
+                        your food service business?
                         Take the
-                        first step by contacting us today. Fill in the form below and let our expert team guide you towards
-                        achieving your dreams. Together, we'll bring your vision to life. Get started now!</p>
+                        first step by contacting us today.</p>
                 </div>
 
                 <div class="mt-12 flex justify-between divide-primary divide-x-4">
 
-                    <a href="tel:+254717269050"
-                        data-wow-delay="1.5s"
-                        data-wow-duration="1.5s"
+                    <a href="tel:+254717269050" data-wow-delay="1.5s" data-wow-duration="1.5s"
                         class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
@@ -37,9 +38,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                         </div>
                     </a>
 
-                    <a href="mailto:info@commercialkitchen.co.ke"
-                        data-wow-delay="2s"
-                        data-wow-duration="1.5s"
+                    <a href="mailto:info@commercialkitchen.co.ke" data-wow-delay="2s" data-wow-duration="1.5s"
                         class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
@@ -55,10 +54,8 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                     </a>
 
                     <a href="https://www.google.com/maps/dir//commodore+suites/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x182f109ec56d4431:0xdee2bf2039412201?sa=X&ved=2ahUKEwibpu2ftPeAAxULLsAKHY8IAK4Q9Rd6BAhSEAA&ved=2ahUKEwibpu2ftPeAAxULLsAKHY8IAK4Q9Rd6BAhiEAM"
-                        target="_blank"
-                        data-wow-delay="2.5s"
-                            data-wow-duration="1.5s"
-                            class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
+                        target="_blank" data-wow-delay="2.5s" data-wow-duration="1.5s"
+                        class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
                                 class="fas fa-map-location-dot flex w-full h-full justify-center items-center fa-2xl text-black group-hover:text-white"></i>
@@ -74,13 +71,70 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
 
                 </div>
             </div>
-           
-            <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-                
+
+            <div class="bg-white py-20 mt-10">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="mx-auto  lg:mx-0 text-center">
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-primary">Founder's
+                            Perspective</h2>
+                        <p class="text-left text-black font-semibold mt-6 text-md leading-8 text-gray-600">
+                            <i class="fa-solid fa-quote-left mr-1 text-primary"></i>
+                            I am proud to lead a team of dedicated professionals who are passionate about helping our
+                            clients succeed in the food service industry. Our journey began with a simple but powerful idea:
+                            to provide expert guidance and support in setting up commercial kitchens that truly reflect our
+                            clients' visions.
+
+                            Over the years, we've grown, learned, and adapted to the ever-changing landscape of this
+                            industry. Today, our commitment to expertise, integrity, and client satisfaction remains
+                            unwavering. We understand that the success of your food service establishment relies on the
+                            functionality and efficiency of your kitchen, and we are here to ensure you achieve just that.
+
+                            Our values define who we are and how we work. We prioritize your needs, uphold the highest
+                            ethical standards, and strive for excellence in everything we do. With a focus on quality,
+                            reliability, and innovation, we aim to redefine culinary spaces and make a difference in your
+                            journey.
+
+                            Thank you for considering us as your trusted partner. We look forward to being a part of your
+                            success story.
+                            <i class="fa-solid fa-quote-right ml-1 text-primary"></i>
+                        </p>
+                    </div>
+
+                    <div class="flex w-full h-full justify-center item-center ">
+                        <div>
+                            <img class="mx-auto h-24 w-24 rounded-full object-cover" src="/img/lynn.jpg" alt="">
+                            <!-- <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Lynn Kimeto
+                            </h3>
+                            <p class="text-sm text-center leading-6 text-gray-600">Founder</p> -->
+                        </div>
+                        <div class="ml-6 mt-6">
+                            <div data-wow-duration="1.5s" data-wow-delay="2s"
+                                class="wow animate__lightSpeedInRight text-base font-bold text-gray-900">
+                                Lynn Kimeto</div>
+                            <div data-wow-duration="1.5s" data-wow-delay="2.5s"
+                                class="wow animate__lightSpeedInRight text-sm leading-6 text-gray-600 font-medium">
+                                Founder</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="relative isolate bg-white px-6  lg:px-8">
+
                 <div class="mx-auto max-w-7xl">
-                    <h2 class="wow animate__rubberBand text-4xl font-bold tracking-tight text-primary">Let’s talk about your project</h2>
-                    <p class="mt-2 text-lg leading-8 text-black font-medium">We help companies and individuals build out their dream.</p>
-                    <div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
+                    <div>
+                        <div>
+                            <h2 class="wow animate__rubberBand text-3xl font-bold tracking-tight text-primary">Let’s talk
+                                about your
+                                next project</h2>
+                            <p class="mt-2 text-lg leading-8 text-black font-medium">Fill in the form and one of our agents
+                                will get
+                                in touch. </p>
+                        </div>
+                    </div>
+                    <div class="mt-16 flex flex-col gap-20 sm:gap-y-20 lg:flex-row">
                         <form action="#" method="POST" class="lg:flex-auto">
                             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div>
@@ -100,16 +154,16 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="budget"
-                                        class="block text-sm font-semibold leading-6 text-gray-900">Phone Number</label>
+                                    <label for="budget" class="block text-sm font-semibold leading-6 text-gray-900">Phone
+                                        Number</label>
                                     <div class="mt-2.5">
                                         <input id="budget" name="budget" type="number"
                                             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="website"
-                                        class="block text-sm font-semibold leading-6 text-gray-900">Email Address</label>
+                                    <label for="website" class="block text-sm font-semibold leading-6 text-gray-900">Email
+                                        Address</label>
                                     <div class="mt-2.5">
                                         <input type="url" name="website" id="website"
                                             class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
@@ -130,29 +184,17 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                                     talk <i class="fas fa-message-captions ml-2 hover:text-primary fa-xl"></i> </button>
                             </div>
                         </form>
-                        <div class="lg:mt-6 lg:w-80 lg:flex-none">
-                            <img data-wow-duration="1.5s" data-wow-delay="0.5s" class="wow animate__lightSpeedInRight h-20 w-auto" src="/android-chrome-192x192.png"
+                        <div class="lg:mt-6 lg:w-96  lg:flex-none">
+
+                            <img class="float-left transform translate-x-20 scale-150 aspect-[3/2] w-[220px] h-full right-0 rounded-2xl object-fit"
+                                src="/img/net.svg"
                                 alt="">
-                            <figure class="mt-10">
-                            <blockquote data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__lightSpeedInRight text-lg font-semibold leading-8 text-gray-900">
-                                <p>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas
-                                    culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”
-                                </p>
-                            </blockquote>
-                            <a href="https://linkedin.com/in/lynnkimeto" target="_blank" class="tranform transition hover: mt-10 flex gap-x-6">
-                                <img src="https://media.licdn.com/dms/image/C4D03AQGn1tn6Yt-9tw/profile-displayphoto-shrink_400_400/0/1660966861926?e=1698278400&v=beta&t=Ic79gjIeWBpMVS-cSlHGidQ5ag1VWd33wP2HPQi38fo"
-                                    alt="" data-wow-duration="1.5s" data-wow-delay="1s" class="wow animate__lightSpeedInRight h-20 w-20 flex-none rounded-full bg-gray-50">
-                                <div>
-                                    <div data-wow-duration="1.5s" data-wow-delay="2s"  class="wow animate__lightSpeedInRight text-base font-semibold text-gray-900">Lynn Kimeto</div>
-                                    <div data-wow-duration="1.5s" data-wow-delay="2.5s" class="wow animate__lightSpeedInRight text-sm leading-6 text-gray-600 font-medium">Managing Director</div>
-                                </div>
-                            </a>
-                        </figure>
+
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-
-</ClientLayout></template>
+    </ClientLayout></template>
