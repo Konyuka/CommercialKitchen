@@ -15,9 +15,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'poppins': ['Poppins', 'sans-serif'],
-                'lato': ['Lato', 'sans-serif'],
+                // 'roboto': ['Roboto', 'sans-serif'],
                 'montserrat': ['Montserrat', 'sans-serif'],
             },
         },
