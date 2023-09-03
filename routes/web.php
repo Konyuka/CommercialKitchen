@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\BlogController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +32,9 @@ Route::get('/commercial-kitchen-contact', function () {
 Route::get('/commercial-kitchen-media', function () {
     return Inertia::render('Client/Media');
 })->name('media');
+Route::get('/commercial-kitchen-blog-detail', function () {
+    return Inertia::render('Client/Detail');
+})->name('blog.detail');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,10 +43,19 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Admin/Dashboard');
-    })->name('dashboard');
+    })->name('admin.dashboard');
+
     Route::get('/admin-blogs', function () {
         return Inertia::render('Admin/Blogs');
     })->name('admin.blogs');
+
+    Route::get('/admin-products', function () {
+        return Inertia::render('Admin/Products');
+    })->name('admin.products');
+
+
+    Route::post('/post-blog', [BlogController::class, 'store']);
+
 });
 
 Route::get('/clear_data', function () {

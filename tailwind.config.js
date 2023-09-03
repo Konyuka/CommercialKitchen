@@ -25,7 +25,8 @@ export default {
             // 'primary': '#f97316',
             'primary': '#f3782e',
             'white': '#ffffff',
-            'black': '#000000'
+            'black': '#000000',
+            'green': '#65a30d'
         }
     },
 
