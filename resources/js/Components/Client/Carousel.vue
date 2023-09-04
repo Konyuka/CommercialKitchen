@@ -30,7 +30,7 @@ const slider = (direction) => {
     <div>
 
 
-        <div id="controls-carousel" class="relative w-full" data-carousel="static">
+        <div id="controls-carousel" class="relative w-full overflow-hidden" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="relative h-96 overflow-hidden md:h-[600px]">
                 <!-- Item 1 -->

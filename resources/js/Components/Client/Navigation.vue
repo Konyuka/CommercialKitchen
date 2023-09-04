@@ -1,16 +1,20 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const currentRoute = computed(() => {
     const pathName = window.location.pathname;
     return pathName;
 })
+
+const openMobileMenu = ref(false);
+
+
 </script>
 
 <template>
-    <nav class="bg-black min-h-[120px] border-gray-200 dark:bg-gray-900 px-10">
-        <div class="max-w-screen-2xl flex-wrap flex justify-between mx-auto items-center px-4 pt-4">
+    <nav class="bg-black min-h-[120px] border-gray-200 dark:bg-gray-900 px-2">
+        <div class="max-w-screen-2xl flex-wrap hidden sm:flex justify-between mx-auto items-center px-4 pt-4">
 
             <div class="flex gap-2">
                 <!-- <button type="button"
@@ -39,26 +43,27 @@ const currentRoute = computed(() => {
         </div>
 
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4">
-            <Link to="/" class="flex items-center">
-            <img src="/img/logo.jpg" class="h-20 mr-3 wow animate__lightSpeedInLeft fadein mb-2" data-wow-duration="1s"
-                data-wow-delay="2s" alt="Flowbite Logo" />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Commercial Kitchen
-                Equipment</span>
-            </Link>
 
-            <!-- mobile button -->
-            <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
+            <div class="flex justify-between h-full">
+                <Link to="/" class="flex items-center mr-6 mt-2">
+                <img src="/img/logo.jpg" class="h-20 mr-3 wow animate__lightSpeedInLeft fadein mb-2" data-wow-duration="1s"
+                    data-wow-delay="2s" alt="Flowbite Logo" />
+                </Link>
+
+                <!-- mobile button -->
+                <button @click="openMobileMenu = !openMobileMenu" data-collapse-toggle="navbar-default" type="button"
+                    class="mt-5 bg-white inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
 
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-1 md:mt-0 md:border-0">
                     <li>
@@ -110,5 +115,60 @@ const currentRoute = computed(() => {
 
                 </ul>
             </div>
+
+            <div v-if="openMobileMenu" data-wow-duration="2s"
+                class="overflow-hidden z-[1000] sm:hidden h-screen w-screen bg-black">
+
+                <div class="grid grid-rows-5 grid-flow-col gap-5 my-20 mx-10">
+
+                    <Link href="/" type="button"
+                        :class="[currentRoute == '/' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        data-wow-duration="1s"
+                        class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Home
+                    </Link>
+                    <Link href="/commercial-kitchen-services" type="button"
+                        :class="[currentRoute == '/commercial-kitchen-services' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        data-wow-duration="1.3s"
+                        class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Services
+                    </Link>
+                    <Link href="/commercial-kitchen-about" type="button"
+                        :class="[currentRoute == '/commercial-kitchen-about' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        data-wow-duration="1.6s"
+                        class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Our Story
+                    </Link>
+                    <Link href="/commercial-kitchen-media" type="button"
+                        :class="[currentRoute == '/commercial-kitchen-media' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        data-wow-duration="1.9s"
+                        class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Media
+                    </Link>
+                    <Link href="/commercial-kitchen-contact" type="button"
+                        :class="[currentRoute == '/commercial-kitchen-contact' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        data-wow-duration="2.2s"
+                        class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Get in Touch
+                    </Link>
+
+                </div>
+
+                <div class="mx-10 mt-10">
+                    <div class="grid grid-rows-2 grid-flow-col gap-5">
+
+                        <a href="tel:+254717269050" class="text-white text-md font-semibold">
+                            <i class="fas fa-envelope-dot text-primary fa-xl mr-2 mb-4"></i> <br>
+                            info@commercialkitchen.co.ke
+                        </a>
+                        <a href="tel:+254717269050" class="text-white text-md font-semibold">
+                            <i class="fas fa-phone-volume text-primary fa-xl mr-2 mb-4"></i> <br>
+                            +254 717 269 050
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
-</nav></template>
+    </nav>
+</template>
