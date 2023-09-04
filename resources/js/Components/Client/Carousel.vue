@@ -36,15 +36,15 @@ const slider = (direction) => {
                 <!-- Item 1 -->
                 <div v-if="slide == 1" class="duration-700 ease-in-out">
                     <img src="img/concept.jpg"
-                        class=" object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class=" object-cover absolute block w-full h-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
                     <div class="absolute z-10 flex flex-col items-center justify-center h-full w-full">
                         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
                         <h2 data-wow-duration="2s"
-                            class="wow animate__backInRight text-5xl font-bold text-white z-20 mb-10">From Concept to
+                            class="wow animate__backInRight text-xl sm:text-5xl font-bold text-white z-20 mb-5 sm:mb-10">From Concept to
                             Completion</h2>
-                        <p class="wow animate__backInRight text-lg text-white z-20 px-96 text-center mb-10 leading-8">
+                        <p class="wow animate__backInRight text-sm sm:text-lg text-white z-20 px-10 sm:px-96 text-center mb-5 sm:mb-10 leading-8">
                             Transform your food service vision into reality with our
                             expert
                             consultancy
@@ -62,14 +62,14 @@ const slider = (direction) => {
                 <!-- Item 2 -->
                 <div v-if="slide == 2" class="duration-700 ease-in-out">
                     <img src="img/design.jpg"
-                        class="object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class="object-cover absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
                     <div class="absolute z-10 flex flex-col items-center justify-center h-full w-full">
                         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
                         <h2 data-wow-duration="2s"
-                            class="wow animate__backInRight text-5xl font-bold text-white z-20 mb-10">Layout Concepts</h2>
-                        <p class="wow animate__backInRight text-lg text-white z-20 px-96 text-center mb-10 leading-8">
+                            class="wow animate__backInRight text-xl sm:text-5xl font-bold text-white z-20 mb-5 sm:mb-10">Layout Concepts</h2>
+                        <p class="wow animate__backInRight text-sm sm:text-lg text-white z-20 px-10 sm:px-96 text-center mb-5 sm:mb-10 leading-8">
                             We pride ourselves on our ability to craft kitchen designs that
                             are not only
                             visually stunning but also
@@ -85,15 +85,15 @@ const slider = (direction) => {
                 <!-- Item 3 -->
                 <div v-if="slide == 3" class="duration-700 ease-in-out">
                     <img src="img/equipment.jpg"
-                        class="object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class="object-cover absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
                     <div class="absolute z-10 flex flex-col items-center justify-center h-full w-full">
                         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
                         <h2 data-wow-duration="2s"
-                            class="wow animate__backInRight text-5xl font-bold text-white z-20 mb-10">Choice of Equipment
+         text-xl sm:                   class="wow animate__backInRight text-xl sm:text-5xl font-bold text-white z-20 mb-5 sm:mb-10">Choice of Equipment
                         </h2>
-                        <p class="wow animate__backInRight text-lg text-white z-20 px-96 text-center mb-10 leading-8">
+                        <p class="wow animate__backInRight text-sm sm:text-lg text-white z-20 px-10 sm:px-96 text-center mb-5 sm:mb-10 leading-8">
                             We guide you in choosing the ideal equipment for your culinary
                             space. We leverage
                             our industry
@@ -103,7 +103,7 @@ const slider = (direction) => {
                         </p>
 
                         <button type="button" data-wow-delay="6s"
-                            class="wow animate__rubberBand z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            class="wow animate__rubberBand z-20 sm:mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
                         </button>
                     </div>
@@ -111,15 +111,15 @@ const slider = (direction) => {
                 <!-- Item 3 -->
                 <div v-if="slide == 4" class="duration-700 ease-in-out">
                     <img src="img/supplier.jpg"
-                        class="object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class="object-cover absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
                     <div class="absolute z-10 flex flex-col items-center justify-center h-full w-full">
                         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
                         <h2 data-wow-duration="2s"
-                            class="wow animate__backInRight text-5xl font-bold text-white z-20 mb-10">Supplier Qualification
+         text-xl sm:                   class="wow animate__backInRight text-xl sm:text-5xl font-bold text-white z-20 mb-5 sm:mb-10">Supplier Qualification
                         </h2>
-                        <p class="wow animate__backInRight text-lg text-white z-20 px-96 text-center mb-10 leading-8">
+                        <p class="wow animate__backInRight text-sm sm:text-lg text-white z-20 px-10 sm:px-96 text-center mb-5 sm:mb-10 leading-8">
                             Partnering with trusted suppliers to ensure quality and reliability in every
                             project.
                         </p>
@@ -133,16 +133,16 @@ const slider = (direction) => {
                 <!-- Item 3 -->
                 <div v-if="slide == 5" class="duration-700 ease-in-out">
                     <img src="img/procur.jpg"
-                        class="object-cover absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                        class="object-cover absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         alt="...">
                     <div class="absolute z-10 flex flex-col items-center justify-center h-full w-full">
                         <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
 
                         <h2 data-wow-duration="2s"
-                            class="wow animate__backInRight text-5xl font-bold text-white z-20 mb-10">Procurement &amp;
+                            class="wow animate__backInRight text-xl sm:text-5xl font-bold text-white z-20 mb-5 sm:mb-10">Procurement &amp; <br>
                             Project Management
                         </h2>
-                        <p class="wow animate__backInRight text-lg text-white z-20 px-96 text-center mb-10 leading-8">
+                        <p class="wow animate__backInRight text-sm sm:text-lg text-white z-20 px-10 sm:px-96 text-center mb-5 sm:mb-10 leading-8">
                             Let us orchestrate the complex symphony of logistics, timelines, and seamless
                             execution, so you can
                             focus on your passion while we bring your vision to life.
@@ -160,8 +160,8 @@ const slider = (direction) => {
                 class="wow animate__lightSpeedInLeft absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-prev>
                 <span
-                    class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <i class="fas fa-angle-left fa-2xl text-white"></i>
+                    class="inline-flex items-center justify-center w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-angle-left sm:fa-2xl text-white"></i>
                     <span class="sr-only">Previous</span>
                 </span>
             </button>
@@ -170,8 +170,8 @@ const slider = (direction) => {
                 class="wow animate__lightSpeedInRight absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-next>
                 <span
-                    class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <i class="fas fa-angle-right fa-2xl text-white"></i>
+                    class="inline-flex items-center justify-center w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-angle-right sm:fa-2xl text-white"></i>
                     <span class="sr-only">Next</span>
                 </span>
             </button>

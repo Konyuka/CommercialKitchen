@@ -16,7 +16,7 @@ const currentYear = computed(() => {
             <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-10">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
                     <div>
-                        <img data-wow-delay="2s" class="wow animate__lightSpeedInLeft h-20 w-18" src="/img/logo.jpg"
+                        <img data-wow-delay="1s" class="wow animate__lightSpeedInLeft h-20 w-18" src="/img/logo.jpg"
                             alt="Commercial Kitchen">
                         <div class="max-w-xl lg:max-w-lg mt-5">
                             <h2 class="text-md font-medium tracking-tight text-white sm:text-xl">Subscribe to our
@@ -24,18 +24,18 @@ const currentYear = computed(() => {
                             <div class="mt-2 flex max-w-md gap-x-4">
                                 <label for="email-address" class="sr-only">Email address</label>
                                 <input id="email-address" name="email" type="email" autocomplete="email" required
-                                    class="min-w-0 flex-auto border-0 bg-white px-3.5 py-2 text-black font-bold shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                                    class="min-w-0 flex-auto border-0 bg-white px-3.5 py-2 text-black font-bold shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm text-xs sm:leading-6"
                                     placeholder="Enter your email">
                                 <button type="submit"
                                     class="flex-none bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
                             </div>
                         </div>
                     </div>
-                    <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div class="mt-16 grid sm:grid-cols-2 grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
+                        <div class="hidden sm:flex w-full md:grid md:grid-cols-2 md:gap-8">
 
                         </div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div class="flex gap-32 sm:gap-0 md:grid md:grid-cols-2 grid-cols-1 md:gap-8">
                             <div>
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Quick Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
@@ -53,7 +53,7 @@ const currentYear = computed(() => {
                                     </li>
                                 </ul>
                             </div>
-                            <div class="mt-10 md:mt-0">
+                            <div class="sm:mt-10 md:mt-0">
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Helper Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>

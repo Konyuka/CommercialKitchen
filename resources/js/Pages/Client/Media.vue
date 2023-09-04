@@ -9,7 +9,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
     <ClientLayout>
         <div>
 
-            <div class="bg-white sm:py-20">
+            <div class="bg-white py-10 sm:py-20">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">From our blogs</h2>
@@ -116,7 +116,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                 </div>
             </div>
 
-            <div class="bg-white sm:pb-20">
+            <div class="bg-white py-10 sm:pb-20">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto max-w-7xl lg:mx-0 text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-primary">Latest News

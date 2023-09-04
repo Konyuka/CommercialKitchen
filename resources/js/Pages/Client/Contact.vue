@@ -8,63 +8,64 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
     <Head title="Contact Us" />
 
     <ClientLayout>
-        <div class="bg-white py-20">
+        <div class="bg-white py-10 sm:py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:mx-0 ">
                     <h2 data-wow-duration="1.5s" data-wow-delay="1s"
                         class="wow animate__lightSpeedInLeft text-4xl font-bold tracking-tight text-primary">Get in touch,
                         we are here to help</h2>
                     <p data-wow-duration="1.5s" data-wow-delay="1.5s"
-                        class="wow animate__lightSpeedInLeft mt-6 text-lg leading-8 text-black font-medium">Looking to start
+                        class="wow animate__lightSpeedInLeft mt-6 text-lg leading-8 text-black font-medium">
+                        Looking to start
                         your food service business?
                         Take the
                         first step by contacting us today.</p>
                 </div>
 
-                <div class="mt-12 flex justify-between divide-primary divide-x-4">
+                <div class="mt-12  sm:flex sm:justify-between sm:divide-primary sm:divide-x-4">
 
                     <a href="tel:+254717269050" data-wow-delay="1.5s" data-wow-duration="1.5s"
-                        class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
+                        class="mb-5 wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
                                 class="fas fa-phone flex w-full h-full justify-center items-center fa-2xl text-black group-hover:text-white"></i>
                         </div>
 
-                        <div class="ml-5">
+                        <div class="ml-1 sm:ml-5">
                             <div class="">
-                                <h1 class="font-bold text-2xl leading-10 text-primary">Phone Number</h1>
-                                <h5 class="font-bold leading-10 text-2xl"> +254 717 269 050</h5>
+                                <h1 class="font-bold text-xl sm:text-2xl leading-10 text-primary">Phone Number</h1>
+                                <h5 class="font-bold  leading-10  sm:text-2xl"> +254 717 269 050</h5>
                             </div>
                         </div>
                     </a>
 
                     <a href="mailto:info@commercialkitchen.co.ke" data-wow-delay="2s" data-wow-duration="1.5s"
-                        class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
+                        class="mb-5 wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
                                 class="fas fa-envelope flex w-full h-full justify-center items-center fa-2xl text-black group-hover:text-white"></i>
                         </div>
 
-                        <div class="ml-5">
+                        <div class="ml-1 sm:ml-5">
                             <div class="">
-                                <h1 class="font-bold text-2xl leading-10 text-primary">Email Address</h1>
-                                <h5 class="font-bold leading-10 text-xl"> info@commercialkitchen.co.ke</h5>
+                                <h1 class="font-bold text-xl sm:text-2xl leading-10 text-primary">Email Address</h1>
+                                <h5 class=" font-bold  leading-10  text-sm sm:text-xl"> info@commercialkitchen.co.ke</h5>
                             </div>
                         </div>
                     </a>
 
                     <a href="https://www.google.com/maps/dir//commodore+suites/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x182f109ec56d4431:0xdee2bf2039412201?sa=X&ved=2ahUKEwibpu2ftPeAAxULLsAKHY8IAK4Q9Rd6BAhSEAA&ved=2ahUKEwibpu2ftPeAAxULLsAKHY8IAK4Q9Rd6BAhiEAM"
                         target="_blank" data-wow-delay="2.5s" data-wow-duration="1.5s"
-                        class="wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
+                        class="mb-5 wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                         <div class="h-20 w-20 bg-white rounded group-hover:bg-primary">
                             <i
                                 class="fas fa-map-location-dot flex w-full h-full justify-center items-center fa-2xl text-black group-hover:text-white"></i>
                         </div>
 
-                        <div class="ml-5">
+                        <div class="ml-1 sm:ml-5">
                             <div class="">
-                                <h1 class="font-bold text-2xl leading-10 text-primary">Physical Address</h1>
-                                <h5 class="font-bold leading-10 text-xl"> Kindaruma Rd, Nairobi</h5>
+                                <h1 class="font-bold text-xl sm:text-2xl leading-10 text-primary">Physical Address</h1>
+                                <h5 class="font-bold  leading-10  sm:text-xl"> Kindaruma Rd, Nairobi</h5>
                             </div>
                         </div>
                     </a>
@@ -72,7 +73,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                 </div>
             </div>
 
-            <div class="bg-white py-20 mt-10">
+            <div class="bg-white py-10 sm:py-20 mt-10">
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div class="mx-auto  lg:mx-0 text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-primary">Founder's
@@ -100,7 +101,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                         </p>
                     </div>
 
-                    <div class="flex w-full h-full justify-center item-center ">
+                    <div class="mt-10 sm:mt-0 flex w-full h-full justify-center item-center ">
                         <div>
                             <img class="mx-auto h-24 w-24 rounded-full object-cover" src="/img/lynn.jpg" alt="">
                             <!-- <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Lynn Kimeto
@@ -134,7 +135,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                                 in touch. </p>
                         </div>
                     </div>
-                    <div class="mt-16 flex flex-col gap-20 sm:gap-y-20 lg:flex-row">
+                    <div class="mt-10 sm:mt-16 flex flex-col gap-20 sm:gap-y-20 lg:flex-row">
                         <form action="#" method="POST" class="lg:flex-auto">
                             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div>
@@ -187,8 +188,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                         <div class="lg:mt-6 lg:w-96  lg:flex-none">
 
                             <img class="float-left transform translate-x-20 scale-150 aspect-[3/2] w-[220px] h-full right-0 rounded-2xl object-fit"
-                                src="/img/net.svg"
-                                alt="">
+                                src="/img/net.svg" alt="">
 
                         </div>
                     </div>
@@ -197,4 +197,5 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
 
         </div>
 
-    </ClientLayout></template>
+    </ClientLayout>
+</template>

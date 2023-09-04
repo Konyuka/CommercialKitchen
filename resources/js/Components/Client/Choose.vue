@@ -4,13 +4,13 @@
 
 <template>
     <div>
-        <div class="overflow-hidden bg-white py-32">
+        <div class="overflow-hidden bg-white py-10 sm:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8"> 
                 <div
                     class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
                     <div class="lg:col-end-1 lg:w-full lg:max-w-3xl lg:pb-8">
-                        <h2 data-wow-delay="1s" data-wow-duration="1.5s" class="wow animate__lightSpeedInRight text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Choose Us?</h2>
-                        <p data-wow-delay="1s" data-wow-duration="1.5s" class="wow animate__lightSpeedInLeft mt-6 text-xl leading-10 text-primary font-bold">We are a team that Cares!</p>
+                        <h2 data-wow-delay="1s" data-wow-duration="1s" class="wow animate__lightSpeedInRight text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Choose Us?</h2>
+                        <p data-wow-delay="1s" data-wow-duration="1s" class="wow animate__lightSpeedInLeft mt-6 text-xl leading-10 text-primary font-bold">We are a team that Cares!</p>
                         <p class="mt-6  leading-7 text-black font-medium">
                             Navigating the complexities of setting up a commercial kitchen can be a daunting task. With
                             countless decisions to make, from design and equipment selection to supplier negotiations and
@@ -22,7 +22,7 @@
                             partner who will ensure that your vision becomes a reality. Let us make the process easier for
                             you, so you can focus on what you do best – running your business.
                         </p>
-                        <div class="mt-12 flex justify-between">
+                        <div class="mt-12 sm:flex justify-between">
                             
                             <a href="tel:+254717269050" class="group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">
                                 <div data-wow-duration="1.5s"  data-wow-delay="1.5s" class="wow animate__lightSpeedInLeft h-20 w-20 bg-white rounded group-hover:bg-primary">
@@ -32,7 +32,7 @@
                                 <div class="ml-5">
                                     <div class="">
                                         <h1 data-wow-duration="1s"  data-wow-delay="2s" class="wow animate__lightSpeedInLeft font-bold text-2xl leading-10 text-primary">Get Expert Advice</h1>
-                                        <h5 data-wow-duration="1s"  data-wow-delay="2.5s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-2xl"> +254 717 269 050</h5>
+                                        <h5 data-wow-duration="1s"  data-wow-delay="2.5s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-lg sm:text-2xl"> +254 717 269 050</h5>
                                     </div>
                                 </div>
                             </a>
@@ -45,7 +45,7 @@
                                     <div class="ml-5">
                                         <div class="">
                                             <h1 data-wow-duration="1s"  data-wow-delay="1.5s" class="wow animate__lightSpeedInLeft font-bold text-2xl leading-10 text-primary">Get Expert Advice</h1>
-                                            <h5 data-wow-duration="1s"  data-wow-delay="2s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-xl"> info@commercialkitchen.co.ke</h5>
+                                            <h5 data-wow-duration="1s"  data-wow-delay="2s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-sm sm:text-xl"> info@commercialkitchen.co.ke</h5>
                                         </div>
                                     </div>
                                 </a>
@@ -57,7 +57,7 @@
                         <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end ">
                             <img src="/img/y.jpg"
                                 alt=""
-                                class="transform -translate-x-5 ring-2 ring-primary aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover  h-[600px]">
+                                class="transform -translate-x-64 sm:-translate-x-5 ring-2 ring-primary aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover  h-[600px]">
                         </div>
                         <!-- <div
                             class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">

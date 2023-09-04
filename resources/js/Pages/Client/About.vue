@@ -181,7 +181,7 @@ const clients = ref([
                 </div>
 
                 <!-- Image section -->
-                <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+                <div class="mx-2 rounded-lg mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
                     <img src="/img/fist.jpg" alt="" class="aspect-[9/4] w-full object-cover xl:rounded-3xl">
                 </div>
 
@@ -189,68 +189,69 @@ const clients = ref([
                 <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
                     <div class="mx-auto max-w-7xl lg:mx-0 text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our values</h2>
-                        <p class="mt-6 text-lg leading-8 text-black font-bold px-28">At Commercial Kitchens Consultants, our
+                        <p class="mt-6 text-md sm:text-lg leading-8 text-black font-bold text-center sm:px-28">At Commercial Kitchens Consultants, our
                             values guide
                             our every action, decision, and interaction. They are the foundation upon which we build trust,
                             deliver excellence, and achieve success for our clients.
                         </p>
                     </div>
+
                     <dl
-                        class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
-                        <div class="relative pl-9">
+                        class="sm:mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-10 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-sharp fa-light fa-user-chef fa-2x"></i>
+                                <i class="fa-sharp fa-light fa-user-chef fa-2x mb-5"></i>
                                 Expertise <br>
                             </dt>
-                            <dd class="inline font-semibold">We are committed to staying at the forefront of the commercial
+                            <dd class="text-sm sm:text-md inline font-semibold">We are committed to staying at the forefront of the commercial
                                 kitchen
                                 industry, continuously expanding our knowledge and expertise to provide the best solutions
                                 for our clients.</dd>
                         </div>
-                        <div class="relative pl-9">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-regular fa-gavel fa-2x"></i>
+                                <i class="fa-regular fa-gavel fa-2x mb-5"></i>
                                 Integrity <br>
                             </dt>
-                            <dd class="inline font-semibold">
+                            <dd class="text-sm sm:text-md inline font-semibold">
                                 We uphold the highest ethical standards, ensuring transparency, honesty, and fairness in all
                                 our dealings.
                             </dd>
                         </div>
-                        <div class="relative pl-9">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-sharp fa-solid fa-user-tie fa-2x"></i>
+                                <i class="fa-sharp fa-solid fa-user-tie fa-2x mb-5"></i>
                                 Client-Centric <br>
                             </dt>
-                            <dd class="inline font-semibold">
+                            <dd class="text-sm sm:text-md inline font-semibold">
                                 Our clients are at the heart of everything we do. We listen, understand, and prioritize
                                 their unique needs to deliver tailored solutions.
                             </dd>
                         </div>
-                        <div class="relative pl-9">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-sharp fa-regular fa-business-time fa-2x"></i>
+                                <i class="fa-sharp fa-regular fa-business-time fa-2x mb-5"></i>
                                 Reliability <br>
                             </dt>
-                            <dd class="inline font-semibold">We are unwavering in our commitment to meeting deadlines,
+                            <dd class="text-sm sm:text-md inline font-semibold">We are unwavering in our commitment to meeting deadlines,
                                 delivering on
                                 promises, and providing dependable services.</dd>
                         </div>
-                        <div class="relative pl-9">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-sharp fa-solid fa-thumbs-up fa-2x"></i>
+                                <i class="fa-sharp fa-solid fa-thumbs-up fa-2x mb-5"></i>
                                 Quality <br>
                             </dt>
-                            <dd class="inline font-semibold">We hold ourselves to the highest standards of quality, ensuring
+                            <dd class="text-sm sm:text-md inline font-semibold">We hold ourselves to the highest standards of quality, ensuring
                                 that every
                                 project we undertake reflects our dedication to excellence.</dd>
                         </div>
-                        <div class="relative pl-9">
+                        <div class="relative sm:pl-9">
                             <dt class="inline font-semibold text-white">
-                                <i class="fa-solid fa-gears fa-2x"></i>
+                                <i class="fa-solid fa-gears fa-2x mb-5"></i>
                                 Innovation <br>
                             </dt>
-                            <dd class="inline font-semibold">We embrace innovation and creativity to find unique solutions
+                            <dd class="text-sm sm:text-md inline font-semibold">We embrace innovation and creativity to find unique solutions
                                 that drive
                                 efficiency and exceed expectations.</dd>
                         </div>
