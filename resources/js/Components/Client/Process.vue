@@ -4,7 +4,7 @@
 
 <template>
     <div>
-        <div class="bg-black py-24 sm:py-32"> 
+        <div class="bg-black py-14 sm:py-32"> 
             <div class="mx-auto max-w-[100vw] px-6 lg:px-8">
 
                 <div class="mx-auto max-w-4xl text-center">

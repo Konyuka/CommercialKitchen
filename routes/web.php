@@ -1,8 +1,9 @@
 <?php
+use App\Http\Controllers\SubscribersController;
+use App\Http\Controllers\ContactFormController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 use App\Http\Controllers\BlogController;
 
 
@@ -36,6 +37,16 @@ Route::get('/commercial-kitchen-blog-detail', function () {
     return Inertia::render('Client/Detail');
 })->name('blog.detail');
 
+
+
+Route::post('/save-subscriber', [ SubscribersController::class, 'saveSubscriber' ] )->name('save-subscriber');
+Route::post('/submit-contact-form', [ ContactFormController::class, 'submitForm' ])->name('submit-contact-form');
+
+
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -60,5 +71,6 @@ Route::middleware([
 
 Route::get('/clear_data', function () {
     Artisan::call('optimize:clear');
+    Artisan::call('config:clear');
     return 'Cache Cleared';
 });

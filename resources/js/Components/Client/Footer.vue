@@ -1,11 +1,30 @@
 <script setup>
 import { computed } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, router, useForm } from '@inertiajs/vue3';
+import { ref } from "vue";
 
 const currentYear = computed(() => {
     const currentDate = new Date();
     return currentDate.getFullYear();
 })
+
+
+const form = useForm({
+    email: null
+});
+
+const saveSubscriber = () => {
+    form.post(route('save-subscriber'), {
+        preserveState: true,
+        preserveScroll: true,
+        onSuccess: (response) => {
+            console.log(response)
+            form.reset();
+        },
+    })
+}
+
+
 </script>
 
 <template>
@@ -23,12 +42,18 @@ const currentYear = computed(() => {
                                 newsletter.</h2>
                             <div class="mt-2 flex max-w-md gap-x-4">
                                 <label for="email-address" class="sr-only">Email address</label>
-                                <input id="email-address" name="email" type="email" autocomplete="email" required
+                                <input v-model="form.email" id="email-address" name="email" type="email"
+                                    autocomplete="email" required
                                     class="min-w-0 flex-auto border-0 bg-white px-3.5 py-2 text-black font-bold shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm text-xs sm:leading-6"
                                     placeholder="Enter your email">
-                                <button type="submit"
+                                <button @click="saveSubscriber" type="submit"
                                     class="flex-none bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
                             </div>
+                        </div>
+                        <div>
+                            <p v-if="form.errors.email" class="text-white mt-5 text-xs"><i
+                                    class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                {{ form.errors.email }}</p>
                         </div>
                     </div>
                     <div class="mt-16 grid sm:grid-cols-2 grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
@@ -40,16 +65,19 @@ const currentYear = computed(() => {
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Quick Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <Link :href="route('services')" class="text-sm leading-6 text-white hover:text-primary"><i
-                                                class="mr-2 fas fa-caret-right"></i> Services</Link>
+                                        <Link :href="route('services')"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
+                                            class="mr-2 fas fa-caret-right"></i> Services</Link>
                                     </li>
                                     <li>
-                                        <Link :href="route('contacts')" class="text-sm leading-6 text-white hover:text-primary"><i
-                                                class="mr-2 fas fa-caret-right"></i> Contact Us</Link>
+                                        <Link :href="route('contacts')"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
+                                            class="mr-2 fas fa-caret-right"></i> Contact Us</Link>
                                     </li>
                                     <li>
-                                        <Link :href="route('about')" class="text-sm leading-6 text-white hover:text-primary"><i
-                                                class="mr-2 fas fa-caret-right"></i> About Us</Link>
+                                        <Link :href="route('about')"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
+                                            class="mr-2 fas fa-caret-right"></i> About Us</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -57,15 +85,18 @@ const currentYear = computed(() => {
                                 <h3 class="text-sm font-semibold leading-6 text-primary">Helper Links</h3>
                                 <ul role="list" class="mt-6 space-y-4">
                                     <li>
-                                        <Link :href="route('media')" class="text-sm leading-6 text-white hover:text-primary"><i
-                                                class="mr-2 fas fa-caret-right"></i> Blogs</Link>
+                                        <Link :href="route('media')"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
+                                            class="mr-2 fas fa-caret-right"></i> Blogs</Link>
                                     </li>
                                     <li>
-                                        <Link :href="route('media')" class="text-sm leading-6 text-white hover:text-primary"><i
-                                                class="mr-2 fas fa-caret-right"></i> Gallery</Link>
+                                        <Link :href="route('media')"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
+                                            class="mr-2 fas fa-caret-right"></i> Gallery</Link>
                                     </li>
                                     <li>
-                                        <button @click="careerModal=true" class="text-sm leading-6 text-white hover:text-primary"><i
+                                        <button @click="careerModal = true"
+                                            class="text-sm leading-6 text-white hover:text-primary"><i
                                                 class="mr-2 fas fa-caret-right"></i> Careers</button>
                                     </li>
                                 </ul>

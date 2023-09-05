@@ -5,13 +5,13 @@
 <template>
     <div>
         <div class="overflow-hidden bg-white py-10 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8"> 
+            <div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">  
                 <div
                     class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
                     <div class="lg:col-end-1 lg:w-full lg:max-w-3xl lg:pb-8">
                         <h2 data-wow-delay="1s" data-wow-duration="1s" class="wow animate__lightSpeedInRight text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Choose Us?</h2>
                         <p data-wow-delay="1s" data-wow-duration="1s" class="wow animate__lightSpeedInLeft mt-6 text-xl leading-10 text-primary font-bold">We are a team that Cares!</p>
-                        <p class="mt-6  leading-7 text-black font-medium">
+                        <p class="mt-6  leading-7 text-black font-medium text-sm sm:text-md">
                             Navigating the complexities of setting up a commercial kitchen can be a daunting task. With
                             countless decisions to make, from design and equipment selection to supplier negotiations and
                             project management, it's easy to feel overwhelmed. That's where we come in. At Commercial

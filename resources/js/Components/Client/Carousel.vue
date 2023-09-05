@@ -156,8 +156,8 @@ const slider = (direction) => {
                 </div>
             </div>
             <!-- Slider controls -->
-            <button @click="slider('prev')" type="button" data-wow-duration="2s" data-wow-delay="1s"
-                class="wow animate__lightSpeedInLeft absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            <button @click="slider('prev')" type="button"
+                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-prev>
                 <span
                     class="inline-flex items-center justify-center w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -166,8 +166,8 @@ const slider = (direction) => {
                 </span>
             </button>
 
-            <button @click="slider('next')" type="button" data-wow-duration="2s" data-wow-delay="1s"
-                class="wow animate__lightSpeedInRight absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            <button @click="slider('next')" type="button"
+                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 data-carousel-next>
                 <span
                     class="inline-flex items-center justify-center w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-primary dark:bg-gray-800/30 group-hover:bg-black dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">

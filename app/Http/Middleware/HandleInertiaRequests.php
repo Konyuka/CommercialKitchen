@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
-class HandleInertiaRequests extends Middleware
+class HandleInertiaRequests extends Middleware 
 {
     /**
      * The root template that is loaded on the first page visit.
@@ -36,6 +36,8 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+            'message' => fn() => $request->session()->get('message') ? $request->session()->get('message') : null,
+            'BusinessName' => 'Commercial Kitchen Consultants'
         ]);
     }
 }

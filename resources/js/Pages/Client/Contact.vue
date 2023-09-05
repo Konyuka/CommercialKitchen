@@ -1,6 +1,25 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import ClientLayout from '@/Layouts/ClientLayout.vue';
+
+const form = useForm({
+    fname: null,
+    lname: null,
+    number: null,
+    email: null,
+    message: null,
+})
+
+const submitForm = () => {
+    form.post(route('submit-contact-form'), {
+        preserveScroll: true,
+        preserveState: true,
+        onSuccess: () => {
+            form.reset();
+        }
+    })
+}
+
 
 </script>
 
@@ -78,7 +97,7 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                     <div class="mx-auto  lg:mx-0 text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 text-primary">Founder's
                             Perspective</h2>
-                        <p class="text-left text-black font-semibold mt-6 text-md leading-8 text-gray-600">
+                        <p class="text-left text-black font-medium mt-6 text-md leading-6 sm:leading-8 text-gray-600">
                             <i class="fa-solid fa-quote-left mr-1 text-primary"></i>
                             I am proud to lead a team of dedicated professionals who are passionate about helping our
                             clients succeed in the food service industry. Our journey began with a simple but powerful idea:
@@ -136,55 +155,61 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
                         </div>
                     </div>
                     <div class="mt-10 sm:mt-16 flex flex-col gap-20 sm:gap-y-20 lg:flex-row">
-                        <form action="#" method="POST" class="lg:flex-auto">
+                        <div  class="lg:flex-auto">
                             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div>
                                     <label for="first-name"
                                         class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
                                     <div class="mt-2.5">
-                                        <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input v-model="form.fname" type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                            class="font-semibold block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
                                 <div>
                                     <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last
                                         name</label>
                                     <div class="mt-2.5">
-                                        <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input v-model="form.lname" type="text" name="last-name" id="last-name" autocomplete="family-name"
+                                            class="font-semibold block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
                                 <div>
                                     <label for="budget" class="block text-sm font-semibold leading-6 text-gray-900">Phone
                                         Number</label>
                                     <div class="mt-2.5">
-                                        <input id="budget" name="budget" type="number"
-                                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input  v-model="form.number" id="budget" name="budget" type="number"
+                                            class="font-semibold block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
+                                    <p v-if="form.errors.number" class="text-black mt-5 text-xs"><i
+                                        class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                    {{ form.errors.number }}</p>
                                 </div>
                                 <div>
                                     <label for="website" class="block text-sm font-semibold leading-6 text-gray-900">Email
                                         Address</label>
                                     <div class="mt-2.5">
-                                        <input type="url" name="website" id="website"
-                                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input v-model="form.email" type="email" name="website" id="website"
+                                            class="font-semibold block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
+                                    <p v-if="form.errors.email" class="text-black mt-5 text-xs"><i
+                                        class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                    {{ form.errors.email }}</p>
                                 </div>
                                 <div class="sm:col-span-2">
                                     <label for="message"
                                         class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
                                     <div class="mt-2.5">
-                                        <textarea id="message" name="message" rows="4"
-                                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
+                                        <textarea v-model="form.message" id="message" name="message" rows="4"
+                                            class="font-semibold block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-10">
-                                <button type="submit"
+                                <button @click.prevent="submitForm" type="submit"
                                     class="group transform transition hover:scale-95 duration-700 ease-out block w-full rounded-md bg-primary hover:bg-black px-3.5 py-2.5 text-center text-sm font-semibold text-black hover:text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let’s
                                     talk <i class="fas fa-message-captions ml-2 hover:text-primary fa-xl"></i> </button>
                             </div>
-                        </form>
+                        </div>
                         <div class="lg:mt-6 lg:w-96  lg:flex-none">
 
                             <img class="float-left transform translate-x-20 scale-150 aspect-[3/2] w-[220px] h-full right-0 rounded-2xl object-fit"
@@ -196,6 +221,5 @@ import ClientLayout from '@/Layouts/ClientLayout.vue';
             </div>
 
         </div>
-
     </ClientLayout>
 </template>
