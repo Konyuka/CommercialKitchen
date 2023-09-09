@@ -136,7 +136,7 @@ onMounted(() => {
                     <label for="email" class="block text-sm font-bold leading-6 text-black">Blog Title</label>
                     <div class="mt-2">
                         <input v-model="blog.title" type="text" name="email" id="email"
-                            class="font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                            class="capitalize font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                             placeholder="Commercial Kitchen Tables">
                         <div>
                         <p v-if="blog.errors.title" class="text-black mt-5 text-xs"><i
@@ -157,7 +157,7 @@ onMounted(() => {
                         </div>
                         <select v-model="blog.category" id="location" name="location"
                             class="font-semibold mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-black focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
-                            <option v-for="category in categoryList" :value="category.id">{{ category.name }}</option>
+                            <option v-for="category in categoryList" :value="parseInt(category.id)">{{ category.name }}</option>
                         </select>
                     </div>
 
@@ -210,11 +210,11 @@ onMounted(() => {
                                     <p class="pl-1">or drag and drop</p>
                                 </div>
                             </div>
-                            <div>
-                                <p v-if="blog.errors.cover" class="text-black mt-5 text-xs"><i
-                                        class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
-                                    {{ blog.errors.cover }}</p>
-                            </div>
+                        </div>
+                        <div>
+                            <p v-if="blog.errors.cover" class="text-black mt-5 text-xs"><i
+                                    class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                {{ blog.errors.cover }}</p>
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,7 @@ onMounted(() => {
                     v-show="showPreview" />
             </div>
 
-            <div class="mt-10 h-60">
+            <div class="mt-10 h-screen">
                 <QuillEditor @textChange="pop" v-model:content="blog.content" :modules="modules" toolbar="full" theme="snow"
                     contentType="html" />
                 <div>
@@ -237,7 +237,7 @@ onMounted(() => {
             </div>
 
 
-            <div class="mt-20">
+            <div class="mt-40">
                 <button @click="postBlog" type="button"
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Publish blog <i class="fas fa-check"></i>

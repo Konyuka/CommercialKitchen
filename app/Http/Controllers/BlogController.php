@@ -45,13 +45,28 @@ class BlogController extends Controller
     public function storeBlog(Request $request)
     {
 
-        // dd($request);
-
         $validated = $request->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'content' => 'required',
+        ]);
+
+        if ($request->hasFile('cover')) {
+            $image = $request->file('cover');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/covers', $imageName);
+        }
+
+        $imageUrl = asset('storage/covers/' . $imageName);
+
+        // dd($imageUrl);
+        Blog::create([
+            'title' => $validated['title'],
+            'catgeory_id' => $request->category,
+            'excerpt' => $validated['excerpt'],
+            'cover' => $imageUrl,
+            'content' => $validated['content'],
         ]);
         
     }
