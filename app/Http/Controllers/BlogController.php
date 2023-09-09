@@ -3,72 +3,57 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function addCategory(Request $request){
+        $validated = $request->validate([
+            'name' => 'required|unique:categories'
+        ], [
+            'name.unique' => 'The category has already been added'
+        ]);
+
+        Categories::create([
+            'name' => $validated['name']
+        ]);
+
+        return back()->with('message', 'Category created successfully');
+    }
+
     public function uploadImage(Request $request){
+        
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-       
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $imageName); 
+        }
 
+        $imageUrl = asset('storage/images/' . $imageName); 
+        // return response()->json(['url' => $imageUrl]);
+        return response()->json(['url' => 'https://commercialkitchen.co.ke/img/concept.jpg']);
 
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    
+
+   
+    public function storeBlog(Request $request)
     {
 
+        // dd($request);
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'content' => 'required',
+        ]);
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-
-        dd($request->content);
-        $imageName = time() . '.' . $request->cover->getClientOriginalExtension();
-        $request->cover->move(public_path('blog-images'), $imageName);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Blog $blog)
-    {
-        //
-    }
 }

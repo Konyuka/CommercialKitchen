@@ -1,10 +1,12 @@
 <script setup>
-import { QuillEditor } from '@vueup/vue-quill'
+import { QuillEditor, Quill } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
-import ImageUploader from 'quill-image-uploader';
+import "@vueup/vue-quill/dist/vue-quill.bubble.css";
+import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+
 
 
 const blog = useForm({
@@ -15,42 +17,57 @@ const blog = useForm({
     content: null,
 })
 
+const category = useForm({
+    name: null
+})
+
 const uploadedImage = ref(null);
 const imagePreview = ref(null);
 const showPreview = ref(false);
+const categoryModal = ref(false);
+const categoryList = ref([]);
 
 const modules = {
-    name: 'imageUploader',
+    name: "imageUploader",
     module: ImageUploader,
     options: {
-        placeholder: 'I believe you are creative enough to fill this space with content...',
-        upload: file => {
+        upload: (file) => {
             return new Promise((resolve, reject) => {
                 const formData = new FormData();
                 formData.append("image", file);
 
-                axios.post('/upload-image', formData)
-                    .then(res => {
-                        console.log(res)
+                axios
+                    .post("/upload-image", formData)
+                    .then((res) => {
+                        console.log(res);
                         resolve(res.data.url);
                     })
-                    .catch(err => {
+                    .catch((err) => {
                         reject("Upload failed");
-                        console.error("Error:", err)
-                    })
-            })
+                        console.error("Error:", err);
+                    });
+            });
+        },
+    },
+};
+
+const saveCategory = () => {
+    category.post(route('add.category'), {
+        preserveScroll: true,
+        preserveState: true,
+        onSuccess: () => {
+            getCategories();
+            category.reset();
         }
-    }
+    })
 }
 
-const updateContent = (content) => {
-    blog.content = content;
-    console.log(content)
-}
+const pop = ({ quill, html, text }) => {
+    // console.log(blog.content);
+};
 
 const postBlog = () => {
-
-    router.post('/post-blog', blog, {
+    blog.post('/store-blog', {
         forceFormData: true,
         preserveState: true,
         onSuccess: () => {
@@ -76,10 +93,26 @@ const uploadImage = (e) => {
     blog.cover = image;
 }
 
+const getCategories = () => {
+    axios.get('/api/get-categories')
+        .then((res) => {
+            categoryList.value = res.data;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
+
+onMounted(() => {
+    getCategories()
+});
+
 </script>
 
 <template>
     <div>
+
         <div class="border-b border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
             <div class="flex justify-between w-full">
                 <div>
@@ -105,6 +138,11 @@ const uploadImage = (e) => {
                         <input v-model="blog.title" type="text" name="email" id="email"
                             class="font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                             placeholder="Commercial Kitchen Tables">
+                        <div>
+                        <p v-if="blog.errors.title" class="text-black mt-5 text-xs"><i
+                                class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                            {{ blog.errors.title }}</p>
+                    </div>    
                     </div>
                 </div>
 
@@ -112,17 +150,14 @@ const uploadImage = (e) => {
                     <div>
                         <div class="flex justify-between">
                             <label for="location" class="block text-sm font-bold leading-6 text-gray-900">Category</label>
-                            <button type="button"
+                            <button @click="categoryModal = true" type="button"
                                 class="rounded bg-black px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                 Add Category
                             </button>
                         </div>
                         <select v-model="blog.category" id="location" name="location"
-                            class="font-semibold mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <option selected value="'General'">General</option>
-                            <option value="Table">Tables</option>
-                            <option value="Kitchen">Kitchen</option>
-                            <option value="Food">Food</option>
+                            class="font-semibold mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-black focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
+                            <option v-for="category in categoryList" :value="category.id">{{ category.name }}</option>
                         </select>
                     </div>
 
@@ -139,6 +174,11 @@ const uploadImage = (e) => {
                     <div class="mt-2">
                         <textarea v-model="blog.excerpt" rows="4" name="comment" id="comment"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
+                            <div>
+                        <p v-if="blog.errors.excerpt" class="text-black mt-5 text-xs"><i
+                                class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                            {{ blog.errors.excerpt }}</p>
+                    </div>
                     </div>
                 </div>
 
@@ -170,6 +210,11 @@ const uploadImage = (e) => {
                                     <p class="pl-1">or drag and drop</p>
                                 </div>
                             </div>
+                            <div>
+                                <p v-if="blog.errors.cover" class="text-black mt-5 text-xs"><i
+                                        class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                    {{ blog.errors.cover }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,11 +222,18 @@ const uploadImage = (e) => {
             </div>
 
             <div class="my-10">
-                <img :src="imagePreview" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg" v-show="showPreview" />
+                <img :src="imagePreview" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg"
+                    v-show="showPreview" />
             </div>
 
             <div class="mt-10 h-60">
-                <QuillEditor v-model="blog.content"  :modules="modules" toolbar="full" theme="snow" />
+                <QuillEditor @textChange="pop" v-model:content="blog.content" :modules="modules" toolbar="full" theme="snow"
+                    contentType="html" />
+                <div>
+                    <p v-if="blog.errors.content" class="text-black mt-5 text-xs"><i
+                            class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                        {{ blog.errors.content }}</p>
+                </div>
             </div>
 
 
@@ -195,6 +247,55 @@ const uploadImage = (e) => {
 
 
         </div>
+
+        <div v-show="categoryModal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+            <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"></div>
+
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+                    <div
+                        class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                        <div>
+                            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                                <i class="fas fa-list text-primary fa-2x my-5"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-5">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Enter category
+                                    name</h3>
+                                <div class="m-10">
+
+                                    <div>
+                                        <label for="email" class="sr-only">Email</label>
+                                        <input v-model="category.name" type="text" name="text" id="text"
+                                            class="py-2 capitalize text-center font-bold block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                                            placeholder="Stainless Steel">
+                                        <div>
+                                            <p v-if="category.errors.name" class="text-black mt-5 text-xs"><i
+                                                    class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                                {{ category.errors.name }}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                            <button @click="saveCategory" type="button"
+                                class="inline-flex w-full justify-center rounded-md hover:bg-primary bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black sm:col-start-2">
+                                Save
+                            </button>
+                            <button @click="categoryModal = false" type="button"
+                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 hover:text-white shadow-sm ring-1 ring-inset ring-black hover:bg-black sm:col-start-1 sm:mt-0">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </template>

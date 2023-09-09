@@ -30,11 +30,11 @@ const openMobileMenu = ref(false);
             </div>
 
             <div class="flex justify-between">
-                <a href="tel:+254717269050" class="text-white text-md mr-10 wow animate__zoomInDown" data-wow-duration="2s">
+                <a href="tel:+254717269050" class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md mr-10 wow animate__zoomInDown" data-wow-duration="2s">
                     <i class="fas fa-phone-volume text-primary fa-xl mr-2"></i>
                     +254 717 269 050
                 </a>
-                <a href="tel:+254717269050" class="text-white text-md wow animate__zoomInDown" data-wow-duration="2.5s">
+                <a href="tel:+254717269050" class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md wow animate__zoomInDown" data-wow-duration="2.5s">
                     <i class="fas fa-envelope-dot text-primary fa-xl mr-2"></i>
                     info@commercialkitchen.co.ke
                 </a>
@@ -69,7 +69,7 @@ const openMobileMenu = ref(false);
                     <li>
                         <Link href="/" :class="[currentRoute == '/' ? 'text-primary font-bold' : 'text-white']"
                             data-wow-duration="2s"
-                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
+                            class="tranform transition hover:scale-125 duration-700 ease-in-out wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/'" class="fas fa-caret-right"></i> Home
                         </Link>
@@ -78,7 +78,7 @@ const openMobileMenu = ref(false);
                         <Link href="/commercial-kitchen-services"
                             :class="[currentRoute == '/commercial-kitchen-services' ? 'text-primary font-bold' : 'text-white']"
                             data-wow-duration="2.5s"
-                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
+                            class="tranform transition hover:scale-125 duration-700 ease-in-out wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-services'" class="fas fa-caret-right"></i> Services
                         </Link>
@@ -87,7 +87,7 @@ const openMobileMenu = ref(false);
                         <Link href="/commercial-kitchen-about"
                             :class="[currentRoute == '/commercial-kitchen-about' ? 'text-primary font-bold' : 'text-white']"
                             data-wow-duration="3s"
-                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
+                            class="tranform transition hover:scale-125 duration-700 ease-in-out wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-about'" class="fas fa-caret-right"></i> Our Story
                         </Link>
@@ -96,7 +96,7 @@ const openMobileMenu = ref(false);
                         <Link href="/commercial-kitchen-media"
                             :class="[currentRoute == '/commercial-kitchen-media' ? 'text-primary font-bold' : 'text-white']"
                             data-wow-duration="3.5s"
-                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
+                            class="tranform transition hover:scale-125 duration-700 ease-in-out wow animate__lightSpeedInRight block py-2 pl-3 pr-4  text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-media'" class="fas fa-caret-right"></i> Media
                         </Link>
@@ -104,7 +104,7 @@ const openMobileMenu = ref(false);
                     <li>
                         <Link href="/commercial-kitchen-contact"
                             :class="[currentRoute == '/commercial-kitchen-contact' ? 'text-primary font-bold' : 'text-white']"
-                            class="wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
+                            class="tranform transition hover:scale-125 duration-700 ease-in-out wow animate__lightSpeedInRight block py-2 pl-3 pr-4 text-xl rounded md:bg-transparent"
                             aria-current="page">
                         <i v-if="currentRoute == '/commercial-kitchen-contact'" class="fas fa-caret-right"></i> Get in Touch
                         </Link>

@@ -110,22 +110,22 @@ const saveSubscriber = () => {
 
                         <div class="flex gap-10 mt-2">
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/fb.svg" alt="" class="h-8 w-8">
+                                <img src="/img/fb.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/ig.svg" alt="" class="h-8 w-8">
+                                <img src="/img/ig.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/twitter.svg" alt="" class="h-8 w-8">
+                                <img src="/img/twitter.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/linkedin.svg" alt="" class="h-8 w-8">
+                                <img src="/img/linkedin.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/youtube.svg" alt="" class="h-8 w-8">
+                                <img src="/img/youtube.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                             <a href="https://www.instagram.com/commercialkitchensconsultants/" target="_blank">
-                                <img src="/img/tiktok.svg" alt="" class="h-8 w-8">
+                                <img src="/img/tiktok.svg" alt="" class="tranform transition hover:scale-125 duration-700 ease-in-out h-8 w-8">
                             </a>
                         </div>
                     </div>

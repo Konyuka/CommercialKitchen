@@ -41,7 +41,7 @@ const submitForm = () => {
                         first step by contacting us today.</p>
                 </div>
 
-                <div class="mt-12  sm:flex sm:justify-between sm:divide-primary sm:divide-x-4">
+                <div class="mt-12  sm:flex sm:justify-between ">
 
                     <a href="tel:+254717269050" data-wow-delay="1.5s" data-wow-duration="1.5s"
                         class="mb-5 wow animate__backInUp group transform transition hover:scale-95 duration-700 ease-out hover:cursor-pointer flex">

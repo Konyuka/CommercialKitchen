@@ -3,7 +3,6 @@ import Navigation from "@/Components/Client/Navigation.vue";
 import Footer from "@/Components/Client/Footer.vue";
 import { onMounted, ref, watch, computed } from 'vue';
 import WOW from 'wow.js';
-import { toast } from 'vue-sonner'
 import { usePage } from "@inertiajs/vue3";
 
 
@@ -91,7 +90,7 @@ onMounted(() => {
     <Footer />
 
     <button @click="scrollToTop" v-show="scrollTopButton" type="button" data-te-ripple-init data-te-ripple-color="light"
-        class="!fixed bottom-5 right-3 rounded-full bg-primary p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg"
+        class="tranform transition hover:scale-125 duration-700 ease-in-out !fixed bottom-5 right-3 rounded-full bg-primary p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg"
         id="btn-back-to-top">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" class="h-4 w-4" role="img"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

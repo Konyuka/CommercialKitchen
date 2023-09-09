@@ -64,8 +64,9 @@ Route::middleware([
         return Inertia::render('Admin/Products');
     })->name('admin.products');
 
-
-    Route::post('/post-blog', [BlogController::class, 'store']);
+    Route::post('/add-category', [BlogController::class, 'addCategory'])->name('add.category');
+    Route::post('/upload-image', [BlogController::class, 'uploadImage']);
+    Route::post('/store-blog', [BlogController::class, 'storeBlog']);
 
 });
 
