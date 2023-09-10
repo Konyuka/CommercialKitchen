@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Home" />
+    <Head title="Karibu Sana" />
 
     <ClientLayout>
         <Carousel />

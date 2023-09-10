@@ -53,7 +53,7 @@ const submitForm = () => {
                         <div class="ml-1 sm:ml-5">
                             <div class="">
                                 <h1 class="font-bold text-xl sm:text-2xl leading-10 text-primary">Phone Number</h1>
-                                <h5 class="font-bold  leading-10  sm:text-2xl"> +254 717 269 050</h5>
+                                <h5 class="font-bold  leading-10  sm:text-2xl"> +254 115 511 079</h5>
                             </div>
                         </div>
                     </a>

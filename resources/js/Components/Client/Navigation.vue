@@ -46,7 +46,7 @@ const openMobileMenu = ref(false);
                     class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md mr-10 wow animate__zoomInDown"
                     data-wow-duration="2s">
                     <i class="fas fa-phone-volume text-primary fa-xl mr-2"></i>
-                    +254 717 269 050
+                    +254 115 511 079
                 </a>
                 <a href="tel:+254717269050"
                     class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md wow animate__zoomInDown"
@@ -179,7 +179,7 @@ const openMobileMenu = ref(false);
                         </a>
                         <a href="tel:+254717269050" class="text-white text-md font-semibold">
                             <i class="fas fa-phone-volume text-primary fa-xl mr-2 mb-4"></i> <br>
-                            +254 717 269 050
+                            +254 115 511 079
                         </a>
                     </div>
 

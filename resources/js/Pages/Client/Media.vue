@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
 import ClientLayout from '@/Layouts/ClientLayout.vue';
 import { onMounted, ref } from "vue";
 import axios from "axios";
@@ -28,8 +28,8 @@ const formatDate = (date) => {
 
 const detailsPage = (blog) => {
 
-    // router.post(route('blog-details'), )
-    console.log(blog)
+    router.post(route('blog.details', blog))
+    // console.log(blog)
 }
 
 </script>

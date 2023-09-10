@@ -32,7 +32,7 @@
                                 <div class="ml-5">
                                     <div class="">
                                         <h1 data-wow-duration="1s"  data-wow-delay="2s" class="wow animate__lightSpeedInLeft font-bold text-2xl leading-10 text-primary">Get Expert Advice</h1>
-                                        <h5 data-wow-duration="1s"  data-wow-delay="2.5s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-lg sm:text-2xl"> +254 717 269 050</h5>
+                                        <h5 data-wow-duration="1s"  data-wow-delay="2.5s" class="wow animate__lightSpeedInLeft font-bold leading-10 text-lg sm:text-2xl"> +254 115 511 079</h5>
                                     </div>
                                 </div>
                             </a>

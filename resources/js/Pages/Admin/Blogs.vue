@@ -4,7 +4,7 @@ import BlogList from '@/Components/Admin/BlogList.vue';
 import CreateBlog from '@/Components/Admin/CreateBlog.vue';
 import { ref } from "vue";
 
-const defaultView = ref(2);
+const defaultView = ref(1);
 
 const createPage = ()=>{
     defaultView.value = 2;

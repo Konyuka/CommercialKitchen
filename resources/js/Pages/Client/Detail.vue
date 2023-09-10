@@ -3,6 +3,10 @@ import { Head } from '@inertiajs/vue3';
 import ClientLayout from '@/Layouts/ClientLayout.vue';
 import Service from '@/Components/Client/Services.vue';
 
+const props = defineProps({
+    blog: Object,
+})
+
 </script>
 
 <template>
@@ -12,7 +16,7 @@ import Service from '@/Components/Client/Services.vue';
 
             <div class="bg-white">
                 <div aria-hidden="true" class="relative">
-                    <img src="/img/ck.jpg" alt="" class="h-96 w-full object-cover object-center">
+                    <img :src="blog.cover" alt="" class="h-96 w-full object-cover object-center">
                     <div class="absolute inset-0 bg-gradient-to-t from-white"></div>
                 </div>
 
@@ -21,7 +25,7 @@ import Service from '@/Components/Client/Services.vue';
                         <p class="font-semibold mb-4 text-2xl">Blog Details</p>
                         <h2 data-wow-duration="1.5"
                             class="wow animate__rubberBand text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                            Commercial Kitchen Equipment
+                            {{  blog.title }}
                         </h2>
                     </div>
 
@@ -37,34 +41,11 @@ import Service from '@/Components/Client/Services.vue';
 
 
                             <div class="mt-2 max-w-5xl">
-                                <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                                    semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus
-                                    viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat.
-                                    Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
-
-                                <p class="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et.
-                                    Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel.
-                                    Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor
-                                    et ut. Ac lorem vel integer orci.</p>
-
-                                <p class="mt-10">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim.
-                                    Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio
-                                    penatibus risus viverra tellus varius sit neque erat velit.</p>
+                                <p>
+                                    {{ blog.content }}
+                                </p>
                             </div>
-                            <figure class="mt-16">
-                                <img class="aspect-video rounded-xl bg-gray-50 object-cover"
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3"
-                                    alt="">
-                                <figcaption class="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-                                    <svg class="mt-0.5 h-5 w-5 flex-none text-gray-300" viewBox="0 0 20 20"
-                                        fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd"
-                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    Faucibus commodo massa rhoncus, volutpat.
-                                </figcaption>
-                            </figure>
+                            
                         </div>
                     </div>
 

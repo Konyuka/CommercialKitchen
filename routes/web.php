@@ -67,6 +67,7 @@ Route::middleware([
     Route::post('/add-category', [BlogController::class, 'addCategory'])->name('add.category');
     Route::post('/upload-image', [BlogController::class, 'uploadImage']);
     Route::post('/store-blog', [BlogController::class, 'storeBlog']);
+    Route::post('/blog-detail/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
 
 });
 

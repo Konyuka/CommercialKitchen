@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Categories;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
@@ -63,6 +63,16 @@ class BlogController extends Controller
 
         return back()->with('message', 'Blog saved successfully');
         
+    }
+
+    public function blogDetail($slug)
+    {
+
+        // $blog = Blog::where('id', $slug)->firstOrFail();
+        // dd($blog);
+        $blog = Blog::with('categories')->where('id', $slug)->firstOrFail();
+        return Inertia::render('Client/Detail', compact('blog'));
+
     }
 
 }
