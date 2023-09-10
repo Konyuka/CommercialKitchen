@@ -20,7 +20,7 @@ use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return Inertia::render('Client/Landing');
-});
+})->name('landing');
 Route::get('/commercial-kitchen-services', function () {
     return Inertia::render('Client/Service');
 })->name('services');

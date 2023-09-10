@@ -1,5 +1,5 @@
 <script setup>
-import { Link, usePage } from "@inertiajs/vue3";
+import { Link, usePage, router } from "@inertiajs/vue3";
 import { computed, ref, watch } from "vue";
 
 const currentRoute = computed(() => {
@@ -17,6 +17,10 @@ watch(message, (newX) => {
         launchToaster.value = true
     }
 })
+
+const logout = () => {
+    router.post(route('logout'));
+};
 
 </script>
 
@@ -209,10 +213,12 @@ watch(message, (newX) => {
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-black px-6">
                 <div class="my-10 flex h-16 shrink-0 items-center">
-                    <img class="h-16 w-auto" src="/img/logo.jpg" alt="Your Company">
+                    <Link :href="route('landing')">
+                        <img class="h-16 w-auto" src="/img/logo.jpg" alt="Your Company">
+                    </Link>
                 </div>
                 <nav class="flex flex-1 flex-col">
-                    <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                    <ul role="list" class="mb-2 flex flex-1 flex-col gap-y-7">
                         <li>
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li>
@@ -244,12 +250,11 @@ watch(message, (newX) => {
                         </li>
 
                         <li class="-mx-6 mt-auto">
-                            <a href="#"
-                                class="transform transition hover:scale-95 duration-700 ease-in-out flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-primary">
-                                <i class="fa-sharp fa-regular fa-power-off fa-2x text-primary"></i>
-                                <span class="sr-only">Your profile</span>
+                            <button @click="logout()"
+                                class="w-full group transform transition hover:scale-95 duration-700 ease-in-out flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-primary rounded-lg">
+                                <i class="fa-sharp fa-regular fa-power-off fa-2x text-primary group-hover:text-black"></i>
                                 <span aria-hidden="true">Sign Out</span>
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </nav>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -31,16 +32,10 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName); 
+            $image->move(public_path('blog_image'), $imageName);
         }
-
-        $imageUrl = asset('storage/images/' . $imageName); 
-        // return response()->json(['url' => $imageUrl]);
-        return response()->json(['url' => 'https://commercialkitchen.co.ke/img/concept.jpg']);
-
+        return response()->json(['url' => '/blog_image\/' . $imageName]);
     }
-    
-
    
     public function storeBlog(Request $request)
     {
@@ -55,19 +50,18 @@ class BlogController extends Controller
         if ($request->hasFile('cover')) {
             $image = $request->file('cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/covers', $imageName);
+            $request->cover->move(public_path('covers'), $imageName);
         }
 
-        $imageUrl = asset('storage/covers/' . $imageName);
-
-        // dd($imageUrl);
         Blog::create([
             'title' => $validated['title'],
-            'catgeory_id' => $request->category,
+            'category_id' => $request->category,
             'excerpt' => $validated['excerpt'],
-            'cover' => $imageUrl,
+            'cover' => '/covers\/' . $imageName,
             'content' => $validated['content'],
         ]);
+
+        return back()->with('message', 'Blog saved successfully');
         
     }
 

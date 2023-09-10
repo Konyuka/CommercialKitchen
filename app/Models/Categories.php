@@ -15,6 +15,6 @@ class Categories extends Model
 
     public function blog()
     {
-        return $this->belongsTo(Blog::class);
+        return $this->hasMany(Blog::class);
     }
 }

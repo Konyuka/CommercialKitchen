@@ -1,13 +1,20 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { computed, ref } from 'vue'
+
+const page = usePage();
 
 const currentRoute = computed(() => {
     const pathName = window.location.pathname;
     return pathName;
 })
 
+const hasAuth = computed(() => {
+    return page.props.auth.user ? true : false
+});
+
 const openMobileMenu = ref(false);
+
 
 
 </script>
@@ -17,6 +24,11 @@ const openMobileMenu = ref(false);
         <div class="max-w-screen-2xl flex-wrap hidden sm:flex justify-between mx-auto items-center px-4 pt-4">
 
             <div class="flex gap-2">
+
+                <Link :href="route('admin.dashboard')" v-if="hasAuth" type="button" data-wow-duration="3s"
+                    class="wow animate__zoomInDown border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Dashboard
+                </Link>
                 <!-- <button type="button"
                         data-wow-duration="3s"
                         class="wow animate__zoomInDown border-2 border-primary hover:bg-primary hover:text-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -30,11 +42,15 @@ const openMobileMenu = ref(false);
             </div>
 
             <div class="flex justify-between">
-                <a href="tel:+254717269050" class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md mr-10 wow animate__zoomInDown" data-wow-duration="2s">
+                <a href="tel:+254717269050"
+                    class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md mr-10 wow animate__zoomInDown"
+                    data-wow-duration="2s">
                     <i class="fas fa-phone-volume text-primary fa-xl mr-2"></i>
                     +254 717 269 050
                 </a>
-                <a href="tel:+254717269050" class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md wow animate__zoomInDown" data-wow-duration="2.5s">
+                <a href="tel:+254717269050"
+                    class="text-white tranform transition hover:scale-110 duration-700 ease-in-out text-md wow animate__zoomInDown"
+                    data-wow-duration="2.5s">
                     <i class="fas fa-envelope-dot text-primary fa-xl mr-2"></i>
                     info@commercialkitchen.co.ke
                 </a>
@@ -170,5 +186,4 @@ const openMobileMenu = ref(false);
                 </div>
             </div>
         </div>
-    </nav>
-</template>
+</nav></template>

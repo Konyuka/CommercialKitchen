@@ -14,13 +14,15 @@ class Blog extends Model
         'category_id',
         'excerpt',
         'cover',
-        'content'
+        'content',
+        'featured',
+        'published'
     ];
 
 
     public function categories()
     {
-        return $this->hasOne(Categories::class, 'category_id');
+        return $this->belongsTo(Categories::class, 'category_id');
     }
 
 }

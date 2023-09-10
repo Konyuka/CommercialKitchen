@@ -15,11 +15,14 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedBigInteger('category_id')->index();
+            // $table->unsignedBigInteger('category_id')->index();
+            $table->bigInteger('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('excerpt');
+            $table->longText('excerpt');
             $table->string('cover');
             $table->longText('content');
+            $table->boolean('featured')->default(false);
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

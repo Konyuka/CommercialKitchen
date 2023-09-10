@@ -71,17 +71,11 @@ const postBlog = () => {
         forceFormData: true,
         preserveState: true,
         onSuccess: () => {
-            alert('hi');
+            blog.reset();
+            imagePreview.value = null
+            uploadedImage.value = null
         }
     });
-
-    // await axios.post('/formSubmit', blog.cover, config)
-    //     .then(function (response) {
-    //         currentObj.success = response.data.success;
-    //     })
-    //     .catch(function (error) {
-    //         currentObj.output = error;
-    //     });
 
 }
 
@@ -135,9 +129,9 @@ onMounted(() => {
                 <div class="col-span-2">
                     <label for="email" class="block text-sm font-bold leading-6 text-black">Blog Title</label>
                     <div class="mt-2">
-                        <input v-model="blog.title" type="text" name="email" id="email"
+                        <input v-model="blog.title" type="text" name="text" id="text"
                             class="capitalize font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                            placeholder="Commercial Kitchen Tables">
+                        >
                         <div>
                         <p v-if="blog.errors.title" class="text-black mt-5 text-xs"><i
                                 class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
