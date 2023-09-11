@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/get-categories', [ApiController::class, 'getCategories'] );
 Route::get('/get-blogs', [ApiController::class, 'getBlog']);
+Route::get('/get-published-blogs', [ApiController::class, 'getPublishedBlog']);

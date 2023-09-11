@@ -5,9 +5,17 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
+
+const props = defineProps({
+    blogToEdit: Object
+})
 
 
+
+const emits = defineEmits([
+    'listBlogs'
+])
 
 const blog = useForm({
     title: null,
@@ -15,6 +23,19 @@ const blog = useForm({
     excerpt: null,
     cover: null,
     content: null,
+})
+
+watch(props.blogToEdit, (newX) => {
+    console.log()
+    alert('hi')
+    if (newX !== null) {
+        blog.title = props.blogToEdit;
+        // blog.title = newX.title;
+        blog.category = newX.category;
+        blog.excerpt = newX.excerpt;
+        blog.cover = newX.cover;
+        blog.content = newX.content;
+    }
 })
 
 const category = useForm({
@@ -58,6 +79,7 @@ const saveCategory = () => {
         onSuccess: () => {
             getCategories();
             category.reset();
+            categoryModal.value = false
         }
     })
 }
@@ -100,6 +122,17 @@ const getCategories = () => {
 
 onMounted(() => {
     getCategories()
+
+    if (props.blogToEdit !== null) {
+        alert('hi')
+        blog.title = props.blogToEdit;
+        // blog.title = newX.title;
+        blog.category = newX.category;
+        blog.excerpt = newX.excerpt;
+        blog.cover = newX.cover;
+        blog.content = newX.content;
+    }
+
 });
 
 </script>
@@ -113,7 +146,7 @@ onMounted(() => {
                     <h3 class="text-2xl font-semibold leading-6 text-gray-900">Create new blog</h3>
                 </div>
                 <div>
-                    <button type="button"
+                    <button @click="$emit('listBlogs')" type="button"
                         class="rounded bg-black hover:bg-primary px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         <i class="fas fa-arrow-left fa-xl mr-2 text-white"></i> Blog List
                     </button>
@@ -151,7 +184,8 @@ onMounted(() => {
                         </div>
                         <select v-model="blog.category" id="location" name="location"
                             class="font-semibold mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-black focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
-                            <option v-for="category in categoryList" :value="parseInt(category.id)">{{ category.name }}</option>
+                            <option v-if="categoryList.length" class="font-medium mb-2" v-for="category in categoryList" :value="parseInt(category.id)">{{ category.name }}</option>
+                            <option v-else class="font-semibold italic">Please add categories to  choose from</option>
                         </select>
                     </div>
 
@@ -167,7 +201,7 @@ onMounted(() => {
                     </label>
                     <div class="mt-2">
                         <textarea v-model="blog.excerpt" rows="4" name="comment" id="comment"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
+                            class="font-medium block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
                             <div>
                         <p v-if="blog.errors.excerpt" class="text-black mt-5 text-xs"><i
                                 class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
@@ -232,9 +266,13 @@ onMounted(() => {
 
 
             <div class="mt-40">
-                <button @click="postBlog" type="button"
+                <button v-if="blogToEdit==null" @click="postBlog" type="button"
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Publish blog <i class="fas fa-check"></i>
+                    Save blog <i class="fas fa-check"></i>
+                </button>
+                <button v-else @click="postBlog" type="button"
+                    class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Update blog <i class="fas fa-check"></i>
                 </button>
             </div>
 
@@ -264,7 +302,7 @@ onMounted(() => {
                                         <label for="email" class="sr-only">Email</label>
                                         <input v-model="category.name" type="text" name="text" id="text"
                                             class="py-2 capitalize text-center font-bold block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                                            placeholder="Stainless Steel">
+                                        >
                                         <div>
                                             <p v-if="category.errors.name" class="text-black mt-5 text-xs"><i
                                                     class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>

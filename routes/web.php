@@ -67,7 +67,9 @@ Route::middleware([
     Route::post('/add-category', [BlogController::class, 'addCategory'])->name('add.category');
     Route::post('/upload-image', [BlogController::class, 'uploadImage']);
     Route::post('/store-blog', [BlogController::class, 'storeBlog']);
-    Route::post('/blog-detail/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
+    Route::post('/commercial-kitchen-blog/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
+    Route::post('/publish/{slug}', [BlogController::class, 'publishBlog'])->name('publish.blog');
+    Route::post('/feature/{slug}', [BlogController::class, 'featureBlog'])->name('feature.blog');
 
 });
 

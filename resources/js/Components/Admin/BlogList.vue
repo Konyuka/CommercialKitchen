@@ -1,7 +1,44 @@
 <script setup>
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import moment from "moment";
+
+const props = defineProps({
+    blogs: Array
+})  
+
+
+
 const emits = defineEmits([
-    'createBlog'
+    'createBlog',
+    'publishBlog',
+    'featureBlog',
+    'editBlog'
 ]);
+
+
+const publishClass = (blogStatus) => {
+    if (blogStatus == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const featureClass = (blogStatus) => {
+    if (blogStatus == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const formatDate = (date) => {
+    return moment(date).format("MMM Do YY, h:mm a");
+}
+
+const deleteBlog = (blog) => {}
+
 </script>
 
 <template>
@@ -11,7 +48,7 @@ const emits = defineEmits([
             <div class="mt-3 sm:ml-4 sm:mt-0">
                 <button @click="$emit('createBlog')" type="button"
                     class="inline-flex items-center rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Create Blog
+                    <i class="fas fa-add fa-xl mr-2 text-white"></i> Create Blog
                 </button>
             </div>
         </div>
@@ -30,7 +67,10 @@ const emits = defineEmits([
                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
                                 Blog Details</th>
                             <th scope="col"
-                                class="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell">
+                                class="hidden px-1 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell">
+                                Published</th>
+                            <th scope="col"
+                                class="hidden px-1 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell">
                                 Featured</th>
                             <th scope="col"
                                 class="hidden px-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell">Date
@@ -41,28 +81,38 @@ const emits = defineEmits([
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-b border-gray-200">
+                        <tr v-for="(blog, index) in blogs" :key="blog.id" class="border-b border-gray-200">
                             <td class="max-w-0 py-5 pl-4 pr-3 text-sm sm:pl-0">
-                                <div class="font-semibold text-gray-900">Logo redesign</div>
-                                <div class="mt-1 truncate text-gray-500">New logo and digital asset playbook.</div>
+                                <div class="font-semibold text-gray-900">{{ blog.title }}</div>
+                                <div class="mt-1 truncate text-gray-500">{{ blog.excerpt }}</div>
                             </td>
-                            <td class="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">
-                                <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
-                                <button type="button"
-                                    class="bg-black relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                            <td class="hidden px-1 py-5 text-right text-sm text-gray-500 sm:table-cell">
+                                <button @click="$emit('publishBlog', blog.id)" type="button"
+                                    :class="[publishClass(blog.published) ? 'bg-primary' : 'bg-black']"
+                                    class=" relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
                                     role="switch" aria-checked="false">
-                                    <span class="sr-only">Use setting</span>
-                                    <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
                                     <span aria-hidden="true"
+                                        :class="[publishClass(blog.published) ? 'translate-x-5' : 'translate-x-0']"
+                                        class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                                </button>
+                            </td>
+                            <td class="hidden px-1 py-5 text-right text-sm text-gray-500 sm:table-cell">
+                                <button @click="$emit('featureBlog', blog.id)" type="button"
+                                    :class="[featureClass(blog.featured) ? 'bg-primary' : 'bg-black']"
+                                    class="bg-black relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                                    role="switch" aria-checked="false">
+                                    <span aria-hidden="true"
+                                        :class="[featureClass(blog.featured) ? 'translate-x-5' : 'translate-x-0']"
                                         class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
                                 </button>
 
                             </td>
-                            <td class="hidden px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">28th July 11:30 hrs</td>
+                            <td class="hidden font-medium px-3 py-5 text-right text-sm text-gray-500 sm:table-cell">{{
+                                formatDate(blog.created_at) }}</td>
                             <td class="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                 <div>
-                                    <i class="fas fa-edit text-black fa-xl hover:text-primary mr-5"></i>
-                                    <i class="fas fa-trash text-black fa-xl hover:text-primary"></i>
+                                    <i @click="$emit('editBlog', blog)" class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-edit text-black fa-xl hover:text-primary mr-2"></i>
+                                    <i @click="deleteBlog(blog)" class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-trash text-black fa-xl hover:text-primary"></i>
                                 </div>
                             </td>
                         </tr>
@@ -75,4 +125,5 @@ const emits = defineEmits([
         </div>
 
 
-</div></template>
+    </div>
+</template>

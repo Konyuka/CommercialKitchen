@@ -12,9 +12,8 @@ onMounted(() => {
 const blogs = ref(null)
 
 const getBlog = () => {
-    axios.get('/api/get-blogs')
+    axios.get('/api/get-published-blogs')
         .then((res) => {
-            // console.log(res.data)
             blogs.value = res.data
         })
         .catch((err) => {
@@ -27,9 +26,15 @@ const formatDate = (date) => {
 }
 
 const detailsPage = (blog) => {
+    const title = blog.title;
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const trimmedSlug = slug.replace(/^-+|-+$/g, '');
+    const finalSlug = trimmedSlug.replace(/-{2,}/g, '-');
 
-    router.post(route('blog.details', blog))
-    // console.log(blog)
+
+    router.post(route('blog.details', finalSlug), {
+        blogId: blog.id
+    })
 }
 
 </script>
@@ -150,7 +155,7 @@ const detailsPage = (blog) => {
                         v-else
                         class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
-                        <article @click="detailsPage(blog.id)" v-for="(blog) in blogs"
+                        <article @click="detailsPage(blog)" v-for="(blog) in blogs"
                             class="transform transition hover:scale-95 duration-700 ease-in-out hover:cursor-pointer flex flex-col items-start justify-between">
                             <div class="relative w-full">
                                 <img :src="blog.cover" alt=""

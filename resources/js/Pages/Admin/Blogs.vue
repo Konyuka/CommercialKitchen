@@ -2,19 +2,68 @@
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import BlogList from '@/Components/Admin/BlogList.vue';
 import CreateBlog from '@/Components/Admin/CreateBlog.vue';
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
+import axios from 'axios';
+
+
+onMounted(() => {
+    getBlogs();
+})
 
 const defaultView = ref(1);
+const blogs = ref([]);
+const blogToEdit = ref(null);
+watch(blogToEdit, (newX) => {
+    if(newX){
+        defaultView.value = 2
+    }
+})
 
-const createPage = ()=>{
+const createPage = () => {
+    blogToEdit.value = null
     defaultView.value = 2;
 }
+const listPage = () => {
+    defaultView.value = 1;
+    getBlogs();
+}
 
+const publishBlog = (blog) => {
+    
+    axios.post(route('publish.blog', blog))
+    .then((res)=>{
+        getBlogs();
+    })
+}
+
+const featureBlog = (blog) => {
+    
+    axios.post(route('feature.blog', blog))
+    .then((res)=>{
+        getBlogs();
+    })
+}
+
+const editBlog = (blog) => { 
+    blogToEdit.value = blog
+}
+
+
+
+const getBlogs = () => {
+    axios.get('/api/get-blogs')
+        .then((res) => {
+            blogs.value = res.data;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 </script>
 
 <template>
     <AdminLayout>
-        <BlogList v-show="defaultView==1" @createBlog="createPage" />
-        <CreateBlog v-show="defaultView == 2" />
+        <BlogList :blogs="blogs" v-show="defaultView == 1" @createBlog="createPage" @publishBlog="publishBlog" @featureBlog="featureBlog" @editBlog="editBlog" />
+        <CreateBlog :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage" />
     </AdminLayout>
 </template>

@@ -18,5 +18,10 @@ class ApiController extends Controller
         return Blog::with('categories')->get();
     }
 
+    public function getPublishedBlog()
+    {
+        return Blog::where('published', true)->with('categories')->get();
+    }
+
     
 }

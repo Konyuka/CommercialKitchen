@@ -9,7 +9,8 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
-    public function addCategory(Request $request){
+    public function addCategory(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required|unique:categories'
         ], [
@@ -23,8 +24,9 @@ class BlogController extends Controller
         return back()->with('message', 'Category created successfully');
     }
 
-    public function uploadImage(Request $request){
-        
+    public function uploadImage(Request $request)
+    {
+
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -36,7 +38,7 @@ class BlogController extends Controller
         }
         return response()->json(['url' => '/blog_image\/' . $imageName]);
     }
-   
+
     public function storeBlog(Request $request)
     {
 
@@ -62,16 +64,46 @@ class BlogController extends Controller
         ]);
 
         return back()->with('message', 'Blog saved successfully');
-        
+
     }
 
-    public function blogDetail($slug)
+    public function blogDetail(Request $request)
     {
-
-        // $blog = Blog::where('id', $slug)->firstOrFail();
-        // dd($blog);
-        $blog = Blog::with('categories')->where('id', $slug)->firstOrFail();
+        $blogId = $request->blogId;
+        $blog = Blog::with('categories')->where('id', $blogId)->firstOrFail();
         return Inertia::render('Client/Detail', compact('blog'));
+
+    }
+
+    public function publishBlog($slug)
+    {
+        $blog = Blog::where('id', $slug)->first();
+
+        if ($blog->published) {
+            $blog->published = false;
+        } else {
+            $blog->published = true;
+        }
+
+        $blog->save();
+
+        return back()->with('message', 'Blog published successfully');
+
+    }
+
+    public function featureBlog($slug)
+    {
+        $blog = Blog::where('id', $slug)->first();
+
+        if ($blog->featured) {
+            $blog->featured = false;
+        } else {
+            $blog->featured = true;
+        }
+
+        $blog->save();
+
+        return back()->with('message', 'Blog published successfully');
 
     }
 

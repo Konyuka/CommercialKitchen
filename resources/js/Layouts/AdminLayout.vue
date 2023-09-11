@@ -223,7 +223,7 @@ const logout = () => {
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li>
                                     <Link :href="route('admin.dashboard')"
-                                        :class="[currentRoute == '/admin-dashboard' ? 'text-primary' : 'text-white']"
+                                        :class="[currentRoute == '/dashboard' ? 'text-primary' : 'text-white']"
                                         class="hover:text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                     <i class="fab fa-product-hunt fa-2xl mt-2 group-hover:text-white"></i>
                                     Dashboard
