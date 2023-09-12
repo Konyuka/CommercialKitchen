@@ -29,6 +29,9 @@ class LeadController extends Controller
     public function importLeads(Request $request)
     {
         dd($request);
+        $file = $request->file('file');
+        Excel::import(new ExcelImport, $file);
+        return response()->json(['message' => 'Import successful']);
     }
 
     /**
