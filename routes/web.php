@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LeadController;
 
 
 /*
@@ -60,6 +61,10 @@ Route::middleware([
         return Inertia::render('Admin/Blogs');
     })->name('admin.blogs');
 
+    Route::get('/admin-leads', function () {
+        return Inertia::render('Admin/Leads');
+    })->name('admin.leads');
+
     Route::get('/admin-products', function () {
         return Inertia::render('Admin/Products');
     })->name('admin.products');
@@ -72,6 +77,9 @@ Route::middleware([
     Route::post('/publish/{slug}', [BlogController::class, 'publishBlog'])->name('publish.blog');
     Route::post('/feature/{slug}', [BlogController::class, 'featureBlog'])->name('feature.blog');
     Route::delete('/delete-blog/{slug}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
+
+    Route::post('/import-leads', [LeadController::class, 'importLeads'])->name('import.leads');
+
 
 });
 

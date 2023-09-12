@@ -245,6 +245,14 @@ const logout = () => {
                                     Blogs
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link :href="route('admin.leads')"
+                                        :class="[currentRoute == '/admin-leads' ? 'text-primary' : 'text-white']"
+                                        class="hover:text-white hover:bg-primary group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                    <i class="fab fa-product-hunt fa-2xl mt-2 group-hover:text-white"></i>
+                                    Leads
+                                    </Link>
+                                </li>
 
                             </ul>
                         </li>
