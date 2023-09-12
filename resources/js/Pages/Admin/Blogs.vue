@@ -2,8 +2,10 @@
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import BlogList from '@/Components/Admin/BlogList.vue';
 import CreateBlog from '@/Components/Admin/CreateBlog.vue';
+import ImportBlogs from '@/Components/Admin/ImportBlogs.vue';
 import { ref, onMounted, watch } from "vue";
 import axios from 'axios';
+import { router } from '@inertiajs/vue3';
 
 
 onMounted(() => {
@@ -15,10 +17,13 @@ const blogs = ref([]);
 const blogToEdit = ref(null);
 watch(blogToEdit, (newX) => {
     if(newX){
-        defaultView.value = 2
+        defaultView.value = 3 
     }
 })
 
+const importBlogs = () => {
+    defaultView.value = 3;
+}
 const createPage = () => {
     blogToEdit.value = null
     defaultView.value = 2;
@@ -37,7 +42,6 @@ const publishBlog = (blog) => {
 }
 
 const featureBlog = (blog) => {
-    
     axios.post(route('feature.blog', blog))
     .then((res)=>{
         getBlogs();
@@ -63,7 +67,8 @@ const getBlogs = () => {
 
 <template>
     <AdminLayout>
-        <BlogList :blogs="blogs" v-show="defaultView == 1" @createBlog="createPage" @publishBlog="publishBlog" @featureBlog="featureBlog" @editBlog="editBlog" />
+        <BlogList :blogs="blogs" v-show="defaultView == 1" @createBlog="createPage" @importBlog="importBlogs" @publishBlog="publishBlog" @featureBlog="featureBlog" @editBlog="editBlog" @getBlogs="getBlogs" />
         <CreateBlog :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage" />
+        <ImportBlogs  v-show="defaultView == 3" />
     </AdminLayout>
 </template>

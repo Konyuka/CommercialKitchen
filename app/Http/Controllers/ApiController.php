@@ -13,7 +13,7 @@ class ApiController extends Controller
         return Categories::orderBy('name')->get();
     }
 
-    public function getBlog()
+    public function getBlog() 
     {
         return Blog::with('categories')->get();
     }
@@ -22,6 +22,5 @@ class ApiController extends Controller
     {
         return Blog::where('published', true)->with('categories')->get();
     }
-
     
 }

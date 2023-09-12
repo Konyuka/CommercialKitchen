@@ -5,16 +5,15 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, toRef } from "vue";
 
 const props = defineProps({
     blogToEdit: Object
 })
 
-
-
-const emits = defineEmits([
-    'listBlogs'
+const emit = defineEmits([
+    'listBlogs',
+    'update:content'
 ])
 
 const blog = useForm({
@@ -25,16 +24,20 @@ const blog = useForm({
     content: null,
 })
 
-watch(props.blogToEdit, (newX) => {
-    console.log()
-    alert('hi')
+watch(toRef(() => props.blogToEdit), (newX) => {
     if (newX !== null) {
-        blog.title = props.blogToEdit;
-        // blog.title = newX.title;
-        blog.category = newX.category;
+        blog.title = newX.title;
+        blog.category = newX.category_id;
         blog.excerpt = newX.excerpt;
         blog.cover = newX.cover;
         blog.content = newX.content;
+    }else{
+        blog.reset();
+        var element = document.getElementsByClassName("ql-editor");
+        element[0].innerHTML = "";
+        uploadedImage.value = null;
+        imagePreview.value = null;
+        showPreview.value = false;
     }
 })
 
@@ -84,10 +87,6 @@ const saveCategory = () => {
     })
 }
 
-const pop = ({ quill, html, text }) => {
-    // console.log(blog.content);
-};
-
 const postBlog = () => {
     blog.post('/store-blog', {
         forceFormData: true,
@@ -96,6 +95,22 @@ const postBlog = () => {
             blog.reset();
             imagePreview.value = null
             uploadedImage.value = null
+        }
+    });
+
+}
+
+const updateBlog = () => {
+    blog.post(route('update.blog', props.blogToEdit.id), {
+        forceFormData: true,
+        preserveState: true,
+        onSuccess: () => {
+            blog.reset();
+            imagePreview.value = null;
+            uploadedImage.value = null;
+            showPreview.value = false;
+            var element = document.getElementsByClassName("ql-editor");
+            element[0].innerHTML = "";
         }
     });
 
@@ -122,17 +137,6 @@ const getCategories = () => {
 
 onMounted(() => {
     getCategories()
-
-    if (props.blogToEdit !== null) {
-        alert('hi')
-        blog.title = props.blogToEdit;
-        // blog.title = newX.title;
-        blog.category = newX.category;
-        blog.excerpt = newX.excerpt;
-        blog.cover = newX.cover;
-        blog.content = newX.content;
-    }
-
 });
 
 </script>
@@ -252,10 +256,13 @@ onMounted(() => {
             <div class="my-10">
                 <img :src="imagePreview" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg"
                     v-show="showPreview" />
+                <img :src="blog.cover" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg"
+                    v-show="blogToEdit!=null && uploadedImage==null" />
             </div>
+            
 
             <div class="mt-10 h-screen">
-                <QuillEditor @textChange="pop" v-model:content="blog.content" :modules="modules" toolbar="full" theme="snow"
+                <QuillEditor class="ql-editor" ref="quillEditor" v-model:content="blog.content" :modules="modules" toolbar="full" theme="snow"
                     contentType="html" />
                 <div>
                     <p v-if="blog.errors.content" class="text-black mt-5 text-xs"><i
@@ -270,7 +277,7 @@ onMounted(() => {
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Save blog <i class="fas fa-check"></i>
                 </button>
-                <button v-else @click="postBlog" type="button"
+                <button v-else @click="updateBlog" type="button"
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Update blog <i class="fas fa-check"></i>
                 </button>

@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
-    public function addCategory(Request $request)
+    public function addCategory(Request $request) 
     {
         $validated = $request->validate([
             'name' => 'required|unique:categories'
@@ -41,7 +41,6 @@ class BlogController extends Controller
 
     public function storeBlog(Request $request)
     {
-
         $validated = $request->validate([
             'title' => 'required',
             'excerpt' => 'required',
@@ -64,6 +63,33 @@ class BlogController extends Controller
         ]);
 
         return back()->with('message', 'Blog saved successfully');
+
+    }
+
+    public function updateBlog(Request $request, $slug)
+    {
+        $validated = $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'content' => 'required',
+        ]);
+
+        $blog = Blog::find($slug);
+        $blog->title = $validated['title'];
+        $blog->category_id = $request->category;
+        $blog->excerpt = $validated['excerpt'];
+        $blog->content = $validated['content'];
+
+        if ($request->hasFile('cover')) {
+            $image = $request->file('cover');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $request->cover->move(public_path('covers'), $imageName);
+            $blog->cover = '/covers\/' . $imageName;
+        }
+
+        $blog->save();
+
+        return back()->with('message', 'Blog updated successfully');
 
     }
 
@@ -105,6 +131,13 @@ class BlogController extends Controller
 
         return back()->with('message', 'Blog published successfully');
 
+    }
+
+    public function deleteBlog($slug)
+    {
+        $blog = Blog::find($slug);
+        $blog->delete();
+        return back()->with('message', 'Blog deleted successfully');
     }
 
 }

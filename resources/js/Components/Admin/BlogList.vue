@@ -1,19 +1,23 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import { router } from "@inertiajs/vue3";
 import axios from "axios";
 import moment from "moment";
 
 const props = defineProps({
     blogs: Array
-})  
+})
 
-
+const blogToDelete = ref(null)
+const deleteModal = ref(false)
 
 const emits = defineEmits([
     'createBlog',
     'publishBlog',
     'featureBlog',
-    'editBlog'
+    'editBlog',
+    'getBlogs',
+    'importBlogs'
 ]);
 
 
@@ -37,7 +41,21 @@ const formatDate = (date) => {
     return moment(date).format("MMM Do YY, h:mm a");
 }
 
-const deleteBlog = (blog) => {}
+const deleteBlog = (blog) => {
+    blogToDelete.value = blog;
+    deleteModal.value = true;
+}
+
+const confirmDelete = () => {
+    // console.log(blogToDelete.id)
+    router.delete(route('delete.blog', blogToDelete.value.id), {
+        onSuccess: () => {
+            emits('getBlogs')
+            deleteModal.value = false;
+        }
+    });
+}
+
 
 </script>
 
@@ -45,10 +63,16 @@ const deleteBlog = (blog) => {}
     <div>
         <div class="border-b border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
             <h3 class="text-2xl font-semibold leading-6 text-gray-900">Blog List</h3>
-            <div class="mt-3 sm:ml-4 sm:mt-0">
+            <div class="mt-3 sm:ml-4 sm:mt-0 gap-5 flex">
                 <button @click="$emit('createBlog')" type="button"
                     class="inline-flex items-center rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     <i class="fas fa-add fa-xl mr-2 text-white"></i> Create Blog
+                </button>
+
+                <button @click="$emit('importBlogs')" type="button"
+                    class=" inline-flex items-center rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <i class="fa-solid fa-cloud-arrow-up fa-xl mr-2 text-white"></i>
+                    Import Blogs
                 </button>
             </div>
         </div>
@@ -111,8 +135,10 @@ const deleteBlog = (blog) => {}
                                 formatDate(blog.created_at) }}</td>
                             <td class="py-5 pl-3 pr-4 text-right text-sm text-gray-500 sm:pr-0">
                                 <div>
-                                    <i @click="$emit('editBlog', blog)" class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-edit text-black fa-xl hover:text-primary mr-2"></i>
-                                    <i @click="deleteBlog(blog)" class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-trash text-black fa-xl hover:text-primary"></i>
+                                    <i @click="$emit('editBlog', blog)"
+                                        class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-edit text-black fa-xl hover:text-primary mr-2"></i>
+                                    <i @click="deleteBlog(blog)"
+                                        class="transform transtion hover:scale-125 duration-600 hover:cursor-pointer ease-in-out fas fa-trash text-black fa-xl hover:text-primary"></i>
                                 </div>
                             </td>
                         </tr>
@@ -123,6 +149,47 @@ const deleteBlog = (blog) => {}
                 </table>
             </div>
         </div>
+
+
+        <!-- Modals -->
+        <div v-if="deleteModal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"></div>
+
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+                    <div
+                        class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                        <div>
+                            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                                <i class="fa-solid fa-trash-can-clock fa-2x text-primary"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-5">
+                                <h3 class="text-sm font-medium leading-6 text-gray-900" id="modal-title">
+                                    Are you sure you want to delete this blog?
+                                </h3>
+                                <div class="mt-2">
+                                    <p class="text-md text-black font-semibold">
+                                        {{ blogToDelete.title }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
+                            <button @click="confirmDelete()" type="button"
+                                class="inline-flex w-full justify-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2">
+                                Confirm
+                            </button>
+                            <button @click="deleteModal = !deleteModal" type="button"
+                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-black hover:text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-black sm:col-start-1 sm:mt-0">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </div>
