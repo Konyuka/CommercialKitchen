@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Lead;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportLead;
+use Illuminate\Support\Facades\DB;
+
 
 class LeadController extends Controller
 {
@@ -28,10 +32,29 @@ class LeadController extends Controller
      */
     public function importLeads(Request $request)
     {
-        dd($request);
-        $file = $request->file('file');
-        Excel::import(new ExcelImport, $file);
-        return response()->json(['message' => 'Import successful']);
+
+        // $file = $request->file();
+        // dd($file);
+
+        Excel::import(new ImportLead, $request->file('file')->store('files'));
+
+        $duplicateLeads = Lead::select('lead_id')
+            ->groupBy('lead_id')
+            ->havingRaw('COUNT(*) > 1')
+            ->pluck('lead_id');
+
+        foreach ($duplicateLeads as $duplicateLead) {
+            $leadId = $duplicateLead;
+            $duplicates = Lead::where('lead_id', $leadId)->get();
+
+            $duplicates->shift();
+            foreach ($duplicates as $duplicate) {
+                $duplicate->delete();
+            }
+        }
+        DB::statement('OPTIMIZE TABLE leads');   
+        return back()->with('message', 'Leads imported succesfully');
+        
     }
 
     /**

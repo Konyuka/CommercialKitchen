@@ -3,7 +3,7 @@ import { router } from "@inertiajs/vue3";
 import axios from "axios"
 import { ref } from "vue";
 
-const emit = defineProps([
+const emit = defineEmits([
     'close'
 ])
 
@@ -12,25 +12,19 @@ const excelFile = ref(null);
 const uploadData = (event) => {
     let formData = new FormData();
     formData.append('file', event.target.files[0]);
-
+    excelFile.value = formData;
 };
 
 const letsLead = () => {
 
-    router.post(route('import.leads'), excelFile.value, {
-        onSuccess: () => {
-            alert('done')
+
+    router.post(route('import.leads'), excelFile.value,  {
+       
+        onSuccess: () => { 
+            emit('close')
         }
     });
 
-
-    // axios.post(route('import-lead-file'), excelFile)
-    //     .then(response => {
-    //         console.log(response.data.message);
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     });
 }
 
 
@@ -99,6 +93,7 @@ const letsLead = () => {
                                 Cancel
                             </button>
                         </div>
+
                     </div>
                 </div>
             </div>
