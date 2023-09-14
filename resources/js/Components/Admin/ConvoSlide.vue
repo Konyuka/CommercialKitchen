@@ -1,8 +1,44 @@
 <script setup>
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+import { useForm } from "@inertiajs/vue3";
+import { computed } from 'vue';
+import moment from "moment";
+
+const props = defineProps({
+    leadData: Object
+})
+
+const parsedMessage = computed(()=>{
+    return JSON.parse(props.leadData.notes);
+});
 
 const emit = defineEmits([
     'close'
 ])
+
+const convo = useForm({
+    notes:{
+        message:null,
+        logged_at: Date.now()
+    },
+    call_date:null,
+})
+
+const submitConvo = () => {
+    convo.post(route('save.convo', props.leadData.id), {
+        onSuccess: () => {
+            emit('close')
+        }
+    });
+}
+
+const formatDate = (date) => {
+    return moment(date).format("llll");
+}
+
+
+
 </script>
 
 <template>
@@ -17,7 +53,7 @@ const emit = defineEmits([
                     <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
 
                         <div class="pointer-events-auto w-screen max-w-2xl">
-                            <form class=" flex h-full flex-col overflow-y-hidden bg-black shadow-xl">
+                            <form class=" flex h-full flex-col overflow-y-auto bg-black shadow-xl">
                                 <div class="flex-1">
                                     <!-- Header -->
                                     <div class="bg-gray-50 px-4 py-6 sm:px-6">
@@ -56,7 +92,7 @@ const emit = defineEmits([
                                                     notes</label>
                                             </div>
                                             <div class="relative sm:col-span-3">
-                                                <textarea id="project-description" name="project-description" rows="3"
+                                                <textarea v-model="convo.notes.message" id="project-description" name="project-description" rows="3"
                                                     class="block w-full border-0 py-1.5 text-black font-semibold italic shadow-sm ring-1 ring-inset ring-black placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
 
                                             </div>
@@ -65,43 +101,53 @@ const emit = defineEmits([
 
                                         <!-- Project name -->
                                         <div
-                                            class="relative space-y-2 px-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-2">
+                                            class="space-y-2 px-4 sm:grid sm:grid-cols-4 sm:gap-4 sm:space-y-0 sm:px-6 sm:pb-5">
                                             <div>
+
+                                            </div>
+                                            <div class="sm:col-span-3">
                                                 <label for="project-name"
-                                                    class="block text-sm font-medium leading-6 text-white sm:mt-1.5">
+                                                    class="mb-2 block text-sm font-medium leading-6 text-white sm:mt-1.5">
                                                     Next Call Date
                                                 </label>
-                                                <input type="text" name="project-name" id="project-name"
-                                                    class="mt-2 block w-full  border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                            </div>
-                                            <div>
-                                                <button type="button"
-                                                    class="absolute right-7 mt-9 rounded bg-white px-3 py-2 text-sm font-semibold text-black shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                                    Log Lead Conversation
-                                                </button>
+
+                                                <VueDatePicker v-model="convo.call_date" ></VueDatePicker>
+                                                <div>
+                                                    <button @click="submitConvo()" type="button"
+                                                        class=" right-7 mt-9 rounded bg-white px-3 py-2 text-sm font-semibold text-black shadow-sm ring-1 ring-inset ring-black hover:bg-primary">
+                                                        Save Update
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="bg-white ">
+                                        <div class="bg-white h-full overflow-y-scroll">
                                             <div
                                                 class="mx-auto max-w-7xl divide-y divide-gray-900/10 px-6 py-6">
                                                 <h2 class="text-xl font-bold leading-10 tracking-tight text-gray-900">
                                                     Previous Notes</h2>
-                                                <dl class="min-h- overflow-y-scroll  mt-10 space-y-8 divide-y divide-gray-900/10">
-                                                    <div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
+
+                                                <dl v-if="leadData.notes != null" class="space-y-2 divide-y divide-gray-900/10">
+
+                                                    <div v-for="message in parsedMessage " class="pt-2 lg:grid lg:grid-cols-12 lg:gap-4">
                                                         <dt
-                                                            class="text-base font-semibold leading-7 text-gray-900 lg:col-span-5">
-                                                            What&#039;s the best thing about Switzerland?</dt>
+                                                            class="text-sm font-semibold leading-7 text-gray-900 lg:col-span-5">
+                                                            {{ formatDate(message?.logged_at) }}
+                                                        </dt>
                                                         <dd class="mt-4 lg:col-span-7 lg:mt-0">
-                                                            <p class="text-base leading-7 text-gray-600">I don&#039;t know,
-                                                                but the flag is a big plus. Lorem ipsum dolor sit amet
-                                                                consectetur adipisicing elit. Quas cupiditate laboriosam
-                                                                fugiat.</p>
+                                                            <p class="text-xs leading-7 text-black">
+                                                                {{ message?.message }}
+                                                            </p>
                                                         </dd>
                                                     </div>
 
-                                                    <!-- More questions... -->
                                                 </dl>
+
+                                                <div v-else class="h-full w-full flex justify-around">
+                                                    <P class="my-28 font-semibold">There are no notes for this lead</P>
+                                                </div>
+
+
                                             </div>
                                         </div>
 

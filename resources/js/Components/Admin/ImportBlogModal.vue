@@ -1,12 +1,12 @@
 <script setup>
 // import mericanBlogs from "@/JsonBlogs/mericanblogs.json";
-import { useForm } from "@inertiajs/vue3";
+import { useForm, router } from "@inertiajs/vue3";
 import axios from "axios"
 import { ref } from "vue";
 
-const emit = defineProps([
+const emit = defineEmits([
     'close'
-])
+]);
 
 
 const websiteName = ref(null);
@@ -19,26 +19,29 @@ const uploadData = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
         const jsonData = JSON.parse(reader.result);
-        for (let index = 0; index < jsonData.length; index++) {
+        for (let index = 0; index < jsonData.length; index++) { 
             const element = jsonData[index];
             const dataObject = {
-                link: element.link,
                 title: element.title.rendered,
-                content: element.content.rendered,
                 excerpt: element.excerpt.rendered,
+                content: element.content.rendered,
+                link: element.link,
             }
             blogsData.value.push(dataObject);
         }
     };
     reader.readAsText(jsonFile);
-
-
 };
 
 const scrapBlogs = () => {
-
     if(websiteName.value != null && websiteFile.value != null){
-
+        router.post(route('add.imported.blogs'), {
+            data: blogsData.value,
+            websiteName: websiteName.value, 
+            onSuccess: () => {
+                emit('close');
+            } 
+        });
     }else{
         alert('Populate everything my friend...ala...😏')
     }

@@ -11,30 +11,8 @@ use Illuminate\Support\Facades\DB;
 
 class LeadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function importLeads(Request $request)
     {
-
-        // $file = $request->file();
-        // dd($file);
 
         Excel::import(new ImportLead, $request->file('file')->store('files'));
 
@@ -57,35 +35,24 @@ class LeadController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Lead $lead)
+    
+    public function saveConvo(Request $request, $id)
     {
-        //
+        $lead = Lead::where('id', $id)->first();
+
+        $newNotesArray = [];
+        $exisitingNotes = json_decode($lead->notes);
+        array_push($newNotesArray, $exisitingNotes);
+        $newNotes = $request->notes;
+        $json = json_encode($newNotes);
+        $noteObject = json_decode($json);
+        array_push($newNotesArray, $noteObject);
+
+        $lead->notes = $newNotesArray;
+        $lead->call_date = $request->call_date;
+        $lead->save();
+        
+        return back()->with('message', 'Conversation notes logged successfully');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Lead $lead)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Lead $lead)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Lead $lead)
-    {
-        //
-    }
 }

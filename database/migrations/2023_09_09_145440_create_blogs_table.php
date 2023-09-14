@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            // $table->unsignedBigInteger('category_id')->index();
             $table->bigInteger('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->longText('excerpt');

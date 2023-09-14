@@ -2,7 +2,11 @@
 import { ref } from "vue";
 import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
 
-const addBlogFeedModal = ref(false);
+const addBlogFeedModal = ref(false); 
+
+const closeBlogModal = () => {
+    addBlogFeedModal.value = false;
+}
 
 </script>
 
@@ -70,7 +74,7 @@ const addBlogFeedModal = ref(false);
         </div>
 
         <!-- Modals -->
-        <ImportBlogModal v-if="addBlogFeedModal" @close="addBlogFeedModal=!addBlogFeedModal" />
+        <ImportBlogModal v-if="addBlogFeedModal" @close="closeBlogModal" />
 
     </div>
 </template>

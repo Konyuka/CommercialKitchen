@@ -11,7 +11,7 @@ const props = defineProps({
 const blogToDelete = ref(null)
 const deleteModal = ref(false)
 
-const emits = defineEmits([
+const emits = defineEmits([ 
     'createBlog',
     'publishBlog',
     'featureBlog',

@@ -29,5 +29,6 @@ class Lead extends Model
         'location',
         'notes',
         'probability',
+        'call_date',
     ];
 }

@@ -30,8 +30,9 @@ return new class extends Migration
             $table->string('phone_number')->default(null);
             $table->string('email')->default(null);
             $table->string('location')->nullable();
-            $table->string('notes')->nullable();
+            $table->json('notes')->nullable();
             $table->integer('probability')->nullable();
+            $table->string('call_date')->nullable();
             $table->timestamps();
         });
     }

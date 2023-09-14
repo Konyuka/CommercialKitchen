@@ -28,5 +28,29 @@ class ApiController extends Controller
     {
         return Lead::orderBy('created_time')->get(); 
     }
+
+    public function updateProbability(Request $request, $id)
+    {
+        $lead = Lead::where('id', $id)->first();
+        $lead->probability = $request->value;
+        $lead->save();
+        return back();
+    }
+
+    public function updateLocation(Request $request, $id)
+    {
+        $lead = Lead::where('id', $id)->first();
+        $lead->location = $request->value;
+        $lead->save();
+        return back();
+    }
+
+    public function updateWhen(Request $request, $id)
+    {
+        $lead = Lead::where('id', $id)->first();
+        $lead->how_soon = $request->value;
+        $lead->save();
+        return back();
+    }
     
 }
