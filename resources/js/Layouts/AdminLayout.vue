@@ -214,7 +214,7 @@ const logout = () => {
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-black px-6">
                 <div class="my-10 flex h-16 shrink-0 items-center">
                     <Link :href="route('landing')">
-                        <img class="h-16 w-auto" src="/img/logo.jpg" alt="Your Company">
+                    <img class="h-16 w-auto" src="/img/logo.jpg" alt="Your Company">
                     </Link>
                 </div>
                 <nav class="flex flex-1 flex-col">
@@ -225,7 +225,7 @@ const logout = () => {
                                     <Link :href="route('admin.dashboard')"
                                         :class="[currentRoute == '/dashboard' ? 'text-primary' : 'text-white']"
                                         class="hover:text-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                    <i class="fab fa-product-hunt fa-2xl mt-2 group-hover:text-white"></i>
+                                    <i class="fas fa-house-tree fa-2xl mt-2 group-hover:text-white"></i>
                                     Dashboard
                                     </Link>
                                 </li>
@@ -241,7 +241,7 @@ const logout = () => {
                                     <Link :href="route('admin.blogs')"
                                         :class="[currentRoute == '/admin-blogs' ? 'text-primary' : 'text-white']"
                                         class="hover:text-white hover:bg-primary group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                    <i class="fab fa-product-hunt fa-2xl mt-2 group-hover:text-white"></i>
+                                    <i class="fas fa-blog fa-2xl mt-2 group-hover:text-white"></i>
                                     Blogs
                                     </Link>
                                 </li>
@@ -249,7 +249,7 @@ const logout = () => {
                                     <Link :href="route('admin.leads')"
                                         :class="[currentRoute == '/admin-leads' ? 'text-primary' : 'text-white']"
                                         class="hover:text-white hover:bg-primary group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                    <i class="fab fa-product-hunt fa-2xl mt-2 group-hover:text-white"></i>
+                                    <i class="fa-solid fa-money-bill-trend-up fa-2xl mt-2 group-hover:text-white"></i>
                                     Leads
                                     </Link>
                                 </li>

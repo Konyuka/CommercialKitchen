@@ -1,11 +1,28 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
+import { router } from "@inertiajs/vue3";
+import axios from "axios";
 
-const addBlogFeedModal = ref(false); 
+onMounted(() => {
+    getImportedBlogs();
+});
+
+const addBlogFeedModal = ref(false);
+const importedBlogs = ref([]);
 
 const closeBlogModal = () => {
     addBlogFeedModal.value = false;
+}
+
+const getImportedBlogs = () => {
+    axios.get(route('get.imported.blogs'))
+        .then((res) => {
+            importedBlogs.value = res.data;
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
 </script>
@@ -16,11 +33,9 @@ const closeBlogModal = () => {
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
                     <h1 class="text-base font-semibold leading-6 text-gray-900">Import Blogs</h1>
-                    <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name,
-                        title, email and role.</p>
                 </div>
                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button @click="addBlogFeedModal=true" type="button"
+                    <button @click="addBlogFeedModal = true" type="button"
                         class="block rounded-md bg-black px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         <i class="fas fa-add fa-xl"></i> Add new blog feed
                     </button>
@@ -37,13 +52,10 @@ const closeBlogModal = () => {
                                         Website Name
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Website URL
+                                        Website Title
                                     </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Upload
-                                        Date
-                                    </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Blog
-                                        Items
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        Blog Link
                                     </th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                                         <span class="sr-only">Edit</span>
@@ -51,17 +63,24 @@ const closeBlogModal = () => {
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
-                                <tr>
+                                <tr v-for="blog in importedBlogs">
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        Lindsay Walton</td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com
+                                        {{ blog.website }}
                                     </td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ blog.title }}
+                                    </td>
+                                    <td class="text-center whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <a :href="blog.link" target="_blank">
+                                            <i class="fa-sharp fa-solid fa-square-arrow-up-right fa-xl"></i>
+                                        </a>
+                                    </td>
                                     <td
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span
-                                                class="sr-only">, Lindsay Walton</span></a>
+                                        <a href="#"
+                                            class="transform transition hover:scale-125 duration-600 ease-in-out text-indigo-600 hover:text-indigo-900">
+                                            <i class="fas fa-edit fa-xl"></i> Plagiarism gani my fren?
+                                        </a>
                                     </td>
                                 </tr>
 
@@ -75,6 +94,7 @@ const closeBlogModal = () => {
 
         <!-- Modals -->
         <ImportBlogModal v-if="addBlogFeedModal" @close="closeBlogModal" />
+
 
     </div>
 </template>

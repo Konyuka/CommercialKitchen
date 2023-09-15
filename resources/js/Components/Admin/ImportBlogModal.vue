@@ -9,7 +9,7 @@ const emit = defineEmits([
 ]);
 
 
-const websiteName = ref(null);
+const websiteName = ref(null); 
 const websiteFile = ref(null);
 const blogsData = ref([]);
 
@@ -38,9 +38,11 @@ const scrapBlogs = () => {
         router.post(route('add.imported.blogs'), {
             data: blogsData.value,
             websiteName: websiteName.value, 
+        },
+        {
             onSuccess: () => {
-                emit('close');
-            } 
+                    emit('close');
+                }
         });
     }else{
         alert('Populate everything my friend...ala...😏')

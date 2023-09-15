@@ -52,8 +52,6 @@ const editBlog = (blog) => {
     blogToEdit.value = blog
 }
 
-
-
 const getBlogs = () => {
     axios.get('/api/get-blogs')
         .then((res) => {

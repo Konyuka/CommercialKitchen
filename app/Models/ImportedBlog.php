@@ -14,6 +14,6 @@ class ImportedBlog extends Model
         'excerpt',
         'content',
         'link',
-        'website',
+        'website', 
     ];
 }
