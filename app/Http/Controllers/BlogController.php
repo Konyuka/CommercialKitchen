@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Categories;
+use App\Models\ImportedBlog;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -54,6 +55,11 @@ class BlogController extends Controller
             $request->cover->move(public_path('covers'), $imageName);
         }
 
+        $importedBlog = ImportedBlog::find($request->uploadID);
+        $importedBlog->published = true;
+        $importedBlog->save();
+
+        
         Blog::create([
             'title' => $validated['title'],
             'category_id' => $request->category,

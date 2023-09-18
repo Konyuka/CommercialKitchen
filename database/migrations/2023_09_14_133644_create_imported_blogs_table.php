@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->string('link')->nullable();
             $table->string('website')->nullable();
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

@@ -106,7 +106,6 @@ const formatDate = (date) => {
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
                         <h1 class="text-base font-bold leading-6 text-gray-900">Leads</h1>
-                        <p class="mt-2 text-sm text-black font-semibold">Upload FB Leads</p>
                         <button v-if="leads.length" type="button"
                             class="mt-2 block rounded-md bg-black hover:bg-primary px-2 py-1 text-center text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <i class="fa-solid fa-arrow-up-9-1 mr-2"></i>
@@ -118,7 +117,7 @@ const formatDate = (date) => {
                         <button @click="leadModal = true" type="button"
                             class="block rounded-md bg-black hover:bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             <i class="fa-solid fa-file-arrow-up mr-2 "></i>
-                            Upload Leads
+                            Upload FB Leads
                         </button>
                     </div>
                 </div>
@@ -153,6 +152,7 @@ const formatDate = (date) => {
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white">
+                                    
                                     <tr v-for="(lead, index) in leads" class="divide-x divide-gray-200">
                                         <td
                                             class="capitalize whitespace-nowrap py-2 text-sm font-medium text-gray-900 sm:pl-0">
@@ -205,7 +205,6 @@ const formatDate = (date) => {
                                         </td>
                                     </tr>
 
-                                    <!-- More people... -->
                                 </tbody>
                             </table>
                         </div>

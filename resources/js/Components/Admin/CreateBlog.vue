@@ -5,10 +5,11 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref, onMounted, watch, toRef } from "vue";
+import { ref, onMounted, watch, toRef } from "vue"; 
 
 const props = defineProps({
-    blogToEdit: Object
+    blogToEdit: Object,
+    uploadedPost: Boolean,
 })
 
 const emit = defineEmits([
@@ -22,6 +23,7 @@ const blog = useForm({
     excerpt: null,
     cover: null,
     content: null,
+    uploadID: null,
 })
 
 watch(toRef(() => props.blogToEdit), (newX) => {
@@ -31,6 +33,10 @@ watch(toRef(() => props.blogToEdit), (newX) => {
         blog.excerpt = newX.excerpt;
         blog.cover = newX.cover;
         blog.content = newX.content;
+
+        if(props.uploadedPost){
+            showPreview.value = false;   
+        }
     }else{
         blog.reset();
         var element = document.getElementsByClassName("ql-editor");
@@ -88,6 +94,11 @@ const saveCategory = () => {
 }
 
 const postBlog = () => {
+
+    if(props.uploadedPost){
+        blog.uploadID = props.blogToEdit.id
+    }
+
     blog.post('/store-blog', {
         forceFormData: true,
         preserveState: true,
@@ -234,12 +245,10 @@ onMounted(() => {
                                 </svg>
                                 <div class="mt-4 flex text-sm leading-6 text-gray-600">
                                     <label for="file-upload"
-                                        class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                        <span>Upload a file</span>
+                                        class="relative cursor-pointer rounded-md bg-white font-semibold text-black ">
                                         <input @change="uploadImage" id="file-upload" name="file-upload" type="file"
-                                            class="focus-ring-primary sr-only">
+                                            class="">
                                     </label>
-                                    <p class="pl-1">or drag and drop</p>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +282,7 @@ onMounted(() => {
 
 
             <div class="mt-40">
-                <button v-if="blogToEdit==null" @click="postBlog" type="button"
+                <button v-if="blogToEdit==null || uploadedPost===true" @click="postBlog" type="button"
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Save blog <i class="fas fa-check"></i>
                 </button>

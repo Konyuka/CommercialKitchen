@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import CreateBlog from '@/Components/Admin/CreateBlog.vue';
 import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
 import { router } from "@inertiajs/vue3";
 import axios from "axios";
@@ -9,10 +10,13 @@ onMounted(() => {
 });
 
 const addBlogFeedModal = ref(false);
+const defaultView = ref(1);
 const importedBlogs = ref([]);
+const blogToEdit = ref(null);
 
 const closeBlogModal = () => {
     addBlogFeedModal.value = false;
+    getImportedBlogs();
 }
 
 const getImportedBlogs = () => {
@@ -25,11 +29,24 @@ const getImportedBlogs = () => {
         })
 }
 
+const listPage = () => {
+    defaultView.value = 1;
+    getImportedBlogs();
+}
+
+const editBlog = (blog) => {
+    blogToEdit.value = blog;
+    defaultView.value = 2;
+}
+
+
 </script>
 
 <template>
     <div>
-        <div class="px-4 sm:px-6 lg:px-8">
+
+        <!-- Main Component -->
+        <div v-show="defaultView == 1" class="px-4 sm:px-6 lg:px-8">
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
                     <h1 class="text-base font-semibold leading-6 text-gray-900">Import Blogs</h1>
@@ -49,6 +66,10 @@ const getImportedBlogs = () => {
                                 <tr>
                                     <th scope="col"
                                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                                        Status
+                                    </th>
+                                    <th scope="col"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
                                         Website Name
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -65,6 +86,16 @@ const getImportedBlogs = () => {
                             <tbody class="divide-y divide-gray-200">
                                 <tr v-for="blog in importedBlogs">
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                        <span
+                                            v-if="blog.published"
+                                            class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-black ring-1 ring-inset ring-black">
+                                            <svg class="h-1.5 w-1.5 fill-primary" viewBox="0 0 6 6" aria-hidden="true">
+                                                <circle cx="3" cy="3" r="3" />
+                                            </svg>
+                                            Posted
+                                        </span>
+                                    </td>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                         {{ blog.website }}
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -77,10 +108,10 @@ const getImportedBlogs = () => {
                                     </td>
                                     <td
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                        <a href="#"
-                                            class="transform transition hover:scale-125 duration-600 ease-in-out text-indigo-600 hover:text-indigo-900">
-                                            <i class="fas fa-edit fa-xl"></i> Plagiarism gani my fren?
-                                        </a>
+                                        <button @click="editBlog(blog)"
+                                            class="transform transition hover:scale-125 duration-600 ease-in-out text-black font-bold hover:text-indigo-900">
+                                            <i class="fas fa-edit fa-xl"></i> Edit Me
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -94,6 +125,7 @@ const getImportedBlogs = () => {
 
         <!-- Modals -->
         <ImportBlogModal v-if="addBlogFeedModal" @close="closeBlogModal" />
+        <CreateBlog :uploadedPost="true" :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage()" />
 
 
     </div>
