@@ -28,7 +28,8 @@ class ContactFormController extends Controller
 
         // event(new ContactFormCreated($contactForm));
         // ContactFormCreated::dispatch($contactForm);
-        Mail::to('michaelsaiba84@gmail.com')->send(new ContactFormNotification($contactForm));
+
+        Mail::to(env('SUPPORT_EMAIL'))->send(new ContactFormNotification($contactForm));
 
         return back()->with('message', 'We will reach out in a few');
     }

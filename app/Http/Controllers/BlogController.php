@@ -18,7 +18,7 @@ class BlogController extends Controller
             'name.unique' => 'The category has already been added'
         ]);
 
-        Categories::create([
+        Categories::create([ 
             'name' => $validated['name']
         ]);
 
