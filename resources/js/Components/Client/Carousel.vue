@@ -10,7 +10,7 @@ const slider = (direction) => {
         if (slide.value <= (end - 1)) {
             slide.value += 1;
         }
-        else if (slide.value == end) {
+        else if (slide.value == end) { 
             slide.value = 1;
         }
     } else {

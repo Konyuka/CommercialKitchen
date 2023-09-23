@@ -1,6 +1,6 @@
 @import "font-awesome/css/all.css";
-@import 'animate.css';
-@import 'wow.js/css/libs/animate.css';
+@import "animate.css";
+@import "wow.js/css/libs/animate.css";
 
 @tailwind base;
 @tailwind components;
