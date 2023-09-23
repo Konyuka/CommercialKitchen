@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 import CreateBlog from '@/Components/Admin/CreateBlog.vue';
 import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
 import { router } from "@inertiajs/vue3";
-import axios from "axios";
+import axios from "axios"; 
 
 onMounted(() => {
     getImportedBlogs();

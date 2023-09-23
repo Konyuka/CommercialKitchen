@@ -5,7 +5,7 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref, onMounted, watch, toRef } from "vue"; 
+import { ref, onMounted, watch, toRef } from "vue";
 
 const props = defineProps({
     blogToEdit: Object,
@@ -14,7 +14,7 @@ const props = defineProps({
 
 const emit = defineEmits([
     'listBlogs',
-    'update:content'
+    // 'update:content'
 ])
 
 const blog = useForm({
@@ -34,10 +34,10 @@ watch(toRef(() => props.blogToEdit), (newX) => {
         blog.cover = newX.cover;
         blog.content = newX.content;
 
-        if(props.uploadedPost){
-            showPreview.value = false;   
+        if (props.uploadedPost) {
+            showPreview.value = false;
         }
-    }else{
+    } else {
         blog.reset();
         var element = document.getElementsByClassName("ql-editor");
         element[0].innerHTML = "";
@@ -95,7 +95,7 @@ const saveCategory = () => {
 
 const postBlog = () => {
 
-    if(props.uploadedPost){
+    if (props.uploadedPost) {
         blog.uploadID = props.blogToEdit.id
     }
 
@@ -145,6 +145,72 @@ const getCategories = () => {
         })
 }
 
+const gpt3 = async () => {
+
+    const apiKey = 'sk-3OEosz7KWVKvx4ToY2BqT3BlbkFJRr';
+    const endpoint = 'https://api.openai.com/v1/completions';
+    // const endpoint = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+
+    var inputText = null;
+
+    if (props.uploadedPost) {
+        // const inputText =  props.blogToEdit.content;
+        inputText = 'This is the paragraph I want to rephrase.';
+
+    } else {
+        // const inputText =  .blog.content;
+        inputText = 'This is the paragraph I want to rephrase.';
+    }
+
+    
+    // const payload = {
+    //     prompt: inputText,
+    //     max_tokens: 50,
+    // };
+
+    const params = {
+        prompt: `Rephrase the following text: ${inputText}`,
+        model: "text-davinci-003",
+        max_tokens: 100,
+        temperature: 0.7,
+    };
+
+    const response = await axios.post(endpoint, params, {
+        headers: {
+            Authorization: `Bearer ${apiKey}`,
+        },
+    });
+
+    // Get the rephrased text from the response.
+    const rephrasedText = response.data.choices[0].text;
+
+    // Log the rephrased text to the console.
+    console.log(rephrasedText);
+
+    return
+    
+    const headers = {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+    };
+
+    console.log(endpoint, payload, { headers })
+    
+    return
+    axios
+        .post(endpoint, payload, { headers })
+        .then((response) => {
+            // Extract and print the rephrased text
+            const rephrasedText = response.data.choices[0].text;
+            console.log(rephrasedText);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
+}
+
 
 onMounted(() => {
     getCategories()
@@ -178,13 +244,12 @@ onMounted(() => {
                     <label for="email" class="block text-sm font-bold leading-6 text-black">Blog Title</label>
                     <div class="mt-2">
                         <input v-model="blog.title" type="text" name="text" id="text"
-                            class="capitalize font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                        >
+                            class="capitalize font-semibold block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                         <div>
-                        <p v-if="blog.errors.title" class="text-black mt-5 text-xs"><i
-                                class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
-                            {{ blog.errors.title }}</p>
-                    </div>    
+                            <p v-if="blog.errors.title" class="text-black mt-5 text-xs"><i
+                                    class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                {{ blog.errors.title }}</p>
+                        </div>
                     </div>
                 </div>
 
@@ -199,8 +264,9 @@ onMounted(() => {
                         </div>
                         <select v-model="blog.category" id="location" name="location"
                             class="font-semibold mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-black focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
-                            <option v-if="categoryList.length" class="font-medium mb-2" v-for="category in categoryList" :value="parseInt(category.id)">{{ category.name }}</option>
-                            <option v-else class="font-semibold italic">Please add categories to  choose from</option>
+                            <option v-if="categoryList.length" class="font-medium mb-2" v-for="category in categoryList"
+                                :value="parseInt(category.id)">{{ category.name }}</option>
+                            <option v-else class="font-semibold italic">Please add categories to choose from</option>
                         </select>
                     </div>
 
@@ -217,11 +283,11 @@ onMounted(() => {
                     <div class="mt-2">
                         <textarea v-model="blog.excerpt" rows="4" name="comment" id="comment"
                             class="font-medium block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"></textarea>
-                            <div>
-                        <p v-if="blog.errors.excerpt" class="text-black mt-5 text-xs"><i
-                                class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
-                            {{ blog.errors.excerpt }}</p>
-                    </div>
+                        <div>
+                            <p v-if="blog.errors.excerpt" class="text-black mt-5 text-xs"><i
+                                    class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
+                                {{ blog.errors.excerpt }}</p>
+                        </div>
                     </div>
                 </div>
 
@@ -266,13 +332,24 @@ onMounted(() => {
                 <img :src="imagePreview" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg"
                     v-show="showPreview" />
                 <img :src="blog.cover" class="min-h-[500px] max-h-[500px]  w-full object-cover rounded-lg"
-                    v-show="blogToEdit!=null && uploadedImage==null" />
+                    v-show="blogToEdit != null && uploadedImage == null" />
             </div>
-            
+
+            <div class="my-10 mt-10 flex justify-between">
+                <div></div>
+                <div>
+                    <button @click="gpt3()" type="button"
+                        class="bg-black px-3 py-4 text-sm font-semibold text-white hover:text-black shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                        Rephrase with AI <i class="ml-3 fas fa-robot fa-xl"></i>
+                    </button>
+
+                </div>
+            </div>
+
 
             <div class="mt-10 h-screen">
-                <QuillEditor class="ql-editor" ref="quillEditor" v-model:content="blog.content" :modules="modules" toolbar="full" theme="snow"
-                    contentType="html" />
+                <QuillEditor class="ql-editor" ref="quillEditor" v-model:content="blog.content" :modules="modules"
+                    toolbar="full" theme="snow" contentType="html" />
                 <div>
                     <p v-if="blog.errors.content" class="text-black mt-5 text-xs"><i
                             class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
@@ -282,7 +359,7 @@ onMounted(() => {
 
 
             <div class="mt-40">
-                <button v-if="blogToEdit==null || uploadedPost===true" @click="postBlog" type="button"
+                <button v-if="blogToEdit == null || uploadedPost === true" @click="postBlog" type="button"
                     class="rounded-md bg-black hover:bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Save blog <i class="fas fa-check"></i>
                 </button>
@@ -317,8 +394,7 @@ onMounted(() => {
                                     <div>
                                         <label for="email" class="sr-only">Email</label>
                                         <input v-model="category.name" type="text" name="text" id="text"
-                                            class="py-2 capitalize text-center font-bold block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                                        >
+                                            class="py-2 capitalize text-center font-bold block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-black placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                         <div>
                                             <p v-if="category.errors.name" class="text-black mt-5 text-xs"><i
                                                     class="fa-regular fa-circle-exclamation fa-xl mr-2 text-primary font-semibold"></i>
