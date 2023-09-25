@@ -29,6 +29,8 @@ const slider = (direction) => {
 <template>
     <div>
 
+        <Head title="Carousel" />
+
 
         <div id="controls-carousel" class="relative w-full overflow-hidden" data-carousel="static">
             <!-- Carousel wrapper -->

@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Commercial Kitchen Consultancy - Karibu Sana" />
+    <Head title="Commercial Kitchen Consultants in Kenya - Commercial Kitchen Equipment" />
 
     <ClientLayout>
         <Carousel />

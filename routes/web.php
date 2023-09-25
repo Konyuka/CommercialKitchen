@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ImportedBlogController;
+use Spatie\Sitemap\SitemapGenerator;
 
 
 /*
@@ -38,11 +39,14 @@ Route::get('/commercial-kitchen-media', function () {
 Route::get('/commercial-kitchen-blog-detail', function () {
     return Inertia::render('Client/Detail');
 })->name('blog.detail');
+Route::post('/commercial-kitchen-blog/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
 
 
 
-Route::post('/save-subscriber', [ SubscribersController::class, 'saveSubscriber' ] )->name('save-subscriber');
-Route::post('/submit-contact-form', [ ContactFormController::class, 'submitForm' ])->name('submit-contact-form');
+
+Route::post('/save-subscriber', [SubscribersController::class, 'saveSubscriber'])->name('save-subscriber');
+Route::post('/submit-contact-form', [ContactFormController::class, 'submitForm'])->name('submit-contact-form');
+
 
 
 
@@ -74,7 +78,6 @@ Route::middleware([
     Route::post('/upload-image', [BlogController::class, 'uploadImage']);
     Route::post('/store-blog', [BlogController::class, 'storeBlog']);
     Route::post('/update-blog/{slug}', [BlogController::class, 'updateBlog'])->name('update.blog');
-    Route::post('/commercial-kitchen-blog/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
     Route::post('/publish/{slug}', [BlogController::class, 'publishBlog'])->name('publish.blog');
     Route::post('/feature/{slug}', [BlogController::class, 'featureBlog'])->name('feature.blog');
     Route::delete('/delete-blog/{slug}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
@@ -86,8 +89,19 @@ Route::middleware([
 
 });
 
+
 Route::get('/clear_data', function () {
     Artisan::call('optimize:clear');
     Artisan::call('config:clear');
     return 'Cache Cleared';
+});
+
+Route::get('/generate-sitemap', function (){
+    dd(env('APP_URL'));
+    SitemapGenerator::create()
+        // SitemapGenerator::create(config('app.url'))
+        ->writeToFile(public_path('sitemap.xml'));
+        return 'Sitemap generated succesfully';
+
+    // SitemapGenerator::create('https://commercialkitchen.co.ke/')->writeToFile(public_path('sitemap.xml'));
 });

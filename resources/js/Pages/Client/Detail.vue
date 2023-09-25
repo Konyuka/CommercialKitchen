@@ -2,16 +2,63 @@
 import { Head } from '@inertiajs/vue3';
 import ClientLayout from '@/Layouts/ClientLayout.vue';
 import Service from '@/Components/Client/Services.vue';
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({
     blog: Object,
 })
 
+const blogUrl = computed(() => {
+    const title = props.blog.title;
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const trimmedSlug = slug.replace(/^-+|-+$/g, '');
+    const finalSlug = trimmedSlug.replace(/-{2,}/g, '-');
+    return 'https://commercialkitchen.co.ke/commercial-kitchen-blog/' + finalSlug;
+});
+
+const blogImage = computed(() => {
+    const imagePath = props.blog.cover;
+    const escapedImage = imagePath.replace(/\\\//g, '/');
+    return 'https://commercialkitchen.co.ke/commercial-kitchen-blog/' + escapedImage;
+})
+
+
+
 </script>
 
 <template>
-    <Head title="Services" />
+    <!-- Linkedin -->
+    <meta property="og:article:author" content="https://www.linkedin.com/in/lynnkimeto/">
+    <meta property="og:article:published_time" :content="blog.created_at">
+    <meta property="og:article:section" :content="blog.excerpt">
+    <meta property="og:article:tag" :content="blog.title">
+    <meta property="company:id" content="Your LinkedIn Company Page ID">
+
+    <!-- Facebook Open Graph (OG) Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" :content="blog.title">
+    <meta property="og:description" :content="blog.excerpt">
+    <meta property="og:url" :content="blogUrl">
+    <meta property="og:image" :content="blogImage">
+    <meta property="og:image:width" content="1080px">
+    <meta property="og:image:height" content="1350px">
+
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- Choose an appropriate card type -->
+
+    <!-- Twitter Site and Creator -->
+    <meta name="twitter:site" content="@commercialkitchensconsultants"> <!-- Your site's Twitter handle -->
+    <meta name="twitter:creator" content="@commercialkitchensconsultants"> <!-- Content creator's Twitter handle -->
+
+    <!-- Twitter Title, Description, and Image -->
+    <meta name="twitter:title" :content="blog.title">
+    <meta name="twitter:description" :content="blog.excerpt">
+    <meta name="twitter:image" :content="blogImage">
+    <meta name="twitter:image:alt" content="https://commercialkitchen.co.ke/img/logo.jpg">
+
+    <Head title="Commercial Kitchen Consultancy Kenya Article" />
     <ClientLayout>
         <div>
 
@@ -87,13 +134,14 @@ const props = defineProps({
                         </article>
 
                         <!-- More posts... -->
+                    </div>
                 </div>
             </div>
+
+
+
+
+
         </div>
-
-
-
-
-
-    </div>
-</ClientLayout></template>
+    </ClientLayout>
+</template>
