@@ -39,7 +39,7 @@ Route::get('/commercial-kitchen-media', function () {
 Route::get('/commercial-kitchen-blog-detail', function () {
     return Inertia::render('Client/Detail');
 })->name('blog.detail');
-Route::post('/commercial-kitchen-blog/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
+Route::post('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
 
 
 

@@ -8,6 +8,8 @@ const props = defineProps({
     blog: Object,
 })
 
+
+
 const blogUrl = computed(() => {
     const title = props.blog.title;
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -21,8 +23,6 @@ const blogImage = computed(() => {
     const escapedImage = imagePath.replace(/\\\//g, '/');
     return 'https://commercialkitchen.co.ke/commercial-kitchen-blog/' + escapedImage;
 })
-
-
 
 </script>
 

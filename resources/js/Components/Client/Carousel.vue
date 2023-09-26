@@ -1,6 +1,7 @@
 <script setup>
 import 'vue3-carousel/dist/carousel.css';
 import { ref } from 'vue';
+import { Link } from "@inertiajs/vue3";
 
 const slide = ref(1);
 
@@ -10,7 +11,7 @@ const slider = (direction) => {
         if (slide.value <= (end - 1)) {
             slide.value += 1;
         }
-        else if (slide.value == end) { 
+        else if (slide.value == end) {  
             slide.value = 1;
         }
     } else {
@@ -55,10 +56,10 @@ const slider = (direction) => {
                             remarkable
                             culinary space.</p>
 
-                        <button type="button" data-wow-delay="6s"
+                        <Link :href="route('services')" type="button" data-wow-delay="6s"
                             class="wow animate__rubberBand z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <!-- Item 2 -->
@@ -78,10 +79,10 @@ const slider = (direction) => {
                             highly practical, ensuring your culinary operations run smoothly and efficiently.
                         </p>
 
-                        <button type="button" data-wow-delay="6s"
+                        <Link :href="route('services')" type="button" data-wow-delay="6s"
                             class="wow animate__rubberBand z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <!-- Item 3 -->
@@ -104,10 +105,10 @@ const slider = (direction) => {
                             budget, ensuring optimal performance and efficiency in your operations.
                         </p>
 
-                        <button type="button" data-wow-delay="6s"
+                        <Link  :href="route('services')" type="button" data-wow-delay="6s"
                             class="wow animate__rubberBand z-20 sm:mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <!-- Item 3 -->
@@ -126,10 +127,10 @@ const slider = (direction) => {
                             project.
                         </p>
 
-                        <button type="button" data-wow-delay="6s"
+                        <Link :href="route('services')" type="button" data-wow-delay="6s"
                             class="wow animate__rubberBand z-20 mt-5 border-2 border-primary hover:bg-primary hover:text-black px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Learn More <i class="ml-2 fas fa-up-right"></i>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <!-- Item 3 -->

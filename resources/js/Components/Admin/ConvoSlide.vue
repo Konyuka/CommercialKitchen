@@ -62,7 +62,7 @@ const formatDate = (date) => {
                                                 <h2 class="text-base font-semibold leading-6 text-white"
                                                     id="slide-over-title">Lead Conversation</h2>
                                                 <p class="text-sm text-white">This is were you log your conversation with
-                                                    client. Not on an excel file</p>
+                                                    client.</p>
                                             </div>
                                             <div class="flex h-7 items-center">
                                                 <button @click="$emit('close')" type="button"

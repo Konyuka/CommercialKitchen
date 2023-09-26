@@ -15,6 +15,10 @@ const hasAuth = computed(() => {
 
 const openMobileMenu = ref(false);
 
+const routeBlog = computed(()=>{
+    return currentRoute.value.startsWith('/commercial-kitchen-media/');
+});
+
 
 
 </script>
@@ -61,7 +65,7 @@ const openMobileMenu = ref(false);
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-4">
 
             <div class="flex justify-between h-full">
-                <Link to="/" class="flex items-center mr-6 mt-2">
+                <Link :href="route('landing')" class="flex items-center mr-6 mt-2">
                 <img src="/img/logo.jpg" class="h-20 mr-3 wow animate__lightSpeedInLeft fadein mb-2" data-wow-duration="1s"
                     data-wow-delay="2s" alt="Flowbite Logo" />
                 </Link>
@@ -156,7 +160,7 @@ const openMobileMenu = ref(false);
                     Our Story
                     </Link>
                     <Link href="/commercial-kitchen-media" type="button"
-                        :class="[currentRoute == '/commercial-kitchen-media' ? 'text-white bg-primary' : 'bg-white text-black']"
+                        :class="[currentRoute  == '/commercial-kitchen-media' ? 'text-white bg-primary' : 'bg-white text-black']"
                         data-wow-duration="1.9s"
                         class="wow animate__lightSpeedInLeft text-center font-semibold rounded-md  px-2.5 py-1.5 text-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Media
