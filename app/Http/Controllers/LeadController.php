@@ -42,12 +42,15 @@ class LeadController extends Controller
 
         $newNotesArray = [];
         $exisitingNotes = json_decode($lead->notes);
-        array_push($newNotesArray, $exisitingNotes);
+        if($exisitingNotes != null){
+            foreach ($exisitingNotes as $object) {
+                array_push($newNotesArray, $object);
+            }
+        }
         $newNotes = $request->notes;
         $json = json_encode($newNotes);
         $noteObject = json_decode($json);
         array_push($newNotesArray, $noteObject);
-
         $lead->notes = $newNotesArray;
         $lead->call_date = $request->call_date;
         $lead->save();

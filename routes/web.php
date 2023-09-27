@@ -93,15 +93,23 @@ Route::middleware([
 Route::get('/clear_data', function () {
     Artisan::call('optimize:clear');
     Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('route:cache');
     return 'Cache Cleared';
 });
 
-Route::get('/generate-sitemap', function (){
-    dd(env('APP_URL'));
-    SitemapGenerator::create()
-        // SitemapGenerator::create(config('app.url'))
+Route::get('/generate_sitemap', function () {
+    // dd(env('APP_URL'));
+
+    SitemapGenerator::create(config('app.url'))
         ->writeToFile(public_path('sitemap.xml'));
-        return 'Sitemap generated succesfully';
+    return 'Sitemap generated succesfully';
+
+
+    // for production
+    // SitemapGenerator::create(config('app.url'))
+    //     ->writeToFile(base_path('sitemap.xml'));
+    // return 'Sitemap generated succesfully';
 
     // SitemapGenerator::create('https://commercialkitchen.co.ke/')->writeToFile(public_path('sitemap.xml'));
 });

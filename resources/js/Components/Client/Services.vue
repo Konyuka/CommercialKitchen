@@ -45,7 +45,7 @@
                         </div>
                         <div class="flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8 lg:col-start-6 xl:col-start-5">
                             <div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
-                                <img src="/img/kd.jpg"
+                                <img src="/img/pic.jpg"
                                     alt="White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull."
                                     class="object-cover object-center w-[800px] h-[300px]">
                             </div>

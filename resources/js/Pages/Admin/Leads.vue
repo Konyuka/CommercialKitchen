@@ -96,6 +96,22 @@ const formatDate = (date) => {
     }
 }
 
+const getConvoCount = (notes) => {
+    const notesArray =  JSON.parse(notes);
+    // console.log(notesArray);
+    if(notesArray!==null){
+        return notesArray.length;
+    }else{
+        return; 
+    }
+}
+
+const getValueAdde = () => {
+    axios.post(route())
+    .then()
+    .catch();
+}
+
 </script>
 
 <template>
@@ -202,6 +218,8 @@ const formatDate = (date) => {
                                             class="text-center whitespace-nowrap py-1 text-sm text-gray-500 sm:pr-0">
                                             <i @click="setLeadData(lead)"
                                                 class="fa-solid fa-messages text-black hover:text-primary fa-lg transform transition hover:scale-125 duration-700 ease-in-out hover:cursor-pointer"></i>
+                                                
+                                             <span class="ml-2"> <i class="fas fa-caret-right mr-2"></i><span class="font-bold text-xs text-primary italic"> {{ getConvoCount(lead.notes) }} </span></span>   
                                         </td>
                                     </tr>
 
