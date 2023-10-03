@@ -56,8 +56,11 @@ class BlogController extends Controller
         }
 
         $importedBlog = ImportedBlog::find($request->uploadID);
-        $importedBlog->published = true;
-        $importedBlog->save();
+
+        if($importedBlog!==null){
+            $importedBlog->published = true;
+            $importedBlog->save();
+        }
 
         
         Blog::create([

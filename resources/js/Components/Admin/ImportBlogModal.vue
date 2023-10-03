@@ -45,7 +45,7 @@ const scrapBlogs = () => {
                 }
         });
     }else{
-        alert('Populate everything my friend...ala...😏')
+        alert('Populate everything my friend...😏')
     }
 
 }

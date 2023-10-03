@@ -85,8 +85,6 @@ Route::middleware([
 
     Route::post('/import-leads', [LeadController::class, 'importLeads'])->name('import.leads');
     Route::post('/save-lead-convo/{id}', [LeadController::class, 'saveConvo'])->name('save.convo');
-
-
 });
 
 

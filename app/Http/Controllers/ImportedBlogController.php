@@ -11,7 +11,7 @@ class ImportedBlogController extends Controller
     {
         $blogs = $request->data;
         foreach ($blogs as $blog) {
-            $existingBlog = ImportedBlog::where('content', $blog['content'])->first();
+            $existingBlog = ImportedBlog::where('content', $blog['content'])->first(); 
 
             if (!$existingBlog) {
                 ImportedBlog::create([
