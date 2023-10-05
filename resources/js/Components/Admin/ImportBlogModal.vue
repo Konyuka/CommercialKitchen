@@ -35,15 +35,24 @@ const uploadData = (e) => {
 
 const scrapBlogs = () => {
     if(websiteName.value != null && websiteFile.value != null){
-        router.post(route('add.imported.blogs'), {
+
+        axios.post(route('add.imported.blogs'), {
             data: blogsData.value,
-            websiteName: websiteName.value, 
-        },
-        {
-            onSuccess: () => {
-                    emit('close');
-                }
-        });
+            websiteName: websiteName.value,
+        }).then((res)=>{
+            // console.log(res.data)
+            emit('close');
+        })
+
+        // router.post(route('add.imported.blogs'), {
+        //     data: blogsData.value,
+        //     websiteName: websiteName.value, 
+        // },
+        // {
+        //     onSuccess: () => {
+        //             emit('close');
+        //         }
+        // });
     }else{
         alert('Populate everything my friend...😏')
     }
