@@ -115,7 +115,7 @@
                         </div>
 
                         <p class="mt-6 flex items-baseline gap-x-1">
-                            <span class="text-lg sm:text-3xl font-bold tracking-tight text-white group-hover:text-primary">Supplier
+                            <span class="text-lg sm:text-3xl font-bold tracking-tight text-white group-hover:text-primary">Supplier Qualification &
                                 Procurement
                             </span>
                         </p>
@@ -215,7 +215,7 @@
                         </div>
 
                         <p class="mt-6 flex items-baseline gap-x-1">
-                            <span class="text-lg sm:text-3xl font-bold tracking-tight text-white group-hover:text-primary">Handover and
+                            <span class="text-lg sm:text-3xl font-bold tracking-tight text-white group-hover:text-primary">Handover &
                                 Documentation
                             </span>
                         </p>

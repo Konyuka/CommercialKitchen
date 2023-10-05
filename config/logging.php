@@ -18,6 +18,12 @@ return [
     |
     */
 
+    'flare' => [
+        'driver' => 'flare',
+    ],
+
+    
+
     'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
@@ -52,9 +58,11 @@ return [
     */
 
     'channels' => [
+        
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily', 'flare'],
+            // 'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 

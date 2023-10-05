@@ -11,6 +11,8 @@ import Testimonial from '@/Components/Client/Testimonial.vue';
 defineProps({
     // canLogin: Boolean,
 });
+
+
 </script>
 
 <template>

@@ -162,7 +162,7 @@ const gpt3 = async () => {
         inputText = 'This is the paragraph I want to rephrase.';
     }
 
-    
+
     // const payload = {
     //     prompt: inputText,
     //     max_tokens: 50,
@@ -188,14 +188,14 @@ const gpt3 = async () => {
     console.log(rephrasedText);
 
     return
-    
+
     const headers = {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
     };
 
     console.log(endpoint, payload, { headers })
-    
+
     return
     axios
         .post(endpoint, payload, { headers })
