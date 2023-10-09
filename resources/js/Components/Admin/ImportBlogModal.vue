@@ -1,7 +1,6 @@
 <script setup>
 // import mericanBlogs from "@/JsonBlogs/mericanblogs.json";
-import { useForm, router } from "@inertiajs/vue3";
-import axios from "axios"
+import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
 
 const emit = defineEmits([
@@ -35,24 +34,15 @@ const uploadData = (e) => {
 
 const scrapBlogs = () => {
     if(websiteName.value != null && websiteFile.value != null){
-
-        axios.post(route('add.imported.blogs'), {
+        router.post(route('imported.blogs'), {
             data: blogsData.value,
-            websiteName: websiteName.value,
-        }).then((res)=>{
-            // console.log(res.data)
-            emit('close');
-        })
-
-        // router.post(route('add.imported.blogs'), {
-        //     data: blogsData.value,
-        //     websiteName: websiteName.value, 
-        // },
-        // {
-        //     onSuccess: () => {
-        //             emit('close');
-        //         }
-        // });
+            websiteName: websiteName.value, 
+        },
+        {
+            onSuccess: () => {
+                    emit('close');
+                }
+        });
     }else{
         alert('Populate everything my friend...😏')
     }

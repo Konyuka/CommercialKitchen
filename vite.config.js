@@ -4,7 +4,11 @@ import vue from '@vitejs/plugin-vue';
 
 
 export default defineConfig({
-    // base: 'https://commercialkitchen.co.ke/',
+    base: 'https://commercialkitchen.co.ke',
+    build: {
+        target: 'modules', // or 'es2015'
+        minify: true,
+    },
     plugins: [
         laravel({
             input: 'resources/js/app.js',

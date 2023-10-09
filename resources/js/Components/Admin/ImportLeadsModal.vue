@@ -16,10 +16,8 @@ const uploadData = (event) => {
 };
 
 const letsLead = () => {
-
-
     router.post(route('import.leads'), excelFile.value,  {
-       
+
         onSuccess: () => { 
             emit('close')
         }

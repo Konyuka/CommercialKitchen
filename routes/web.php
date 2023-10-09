@@ -81,7 +81,7 @@ Route::middleware([
     Route::post('/publish/{slug}', [BlogController::class, 'publishBlog'])->name('publish.blog');
     Route::post('/feature/{slug}', [BlogController::class, 'featureBlog'])->name('feature.blog');
     Route::delete('/delete-blog/{slug}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
-    Route::post('/store-imported-blogs', [ImportedBlogController::class, 'store'])->name('add.imported.blogs');
+    Route::post('/store/imported/blogs', [ImportedBlogController::class, 'store'])->name('imported.blogs');
 
     Route::post('/import-leads', [LeadController::class, 'importLeads'])->name('import.leads');
     Route::post('/save-lead-convo/{id}', [LeadController::class, 'saveConvo'])->name('save.convo');

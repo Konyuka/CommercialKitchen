@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\ImportedBlog;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ImportedBlogController extends Controller
 {
     public function store(Request $request)
     {
         $blogs = $request->data;
+        
         foreach ($blogs as $blog) {
             $existingBlog = ImportedBlog::where('content', $blog['content'])->first(); 
 
@@ -21,9 +23,11 @@ class ImportedBlogController extends Controller
                     'link' => $blog['link'],
                     'website' => $request->websiteName,
                 ]);
-            }
+            } 
         }
 
-        return back()->with('message', 'Blogs have been imported successfully');
+        return Inertia::render('Admin/Blogs');
+
+        // return back()->with('message', 'Blogs have been imported successfully');
     }
 }
