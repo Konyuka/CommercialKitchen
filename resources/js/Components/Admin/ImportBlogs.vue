@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 import CreateBlog from '@/Components/Admin/CreateBlog.vue';
 import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
 import { router } from "@inertiajs/vue3";
-import axios from "axios"; 
+import axios from "axios";
 
 onMounted(() => {
     getImportedBlogs();
@@ -13,6 +13,7 @@ const addBlogFeedModal = ref(false);
 const defaultView = ref(1);
 const importedBlogs = ref([]);
 const blogToEdit = ref(null);
+const modalType = ref(null);
 
 const closeBlogModal = () => {
     addBlogFeedModal.value = false;
@@ -40,6 +41,12 @@ const editBlog = (blog) => {
 }
 
 
+
+const openAddModal = (type) => {
+    modalType.value = type
+    addBlogFeedModal.value = true
+}
+
 </script>
 
 <template>
@@ -51,11 +58,20 @@ const editBlog = (blog) => {
                 <div class="sm:flex-auto">
                     <h1 class="text-base font-semibold leading-6 text-gray-900">Import Blogs</h1>
                 </div>
-                <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button @click="addBlogFeedModal = true" type="button"
+                <div class="flex gap-3 mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                    <button @click="openAddModal('link')"  type="button"
                         class="block rounded-md bg-black px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        <i class="fas fa-add fa-xl"></i> Add new blog feed
+                        <i class="fas fa-add fa-lg mr-3"></i> The Easy Way <span class="text-2xl">😎</span> 
                     </button>
+
+                    <button @click="openAddModal('file')" type="button"
+                        class="block rounded-md bg-black px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <i class="fas fa-add fa-lg mr-3"></i> The Hard Way <span class="text-2xl">🥵</span>
+                    </button>
+
+
+
+
                 </div>
             </div>
             <div class="mt-8 flow-root">
@@ -86,8 +102,7 @@ const editBlog = (blog) => {
                             <tbody class="divide-y divide-gray-200">
                                 <tr v-for="blog in importedBlogs">
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        <span
-                                            v-if="blog.published"
+                                        <span v-if="blog.published!=0"
                                             class="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-black ring-1 ring-inset ring-black">
                                             <svg class="h-1.5 w-1.5 fill-primary" viewBox="0 0 6 6" aria-hidden="true">
                                                 <circle cx="3" cy="3" r="3" />
@@ -124,7 +139,7 @@ const editBlog = (blog) => {
         </div>
 
         <!-- Modals -->
-        <ImportBlogModal v-if="addBlogFeedModal" @close="closeBlogModal" />
+        <ImportBlogModal :modalType="modalType" v-if="addBlogFeedModal" @close="closeBlogModal" />
         <CreateBlog :uploadedPost="true" :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage()" />
 
 
