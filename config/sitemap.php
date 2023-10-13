@@ -14,9 +14,10 @@ return [
     'guzzle_options' => [
 
         /*
-         * Whether or not cookies are used in a request.e
+         * Whether or not cookies are used in a request.
          */
         RequestOptions::COOKIES => true,
+
         /*
          * The number of seconds to wait while trying to connect to a server.
          * Use 0 to wait indefinitely.

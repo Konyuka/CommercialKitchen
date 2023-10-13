@@ -1,25 +1,20 @@
 <?php
-use App\Http\Controllers\SubscribersController;
-use App\Http\Controllers\ContactFormController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+use App\Http\Controllers\SubscribersController;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ImportedBlogController;
+
+use App\Models\Blog;
+
 use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Tags\Url;
+use Carbon\Carbon;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return Inertia::render('Client/Landing');
@@ -39,18 +34,11 @@ Route::get('/commercial-kitchen-media', function () {
 Route::get('/commercial-kitchen-blog-detail', function () {
     return Inertia::render('Client/Detail');
 })->name('blog.detail');
+
+
 Route::post('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
-
-
-
-
 Route::post('/save-subscriber', [SubscribersController::class, 'saveSubscriber'])->name('save-subscriber');
 Route::post('/submit-contact-form', [ContactFormController::class, 'submitForm'])->name('submit-contact-form');
-
-
-
-
-
 
 
 Route::middleware([
@@ -97,17 +85,38 @@ Route::get('/clear_data', function () {
 });
 
 Route::get('/generate_sitemap', function () {
-    // dd(env('APP_URL'));
 
-    SitemapGenerator::create(config('app.url'))
-        ->writeToFile(public_path('sitemap.xml'));
+    $sitemap = SitemapGenerator::create(config('app.url'))
+        ->getSitemap()
+        ->add(Url::create('/commercial-kitchen-services')
+            ->setLastModificationDate(Carbon::today())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1))
+        ->add(Url::create('/commercial-kitchen-about')
+            ->setLastModificationDate(Carbon::today())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1))
+        ->add(Url::create('/commercial-kitchen-contact')
+            ->setLastModificationDate(Carbon::today())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1))
+        ->add(Url::create('/commercial-kitchen-media')
+            ->setLastModificationDate(Carbon::today())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1));
+
+    Blog::all()->each(function (Blog $blog) use ($sitemap) {
+        $title = $blog->title;
+        $title = preg_replace('/[^a-z0-9- ]/', '', strtolower($title));
+        $title = str_replace(' ', '-', $title);
+        $title = preg_replace('/-+/', '-', $title);
+        $title = trim($title, '-');
+        $sitemap->add(Url::create("/commercial-kitchen-media/{$title}")
+            ->setLastModificationDate(Carbon::today())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1));
+    });
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
     return 'Sitemap generated succesfully';
-
-
-    // for production
-    // SitemapGenerator::create(config('app.url'))
-    //     ->writeToFile(base_path('sitemap.xml'));
-    // return 'Sitemap generated succesfully';
-
-    // SitemapGenerator::create('https://commercialkitchen.co.ke/')->writeToFile(public_path('sitemap.xml'));
 });

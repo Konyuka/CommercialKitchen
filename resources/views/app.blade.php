@@ -42,6 +42,16 @@
     }
     </script>
 
+    <!-- Google tag (gtag.js) GA-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJH6JVD9CM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WJH6JVD9CM');
+    </script>
+
 
 
     <!-- Scripts -->
