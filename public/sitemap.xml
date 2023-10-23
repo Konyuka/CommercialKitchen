@@ -5,6 +5,7 @@
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
+
     <url>
         <loc>http://localhost:8000/commercial-kitchen-services</loc>
         <lastmod>2023-10-13T00:00:00+00:00</lastmod>
