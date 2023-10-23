@@ -66,7 +66,7 @@ const getBlogs = () => {
 <template>
     <AdminLayout>
         <BlogList :blogs="blogs" v-show="defaultView == 1" @createBlog="createPage" @importBlogs="importBlogs" @publishBlog="publishBlog" @featureBlog="featureBlog" @editBlog="editBlog" @getBlogs="getBlogs" />
-        <CreateBlog :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage" />
+        <CreateBlog :blogToEdit="blogToEdit" v-show="defaultView == 2" @listBlogs="listPage()" />
         <ImportBlogs  v-show="defaultView == 3" />
     </AdminLayout>
 </template>

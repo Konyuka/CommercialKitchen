@@ -12,7 +12,7 @@ const props = defineProps({
     uploadedPost: Boolean,
 })
 
-const emit = defineEmits([
+const emit = defineEmits([ 
     'listBlogs',
     // 'update:content'
 ])
@@ -99,7 +99,7 @@ const postBlog = () => {
         blog.uploadID = props.blogToEdit.id
     }
 
-    blog.post('/store-blog', {
+    blog.post(route('store.blog'), {
         forceFormData: true,
         preserveState: true,
         onSuccess: () => {

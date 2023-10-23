@@ -57,6 +57,6 @@ class ApiController extends Controller
     public function getImportedBlogs ()
     {
         return ImportedBlog::latest()->get();
-    }
+    } 
     
 }

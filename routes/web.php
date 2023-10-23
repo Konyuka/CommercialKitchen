@@ -64,11 +64,12 @@ Route::middleware([
 
     Route::post('/add-category', [BlogController::class, 'addCategory'])->name('add.category');
     Route::post('/upload-image', [BlogController::class, 'uploadImage']);
-    Route::post('/store-blog', [BlogController::class, 'storeBlog']);
+    Route::post('/store-blog', [BlogController::class, 'storeBlog'])->name('store.blog');
     Route::post('/update-blog/{slug}', [BlogController::class, 'updateBlog'])->name('update.blog');
     Route::post('/publish/{slug}', [BlogController::class, 'publishBlog'])->name('publish.blog');
     Route::post('/feature/{slug}', [BlogController::class, 'featureBlog'])->name('feature.blog');
     Route::delete('/delete-blog/{slug}', [BlogController::class, 'deleteBlog'])->name('delete.blog');
+    Route::delete('/delete-imported-blog/{slug}', [BlogController::class, 'deleteImportedBlog'])->name('delete.imported.blog');
     Route::post('/store/imported/blogs', [ImportedBlogController::class, 'store'])->name('imported.blogs');
 
     Route::post('/import-leads', [LeadController::class, 'importLeads'])->name('import.leads');

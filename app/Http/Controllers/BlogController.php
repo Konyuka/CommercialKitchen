@@ -40,12 +40,12 @@ class BlogController extends Controller
         return response()->json(['url' => '/blog_image\/' . $imageName]);
     }
 
-    public function storeBlog(Request $request)
+    public function storeBlog(Request $request) 
     {
         $validated = $request->validate([
             'title' => 'required',
             'excerpt' => 'required',
-            'cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'content' => 'required',
         ]);
 
@@ -71,7 +71,7 @@ class BlogController extends Controller
             'content' => $validated['content'],
         ]);
 
-        return back()->with('message', 'Blog saved successfully');
+        return Inertia::location(route('admin.blogs'));
 
     }
 
@@ -147,6 +147,17 @@ class BlogController extends Controller
         $blog = Blog::find($slug);
         $blog->delete();
         return back()->with('message', 'Blog deleted successfully');
+    }
+
+    public function deleteImportedBlog($slug)
+    {
+        $blog = ImportedBlog::find($slug);
+        $blog->delete();
+        return Inertia::location(route('admin.blogs'));
+        // return;
+        // return response()->json(['message' => 'Blog deleted successfully']);
+
+        // return back()->with('message', 'Blog deleted successfully');
     }
 
 }

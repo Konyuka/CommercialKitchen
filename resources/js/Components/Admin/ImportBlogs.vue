@@ -5,6 +5,10 @@ import ImportBlogModal from '@/Components/Admin/ImportBlogModal.vue';
 import { router } from "@inertiajs/vue3";
 import axios from "axios";
 
+const emit = defineEmits([
+    'keepOpen'
+]);
+
 onMounted(() => {
     getImportedBlogs();
 });
@@ -40,6 +44,14 @@ const editBlog = (blog) => {
     defaultView.value = 2;
 }
 
+const deleteBlog = (blog) => {
+    router.delete(route('delete.imported.blog', blog), {
+        onSuccess: ()=>{
+            getImportedBlogs()
+            // router.push(route('admin.blogs'));
+        } 
+    })
+}
 
 
 const openAddModal = (type) => {
@@ -92,10 +104,13 @@ const openAddModal = (type) => {
                                         Website Title
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Blog Link
+                                        Link
                                     </th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                                         <span class="sr-only">Edit</span>
+                                    </th>
+                                    <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                                        <span class="sr-only">Delete</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -113,7 +128,7 @@ const openAddModal = (type) => {
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                         {{ blog.website }}
                                     </td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    <td class="whitespace-normal px-3 py-4 text-sm text-gray-500">
                                         {{ blog.title }}
                                     </td>
                                     <td class="text-center whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -125,7 +140,14 @@ const openAddModal = (type) => {
                                         class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                                         <button @click="editBlog(blog)"
                                             class="transform transition hover:scale-125 duration-600 ease-in-out text-black font-bold hover:text-indigo-900">
-                                            <i class="fas fa-edit fa-xl"></i> Edit Me
+                                            <i class="fas fa-edit fa-xl"></i> Edit
+                                        </button>
+                                    </td>
+                                    <td
+                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                                        <button @click="deleteBlog(blog.id)"
+                                            class="transform transition hover:scale-125 duration-600 ease-in-out text-black font-bold hover:text-indigo-900">
+                                            <i class="fas fa-trash fa-xl"></i> Delete
                                         </button>
                                     </td>
                                 </tr>
