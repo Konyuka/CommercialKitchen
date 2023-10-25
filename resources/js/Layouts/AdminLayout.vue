@@ -15,6 +15,9 @@ const launchToaster = ref(false)
 watch(message, (newX) => {
     if (newX) {
         launchToaster.value = true
+        setTimeout(() => {
+            launchToaster.value = false
+        }, 3000);
     }
 })
 
