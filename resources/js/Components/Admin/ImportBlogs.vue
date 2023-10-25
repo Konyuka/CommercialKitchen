@@ -24,7 +24,7 @@ const closeBlogModal = () => {
     getImportedBlogs();
 }
 
-const getImportedBlogs = () => {
+const getImportedBlogs = () => { 
     axios.get(route('get.imported.blogs'))
         .then((res) => {
             importedBlogs.value = res.data;

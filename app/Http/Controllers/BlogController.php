@@ -154,10 +154,6 @@ class BlogController extends Controller
         $blog = ImportedBlog::find($slug);
         $blog->delete();
         return Inertia::location(route('admin.blogs'));
-        // return;
-        // return response()->json(['message' => 'Blog deleted successfully']);
-
-        // return back()->with('message', 'Blog deleted successfully');
     }
 
 }

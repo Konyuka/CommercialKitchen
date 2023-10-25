@@ -5,7 +5,7 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import { useForm, router } from "@inertiajs/vue3";
-import { ref, onMounted, watch, toRef } from "vue";
+import { ref, onMounted, watch, toRef } from "vue"; 
 
 const props = defineProps({
     blogToEdit: Object,
