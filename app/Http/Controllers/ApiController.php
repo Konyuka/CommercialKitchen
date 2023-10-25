@@ -17,12 +17,12 @@ class ApiController extends Controller
 
     public function getBlog() 
     {
-        return Blog::with('categories')->get();
+        return Blog::with('categories')->latest()->get();
     }
 
     public function getPublishedBlog()
     {
-        return Blog::where('published', true)->with('categories')->get(); 
+        return Blog::where('published', true)->with('categories')->latest()->get(); 
     }
 
     public function getLeads()
