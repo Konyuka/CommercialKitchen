@@ -36,9 +36,10 @@ Route::get('/commercial-kitchen-blog-detail', function () {
 })->name('blog.detail');
 
 
-Route::post('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
+Route::get('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
 Route::post('/save-subscriber', [SubscribersController::class, 'saveSubscriber'])->name('save-subscriber');
 Route::post('/submit-contact-form', [ContactFormController::class, 'submitForm'])->name('submit-contact-form');
+Route::get('/upload-image', [BlogController::class, 'uploadImageAPI'])->name('upload.image');
 
 
 Route::middleware([

@@ -7,9 +7,30 @@ use App\Models\Categories;
 use App\Models\ImportedBlog;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Http;
+
 
 class BlogController extends Controller
 {
+    public function uploadImageAPI($imageName)
+    {
+        $imagePath = public_path('covers/'.$imageName);
+        $response = Http::attach('image', file_get_contents($imagePath), $imageName)
+            ->post('https://api.imgbb.com/1/upload', [
+                'key' => env('IMAGEBB_API'),
+            ]);
+        
+        // $response = Http::post('https://api.imgbb.com/1/upload', [
+        //     'image' => $image, 
+        //     'key' => env('IMAGEBB_API'),
+        // ]);
+        
+        // dd($response);
+
+        $res = $response->json();    
+        return $res['data']['url'];    
+    }
+
     public function addCategory(Request $request) 
     {
         $validated = $request->validate([
@@ -53,6 +74,7 @@ class BlogController extends Controller
             $image = $request->file('cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $request->cover->move(public_path('covers'), $imageName);
+            $imageURL = $this->uploadImageAPI($imageName);
         }
 
         $importedBlog = ImportedBlog::find($request->uploadID);
@@ -67,11 +89,11 @@ class BlogController extends Controller
             'title' => $validated['title'],
             'category_id' => $request->category,
             'excerpt' => $validated['excerpt'],
-            'cover' => '/covers\/' . $imageName,
+            'cover' => $imageURL,
             'content' => $validated['content'],
         ]);
 
-        return Inertia::location(route('admin.blogs'));
+        return back()->with('message', 'Blog saved successfully');
 
     }
 
@@ -93,7 +115,8 @@ class BlogController extends Controller
             $image = $request->file('cover');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $request->cover->move(public_path('covers'), $imageName);
-            $blog->cover = '/covers\/' . $imageName;
+            $imageURL = $this->uploadImageAPI($imageName);
+            $blog->cover = $imageURL;
         }
 
         $blog->save();

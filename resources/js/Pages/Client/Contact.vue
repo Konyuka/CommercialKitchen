@@ -122,18 +122,18 @@ const submitForm = () => {
 
                     <div class="mt-10 sm:mt-0 flex w-full h-full justify-center item-center ">
                         <div>
-                            <img class="mx-auto h-24 w-24 rounded-full object-cover" src="/img/lynn.jpg" alt="">
+                            <!-- <img class="mx-auto h-24 w-24 rounded-full object-cover" src="/img/lynn.jpg" alt=""> -->
                             <!-- <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">Lynn Kimeto
-                            </h3>
-                            <p class="text-sm text-center leading-6 text-gray-600">Founder</p> -->
+                            </h3> -->
+                            <!-- <p class="text-sm text-center leading-6 text-gray-600">Founder</p> -->
                         </div>
                         <div class="ml-6 mt-6">
-                            <div data-wow-duration="1.5s" data-wow-delay="2s"
+                            <!-- <div data-wow-duration="1.5s" data-wow-delay="2s"
                                 class="wow animate__lightSpeedInRight text-base font-bold text-gray-900">
-                                Lynn Kimeto</div>
-                            <div data-wow-duration="1.5s" data-wow-delay="2.5s"
+                                Lynn Kimeto</div> -->
+                            <!-- <div data-wow-duration="1.5s" data-wow-delay="2.5s"
                                 class="wow animate__lightSpeedInRight text-sm leading-6 text-gray-600 font-medium">
-                                Founder</div>
+                                Founder</div> -->
                         </div>
                     </div>
 

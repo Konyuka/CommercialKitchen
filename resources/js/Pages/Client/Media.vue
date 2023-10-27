@@ -32,7 +32,7 @@ const detailsPage = (blog) => {
     const finalSlug = trimmedSlug.replace(/-{2,}/g, '-');
 
 
-    router.post(route('blog.details', finalSlug), {
+    router.get(route('blog.details', finalSlug), {
         blogId: blog.id
     })
 }
