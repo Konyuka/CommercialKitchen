@@ -8,7 +8,6 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
 import Bugsnag from '@bugsnag/js'
 import BugsnagPluginVue from '@bugsnag/plugin-vue'
-
 import BugsnagPerformance from '@bugsnag/browser-performance'
 
 

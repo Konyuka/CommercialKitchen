@@ -27,3 +27,4 @@ Route::get('/get-imported-blogs', [ApiController::class, 'getImportedBlogs'])->n
 Route::post('/update-lead-probability/{id}', [ApiController::class, 'updateProbability'])->name('update.probability');
 Route::post('/update-lead-location/{id}', [ApiController::class, 'updateLocation'])->name('update.location');
 Route::post('/update-lead-when/{id}', [ApiController::class, 'updateWhen'])->name('update.when');
+
