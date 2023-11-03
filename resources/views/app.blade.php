@@ -40,7 +40,7 @@
                         and
                         inspiring commercial kitchen spaces that drive your business forward.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://commercialkitchen.co.ke/img/logo.jpg">
+    <meta property="og:image" content="https://commercialkitchen.co.ke/socials.png">
     <meta property="og:url" content="https://commercialkitchen.co.ke/">
 
     {{-- Twitter --}}
@@ -54,7 +54,7 @@
                         needs, budget, and timeline. Trust us to be your trusted partner in creating efficient, functional,
                         and
                         inspiring commercial kitchen spaces that drive your business forward.">
-    <meta name="twitter:image" content="https://commercialkitchen.co.ke/img/logo.jpg">
+    <meta name="twitter:image" content="https://commercialkitchen.co.ke/socials.png">
 
     <!-- Facebook App Links (for mobile apps) -->
     <meta property="al:ios:app_name" content="Commercial Kitchen Consultants Kenya">
