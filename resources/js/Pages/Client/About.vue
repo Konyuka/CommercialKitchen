@@ -76,7 +76,7 @@ const clients = ref([
 <template>
     <ClientLayout>
 
-        <Head title="Our Story" />
+        <Head title="Restaurant Kitchen Equipment Consultants" />
 
         <div class="bg-white">
 

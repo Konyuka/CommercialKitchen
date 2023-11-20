@@ -58,7 +58,8 @@ const blogImage = computed(() => {
     <meta name="twitter:image" :content="blogImage">
     <meta name="twitter:image:alt" content="https://commercialkitchen.co.ke/img/logo.jpg">
 
-    <Head title="Commercial Kitchen Consultancy Kenya Article" />
+    <Head :title="blog.title" />
+
     <ClientLayout>
         <div>
 
@@ -70,9 +71,9 @@ const blogImage = computed(() => {
 
                 <div class="relative mx-auto -mt-12 max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
                     <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
-                        <p class="font-semibold mb-4 text-2xl">{{ blog.categories.name }}</p>
+                        <p class="font-semibold mb-4 text-2xl capitalize">{{ blog.categories.name }}</p>
                         <h2 
-                            class=" text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                            class=" text-3xl font-bold tracking-tight text-primary sm:text-4xl capitalize">
                             {{ blog.title }}
                         </h2>
                     </div>

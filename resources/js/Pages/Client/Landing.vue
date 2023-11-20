@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Commercial Kitchen Consultants in Kenya - Commercial Kitchen Equipment" />
+    <Head title="Commercial Kitchen Equipment & Consultants in Kenya" />
 
     <ClientLayout>
         <Carousel />
@@ -25,6 +25,7 @@ defineProps({
         <Process />
         <Testimonial />
     </ClientLayout>
+
 </template>
 
 <style>

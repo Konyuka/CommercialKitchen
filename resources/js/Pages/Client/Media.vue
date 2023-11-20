@@ -40,7 +40,7 @@ const detailsPage = (blog) => {
 </script>
 
 <template>
-    <Head title="Blogs & Gallery" />
+    <Head title="Commercial Equipment for Sale" />
     <ClientLayout>
         <div>
 

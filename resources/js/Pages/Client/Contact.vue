@@ -24,7 +24,7 @@ const submitForm = () => {
 </script>
 
 <template>
-    <Head title="Contact Us" />
+    <Head title="Commercial Kitchen Appliances" />
 
     <ClientLayout>
         <div class="bg-white py-10 sm:py-20">

@@ -6,7 +6,7 @@ import Service from '@/Components/Client/Services.vue';
 </script>
 
 <template>
-    <Head title="Services" />
+    <Head title="Commercial Kitchen Company" />
     <ClientLayout>
         <Service />
     </ClientLayout>
