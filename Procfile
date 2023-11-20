@@ -1,1 +1,2 @@
-web: php artisan inertia:start-ssr & vendor/bin/heroku-php-apache2 public/
+ssr: php artisan inertia:start-ssr
+web: vendor/bin/heroku-php-apache2 public/
