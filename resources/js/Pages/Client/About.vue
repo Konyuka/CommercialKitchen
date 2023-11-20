@@ -157,12 +157,12 @@ const clients = ref([
                         </div>
                         <dl
                             class="mt-16 grid grid-cols-1 gap-x-8 gap-y-5 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
-                            <div data-wow-duration="1.5s" data-wow-delay=""
+                            <div data-wow-duration="1.5s" data-wow-delay="0.5s"
                                 class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">Business was founded</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-primary">2021</dd>
                             </div>
-                            <div data-wow-duration="1.5s" data-wow-delay="0.5"
+                            <div data-wow-duration="1.5s" data-wow-delay="1s"
                                 class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">People on the team</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-primary">7+</dd>
@@ -173,7 +173,7 @@ const clients = ref([
                                 <dt class="text-base leading-7 text-black font-bold">Projects completed</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-primary">20+</dd>
                             </div>
-                            <div data-wow-duration="1.5s" data-wow-delay="1s"
+                            <div data-wow-duration="1.5s" data-wow-delay="2s"
                                 class="wow animate__backInUp flex flex-col-reverse gap-y-3 border-l border-white/20 pl-6">
                                 <dt class="text-base leading-7 text-black font-bold">Happy clients</dt>
                                 <dd class="text-3xl font-semibold tracking-tight text-primary">18+</dd>

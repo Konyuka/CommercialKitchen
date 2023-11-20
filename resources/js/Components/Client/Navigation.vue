@@ -5,8 +5,10 @@ import { computed, ref } from 'vue'
 const page = usePage();
 
 const currentRoute = computed(() => {
-    const pathName = window.location.pathname;
-    return pathName;
+    if(typeof window !== 'undefined'){
+        const pathName = window.location.pathname;
+        return pathName;
+    }
 })
 
 const hasAuth = computed(() => {
@@ -16,7 +18,7 @@ const hasAuth = computed(() => {
 const openMobileMenu = ref(false);
 
 const routeBlog = computed(()=>{
-    return currentRoute.value.startsWith('/commercial-kitchen-media/');
+    return currentRoute.value.startsWith('/commercial-kitchen-media/'); 
 });
 
 

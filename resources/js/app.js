@@ -5,6 +5,7 @@ import { createApp, h} from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import { Head } from '@inertiajs/vue3';
 
 import Bugsnag from '@bugsnag/js'
 import BugsnagPluginVue from '@bugsnag/plugin-vue'
@@ -33,6 +34,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue)
             .use(bugsnagVue)
+            .component("Head", Head)
             .mount(el);
     },
     progress: {
