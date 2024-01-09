@@ -88,7 +88,7 @@ Route::get('/clear_data', function () {
 
 Route::get('/generate_sitemap', function () {
 
-    dd('hi');
+    // dd('hi');
 
     $sitemap = SitemapGenerator::create(config('app.url'))
         ->getSitemap()
