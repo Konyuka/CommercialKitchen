@@ -88,6 +88,8 @@ Route::get('/clear_data', function () {
 
 Route::get('/generate_sitemap', function () {
 
+    dd('hi');
+
     $sitemap = SitemapGenerator::create(config('app.url'))
         ->getSitemap()
         ->add(Url::create('/commercial-kitchen-services')
@@ -120,5 +122,5 @@ Route::get('/generate_sitemap', function () {
     });
 
     $sitemap->writeToFile(public_path('sitemap.xml'));
-    return 'Sitemap generated succesfully';
+    return 'Sitemap generated successfully';
 });
