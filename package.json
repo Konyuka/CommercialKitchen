@@ -31,6 +31,7 @@
         "@vueup/vue-quill": "^1.2.0",
         "animate.css": "^4.1.1",
         "moment": "^2.29.4",
+        "prerender": "^5.20.2",
         "quill-image-uploader": "^1.3.0",
         "vue3-carousel": "^0.3.1",
         "wow.js": "^1.2.2"

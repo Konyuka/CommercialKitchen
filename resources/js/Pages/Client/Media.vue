@@ -40,7 +40,8 @@ const detailsPage = (blog) => {
 </script>
 
 <template>
-    <Head title="Commercial Equipment for Sale" />
+    <Head title="Commercial Equipment for Sale in Kenya" />
+
     <ClientLayout>
         <div>
 
