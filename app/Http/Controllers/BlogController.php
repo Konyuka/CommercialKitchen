@@ -127,6 +127,8 @@ class BlogController extends Controller
 
     public function blogDetail(Request $request)
     {
+
+        // dd($request->blogId);
         $blogId = $request->blogId;
         $blog = Blog::with('categories')->where('id', $blogId)->firstOrFail();
         return Inertia::render('Client/Detail', compact('blog'));

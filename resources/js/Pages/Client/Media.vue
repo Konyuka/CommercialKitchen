@@ -32,7 +32,7 @@ const detailsPage = (blog) => {
     const finalSlug = trimmedSlug.replace(/-{2,}/g, '-');
 
 
-    router.get(route('blog.details', finalSlug), {
+    router.post(route('blog.details', finalSlug), {
         blogId: blog.id
     })
 }
@@ -172,7 +172,7 @@ const detailsPage = (blog) => {
                                             blog.categories.name }}</a>
                                 </div>
                                 <div class="group relative">
-                                    <h3 class="mt-3 text-md font-semibold leading-6 text-primary group-hover:text-gray-600">
+                                    <h3 class="capitalize mt-3 text-md font-semibold leading-6 text-primary group-hover:text-gray-600">
                                         <a href="#">
                                             <span class="absolute inset-0"></span>
                                             {{ blog.title }}
