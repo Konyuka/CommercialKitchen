@@ -30,11 +30,9 @@ const detailsPage = (blog) => {
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const trimmedSlug = slug.replace(/^-+|-+$/g, '');
     const finalSlug = trimmedSlug.replace(/-{2,}/g, '-');
+    const finsalSlugWithId = `${finalSlug}-${blog.id}`
 
-
-    router.post(route('blog.details', finalSlug), {
-        blogId: blog.id
-    })
+    router.get(route('blog.details', finsalSlugWithId))
 }
 
 </script>

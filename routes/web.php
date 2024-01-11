@@ -36,7 +36,7 @@ Route::get('/commercial-kitchen-blog-detail', function () {
 })->name('blog.detail');
 
 
-Route::post('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
+Route::get('/commercial-kitchen-media/{slug}', [BlogController::class, 'blogDetail'])->name('blog.details');
 Route::post('/save-subscriber', [SubscribersController::class, 'saveSubscriber'])->name('save-subscriber');
 Route::post('/submit-contact-form', [ContactFormController::class, 'submitForm'])->name('submit-contact-form');
 Route::get('/upload-image', [BlogController::class, 'uploadImageAPI'])->name('upload.image');
@@ -115,6 +115,8 @@ Route::get('/generate_sitemap', function () {
         $title = str_replace(' ', '-', $title);
         $title = preg_replace('/-+/', '-', $title);
         $title = trim($title, '-');
+        $title .= "-" . $blog->id;
+
         $sitemap->add(Url::create("/commercial-kitchen-media/{$title}")
             ->setLastModificationDate(Carbon::today())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)

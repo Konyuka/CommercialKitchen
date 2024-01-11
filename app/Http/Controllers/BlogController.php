@@ -14,24 +14,24 @@ class BlogController extends Controller
 {
     public function uploadImageAPI($imageName)
     {
-        $imagePath = public_path('covers/'.$imageName);
+        $imagePath = public_path('covers/' . $imageName);
         $response = Http::attach('image', file_get_contents($imagePath), $imageName)
             ->post('https://api.imgbb.com/1/upload', [
                 'key' => env('IMAGEBB_API'),
             ]);
-        
+
         // $response = Http::post('https://api.imgbb.com/1/upload', [
         //     'image' => $image, 
         //     'key' => env('IMAGEBB_API'),
         // ]);
-        
+
         // dd($response);
 
-        $res = $response->json();    
-        return $res['data']['url'];    
+        $res = $response->json();
+        return $res['data']['url'];
     }
 
-    public function addCategory(Request $request) 
+    public function addCategory(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|unique:categories'
@@ -39,7 +39,7 @@ class BlogController extends Controller
             'name.unique' => 'The category has already been added'
         ]);
 
-        Categories::create([ 
+        Categories::create([
             'name' => $validated['name']
         ]);
 
@@ -61,7 +61,7 @@ class BlogController extends Controller
         return response()->json(['url' => '/blog_image\/' . $imageName]);
     }
 
-    public function storeBlog(Request $request) 
+    public function storeBlog(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required',
@@ -79,12 +79,12 @@ class BlogController extends Controller
 
         $importedBlog = ImportedBlog::find($request->uploadID);
 
-        if($importedBlog!==null){
+        if ($importedBlog !== null) {
             $importedBlog->published = true;
             $importedBlog->save();
         }
 
-        
+
         Blog::create([
             'title' => $validated['title'],
             'category_id' => $request->category,
@@ -125,12 +125,14 @@ class BlogController extends Controller
 
     }
 
-    public function blogDetail(Request $request)
+    public function blogDetail($slug)
     {
 
-        // dd($request->blogId);
-        $blogId = $request->blogId;
-        $blog = Blog::with('categories')->where('id', $blogId)->firstOrFail();
+        
+        $string = $slug;
+        $parts = explode("-", $string);
+        $lastValue = end($parts);
+        $blog = Blog::with('categories')->where('id', $lastValue)->firstOrFail();
         return Inertia::render('Client/Detail', compact('blog'));
 
     }
