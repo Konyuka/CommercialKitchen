@@ -24,7 +24,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
-        "@bugsnag/browser-performance": "^1.1.0",
+        "@bugsnag/browser-performance": "^1.1.0", 
         "@bugsnag/js": "^7.21.0",
         "@bugsnag/plugin-vue": "^7.19.0",
         "@vuepic/vue-datepicker": "^6.1.0",

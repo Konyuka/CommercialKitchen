@@ -14,7 +14,7 @@ const currentRoute = computed(() => {
 const hasAuth = computed(() => {
     return page.props.auth.user ? true : false
 });
-
+ 
 const openMobileMenu = ref(false);
 
 const routeBlog = computed(()=>{
